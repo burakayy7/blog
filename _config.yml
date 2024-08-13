@@ -14,7 +14,7 @@ description: My Blog for Technical Projects
 cover: assets/images/planeBkg.jpg
 logo: Burak Ayyorgun
 logo_dark: assets/images/favicon.png
-favicon: https://burakayy.com/blog/assets/images/favicon.png
+favicon: assets/images/favicon.png
 CNAME: #add cname for website to be created
 
 # Social info
