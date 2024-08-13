@@ -4,7 +4,7 @@ current: post
 navigation: true
 title: "I want to learn OpenCV and AI"
 date: 2021-08-03
-cover: 'https://github.com/user-attachments/assets/01b63b05-5b67-4972-b843-6b6633d5872f'
+cover: https://github.com/user-attachments/assets/01b63b05-5b67-4972-b843-6b6633d5872f
 class: post-template
 ---
 
@@ -50,4 +50,34 @@ while True:
 cam.release()
 ```
 
-To run
+Here is how the code works:
+We first import cv2 and make a camera object (called cam) where the video capture will happen. 
+the 
+```python
+cam.read()
+```
+function will read from the camera, and return a frame. So, to make this a "video", we just repeadetly retrieve frames from the camera. 
+
+And this part of the code will simply just make and move a window to show the frame:
+```python
+cv2.imshow('my Cam TopRight',frame)
+    cv2.imshow('my Cam TopLeft',grayFrame)
+    cv2.imshow('my Cam BottomRight',grayFrame)
+    cv2.imshow('my Cam BottomLeft',frame)
+
+    cv2.moveWindow('my Cam TopRight',1210,0)
+    cv2.moveWindow('my Cam TopLeft',0,0)
+    cv2.moveWindow('my Cam BottomRight',1210,552)
+    cv2.moveWindow('my Cam BottomLeft',0,552)
+```
+
+Finally, we exit this loop if the 'q' key on the keyboard is pressed:
+``python 
+    if cv2.waitKey(1) & 0xff ==ord('q'):
+        break
+cam.release()
+```
+
+That's it!!
+
+Hope you enjoyed!!
