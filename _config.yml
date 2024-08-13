@@ -9,7 +9,8 @@ words_per_minute: 200
 baseurl: /blog/
 
 # Website info
-title: 'Burak Ayyorgun'
+title: 'Technical Blog'
+url: 'https://burakayy.com'
 description: My Blog for Technical Projects 
 cover: assets/images/planeBkg.jpg
 logo: Burak Ayyorgun
