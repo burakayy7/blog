@@ -72,7 +72,7 @@ cv2.imshow('my Cam TopRight',frame)
 ```
 
 Finally, we exit this loop if the 'q' key on the keyboard is pressed:
-``python 
+```python 
     if cv2.waitKey(1) & 0xff ==ord('q'):
         break
 cam.release()
