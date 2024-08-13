@@ -4,7 +4,7 @@ current: post
 navigation: true
 title: "I want to learn OpenCV and AI"
 date: 2021-08-03
-cover: 'https://miro.medium.com/v2/resize:fit:2000/1*S8Il5ethl3YFh0M9XKVz-A.png'
+cover: 'assets/images/opencv/opencv1.png'
 class: post-template
 ---
 
