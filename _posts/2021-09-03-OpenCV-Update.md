@@ -6,10 +6,7 @@ date: 2021-09-03
 class: post-template
 ---
 
-Hello, 
-
-I just wanted to give a quick update on my progress on learning AI.
-
+Hello, I just wanted to give a quick update on my progress on learning AI.
 I am now able to calculate FPS (frames per second) and put/add text or shapes to the frame window:
 
 
