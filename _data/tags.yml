@@ -1,16 +1,20 @@
-speeches:
-  name: speeches
-  description: Some of the greatest words ever spoken.
-  cover: assets/images/speeches.jpg
-fiction:
-  name: fiction
-  description: False
-  cover: False
-fables:
-  name: fables
-  description: A series of short stories that make you think.
-  cover: assets/images/fables.jpg
-getting-started:
-  name: getting-started
-  description: False
-  cover: False
+Electroncis:
+  name: Electronics
+  description: A collection of my Electronics Projects.
+  cover: assets/images/daprofile.jpg
+IMU/PID:
+  name: IMU/PID
+  description: Projects related to IMUs or PID controllers. 
+  cover: assets/images/PID_en.png
+OpenCV:
+  name: OpenCV
+  description: A series of lessons/posts on AI and Python OpenCV.
+  cover: assets/images/opencv/opencv1.png
+Plane:
+  name: Plane
+  description: My Plane Project
+  cover: assets/images/planeBkg.jpg
+ARIMA:
+  name: ARIMA
+  description: Course on learning Forecasting Principles. 
+  cover: assets/images/AutoCorr/ma.png
