@@ -68,7 +68,7 @@ feed:
 # or "master" otherwise
 safe: False
 lsi: False
-username: tinyBrkML
+username: burakayy7
 repo: blog
 branch: master
 relative_source: ../jasper2/
