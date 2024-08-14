@@ -4,6 +4,7 @@ cover: assets/images/opencv/opencv_fps.png
 title: OpenCV Update
 date: 2021-09-03
 class: post-template
+tags: OpenCV
 ---
 
 Hello, I just wanted to give a quick update on my progress on learning AI.
