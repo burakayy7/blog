@@ -4,6 +4,7 @@ cover: ""
 title: Introducing the Plane Project
 date: 2022-2-15
 class: post-template
+tags: Plane
 ---
 
 Welcome everyone!! In this post, I would like to introduce you guys to my long held dream: to build an autonomously flying high-altitude, long range, airplane! And to make things more
