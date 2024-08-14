@@ -1,9 +1,10 @@
 ---
 navigation: true
-cover: https://github-production-user-asset-6210df.s3.amazonaws.com/120507146/357630125-435d0d8d-14d8-4623-9fc7-5eb3707d3287.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240814T004040Z&X-Amz-Expires=300&X-Amz-Signature=b05e965ba6fb6b757c6d9e396a1bef871162ea628b03b589e40cdf5da0056dc8&X-Amz-SignedHeaders=host&actor_id=120507146&key_id=0&repo_id=841746844
+cover: assets/images/opencv/opencv_roi.jpeg
 title: OpenCV ROI
 date: 2021-09-03
 class: post-template
+tags: OpenCV
 ---
 
 Hey, welcome back to another OpenCV update. Today I will be talking about Regions of Interest (or ROIs). Think of it like carving out that piece of chocolate cake that has the good topping! Simply put, it's taking a specific portion of a frame. 
