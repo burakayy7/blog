@@ -35,9 +35,9 @@ google_analytics: G-MY3WXBS5JD # replace with your GA tracking identifier
 
 # Permalinks
 # permalink: /:title
-# permalink: /:categories/:title/
+permalink: /:categories/:title/
 # permalink: /author/:author
-permalink: /tag/:tag
+# permalink: /tag/:tag
 tag_permalink: /tag/:name/
 
 # Authors' info in `_data/authors.yml`
