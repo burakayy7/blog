@@ -9,7 +9,7 @@ words_per_minute: 200
 baseurl: /blog/
 
 # Website info
-title: 'Technical Blog'
+title: 'Burak Ayyorgun'
 url: 'https://burakayy.com'
 description: My Blog for Technical Projects 
 cover: assets/images/planeBkg.jpg
@@ -36,7 +36,7 @@ google_analytics: G-MY3WXBS5JD # replace with your GA tracking identifier
 # Permalinks
 permalink: /:title
 # permalink: /author/:author
-# permalink: /tag/:tag
+permalink: /tag/:tag
 
 # Authors' info in `_data/authors.yml`
 # Tags' info in `_data/tags_info.yml`

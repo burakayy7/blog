@@ -4,7 +4,7 @@ cover: assets/images/AutoCorr/ma.png
 title: Part 1 - Autocorrelation, Moving Average, & More
 date: 2024-02-01
 class: post-template
-tags: ARIMA
+tags: arima
 ---
 
 A simple introduction to Autocorrelation, Moving Average, and in the second part, an introduction to STL Decomposition, Seasonal Trends, and much more!

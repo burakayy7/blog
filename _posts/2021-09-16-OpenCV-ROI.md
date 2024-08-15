@@ -4,7 +4,7 @@ cover: assets/images/opencv/opencv_roi.jpeg
 title: OpenCV ROI
 date: 2021-09-03
 class: post-template
-tags: OpenCV
+tags: opencv
 ---
 
 Hey, welcome back to another OpenCV update. Today I will be talking about Regions of Interest (or ROIs). Think of it like carving out that piece of chocolate cake that has the good topping! Simply put, it's taking a specific portion of a frame. 
