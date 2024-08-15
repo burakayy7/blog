@@ -4,7 +4,6 @@ tite: "IMU Measurments"
 date: 2021-06-06
 cover: 'assets/images/imuPic.jpg'
 class: post-template
-tags: IMU/PID
 ---
 
 For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment 
