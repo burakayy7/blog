@@ -6,7 +6,6 @@ date: 2024-02-01
 class: post-template
 tags: arima
 ---
-
 A simple introduction to Autocorrelation, Moving Average, and in the second part, an introduction to STL Decomposition, Seasonal Trends, and much more!
 
 Today, I would like to teach you about Forecasting Principles, which include but aren't limited to, Autocorrelation, moving average filters, additive and multiplicative decomposition, STL decomposition, etc.
