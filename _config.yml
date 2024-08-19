@@ -6,11 +6,11 @@ language: 'en-uk'
 words_per_minute: 200
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: /blog/
+baseurl: blog/
 
 # Website info
 title: 'Burak Ayyorgun'
-url: 'https://burakayy.com'
+url: 'https://burakayy.com/'
 description: My Blog for Technical Projects 
 cover: assets/images/planeBkg.jpg
 logo: Burak Ayyorgun
