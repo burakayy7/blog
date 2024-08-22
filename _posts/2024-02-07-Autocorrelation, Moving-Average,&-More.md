@@ -87,8 +87,9 @@ w_t =
 $$
 
 Here, w<sub>t</sub> depends on 𝜆. If λ is zero, we take the logarithm of y (which in Box-Cox transformation is always a natural logarithm, i.e., to base _e_). However, if λ is anything else, w<sub>t</sub> will be 
+
 $$ 
-\frac{{\operatorname{{sign}}(y_t) \cdot |\lambda - 1|}}{{\lambda}} 
+\frac{\operatorname{sign}(y_t) \cdot |\lambda - 1|}{\lambda} 
 $$.
 
 
