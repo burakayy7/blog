@@ -6,6 +6,7 @@
             <!-- <a class="site-nav-logo" href="{{ site.url }}{{ site.baseurl }}">Home</a> -->
             {% else %}
                 <a class="site-nav-logo" href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a>
+                <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
             {% endif %}
         {% endif %}
         {% if page.navigation %}
