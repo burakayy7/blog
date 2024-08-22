@@ -65,7 +65,7 @@ How it works, is by having a x-axis and y-axis counter that will change signs wh
         deltaColumn=deltaColumn*(-1)
 ```
 
-And here is the incremen step:
+And here is the increment step:
 ```python 
     boxCR=boxCR+deltaRow
     boxCC=boxCC+deltaColumn
