@@ -24,34 +24,37 @@ permalink: /tags/
 /* Grid layout for the tags */
 .tags-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased min size */
+  gap: 30px; /* Increased gap between cards */
 }
 
 /* Individual tag card styling */
 .tag-card {
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly increased shadow */
   transition: transform 0.3s ease;
+  height: 320px; /* Adjusted height */
 }
 
 /* Tag card hover effect */
 .tag-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px); /* Slightly increased hover effect */
 }
 
 /* Link styling within the tag card */
 .tag-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  height: 100%;
 }
 
 /* Image styling */
 .tag-cover {
   width: 100%;
-  height: 200px;
+  height: 60%; /* Adjusted height percentage */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,6 +63,8 @@ permalink: /tags/
   font-weight: bold;
   background-color: #ff6f61; /* Fallback color */
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Background image styling */
@@ -82,7 +87,8 @@ permalink: /tags/
 
 /* Information container within the card */
 .tag-info {
-  padding: 15px;
+  padding: 20px; /* Increased padding */
+  height: 40%; /* Adjusted height percentage */
 }
 
 /* Tag name styling */
