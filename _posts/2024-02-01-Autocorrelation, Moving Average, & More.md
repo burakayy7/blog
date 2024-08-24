@@ -78,7 +78,8 @@ data.plot()
 ```
 
 You should see something like this:
-![image](https://github.com/burakayy7/blog/assets/120507146/c8b0a5ea-97e4-4a17-8cb5-8b5a8463b980)
+![image](https://github.com/user-attachments/assets/5c423224-109e-4942-9c73-8dc76e8b8c04)
+
 
 I will get into the specific statistical metrics we can see from this graph later, but for now, we can see the _Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system_ graphed over time, and as you can see, in certain times _each year_, it spikes. This pattern repeats throughout the entire dataset. 
 
