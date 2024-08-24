@@ -13,7 +13,7 @@ A simple introduction to Seasonal Trends, Decompositions, and many more! This is
 
 If we want to understand what a _Seasonal Trend _ is, I think it's best if we first understand what we are refrencing when we mean a _trend._ So, look at this graph, 
 
-![image](https://github.com/user-attachments/assets/e5a7cd20-7f87-4778-8ac0-a9a151f86df0)
+![image](assets/AutoCorr/graph1.png)
 
 as you can see, over time, the graph tends upwards. That simple relationship is what we mean when we talk about trends: <u>in which direction does the data tend?</u> If over time, it tends to increase, then we refer it to be a positive trend; if it tends to decrease over time, then we refer to it as a negative trend.
 
