@@ -4,6 +4,9 @@ title: "Raspberry Pi Cam PanTilt"
 date: 2023-07-22
 cover: 'assets/images/piCamImg/final.jpg'
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 After wanting to do experiment with AI on my Raspberry Pi 4, I decided to build a Servo actuated Pan-tilt mount from scratch. For the past few days, I have been working hard 3d modeling a mount that not only works but also looks good.
 

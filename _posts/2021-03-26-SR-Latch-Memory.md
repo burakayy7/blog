@@ -4,6 +4,9 @@ cover: assets/images/sr1.jpg
 title: "SR latch Memory"
 date: 2021-03-26
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 
 This is just some super quick update about sr latchs and a quick schematic of one I built. 

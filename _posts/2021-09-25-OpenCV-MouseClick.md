@@ -5,5 +5,8 @@ title: OpenCV MouseCLick
 date: 2021-09-25
 class: post-template
 tags: OpenCV
+layout: post
+current: post
+subclass: 'post'
 ---
 

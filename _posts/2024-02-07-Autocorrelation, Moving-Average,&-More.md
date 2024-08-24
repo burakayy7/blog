@@ -5,6 +5,9 @@ title: Part 2 - Autocorrelation, Moving Average, & More
 date: 2024-02-07
 class: post-template
 tags: [arima]
+layout: post
+current: post
+subclass: 'post'
 ---
 A simple introduction to Seasonal Trends, Decompositions, and many more! This is the second and last part of the lessons on Autocorrelation, Moving Averages, Trends, and Decompositions. For the code used in this tutorial, please view the previous post for the github link. 
 

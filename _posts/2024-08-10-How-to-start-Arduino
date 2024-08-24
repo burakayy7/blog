@@ -4,6 +4,9 @@ cover:
 title: How to get started with Engineering
 date: 2024-08-10
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 
 I wanted to share how I started with Engineering and give advice how you guys might want to start. The main goal is to find what you are interested in

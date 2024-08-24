@@ -4,6 +4,9 @@ cover: 'assets/images/books/booksCover.jpg'
 title: Books for Learning Technical Topics
 date: 2024-07-14
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 For a long time, I have been gathering resources to help me with my goals and projects. Specifically, I have been slowly growing my collection of technical books, from 6th grade to the present. And I would like to share them with you here. 
 

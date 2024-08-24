@@ -4,6 +4,9 @@ cover: 'assets/images/mainUnit1.jpg'
 title: NeuralBike Update
 date: 2023-11-05
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 Today I finally found the time to finish the pcb of the main controller for the Crash detection project. I have been working on this in the background for the past few weeks and it's finally complete today! 
 

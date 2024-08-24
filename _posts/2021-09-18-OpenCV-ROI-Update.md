@@ -5,6 +5,9 @@ title: OpenCV ROI Update
 date: 2021-09-18
 class: post-template
 tags: OpenCV
+layout: post
+current: post
+subclass: 'post'
 ---
 
 I quick update; I got the ROI (non-grayscaled) to move around the frame.

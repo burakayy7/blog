@@ -4,6 +4,9 @@ cover: assets/images/audioAmp.jpg
 title: Simple Audio Amplifier
 date: 2021-05-12
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 
 Here is a simple audio amplifier circuit. The BC337 transistor acts as the signal amplifier. 

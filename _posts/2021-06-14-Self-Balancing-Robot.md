@@ -5,6 +5,9 @@ date: 2021-06-14
 cover: 'assets/images/sbrCover.jpg'
 class: post-template
 tags: pid
+layout: post
+current: post
+subclass: 'post'
 ---
 
 

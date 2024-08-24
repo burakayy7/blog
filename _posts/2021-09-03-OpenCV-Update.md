@@ -5,6 +5,9 @@ title: OpenCV Update
 date: 2021-09-03
 class: post-template
 tags: opencv
+layout: post
+current: post
+subclass: 'post'
 ---
 
 Hello, I just wanted to give a quick update on my progress on learning AI.

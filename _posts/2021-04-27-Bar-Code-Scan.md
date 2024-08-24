@@ -3,6 +3,9 @@ navigation: true
 title: Bar Code Scan Arduino
 date: 2021-04-27
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 
 *this was a long time ago so the date isn't exact and I built this for a custom bar code.

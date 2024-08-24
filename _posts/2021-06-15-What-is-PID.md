@@ -5,6 +5,9 @@ cover: assets/images/PID_en.png
 date: 2021-06-15
 class: post-template
 tags: pid
+layout: post
+current: post
+subclass: 'post'
 ---
 
 This is a quick post on what PID is and how to implement it.

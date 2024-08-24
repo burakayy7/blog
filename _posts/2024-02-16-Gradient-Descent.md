@@ -4,6 +4,9 @@ cover: 'assets/images/Gradient/gdMain.png'
 title: Gradient Descent & Linear Regression
 date: 2024-02-16
 class: post-template
+layout: post
+current: post
+subclass: 'post'
 ---
 
 In this post I will be introducing the math behind Gradient Descent and how it works!
