@@ -44,8 +44,9 @@ cam.release()
 
 So, moving away from the stuff discussed in the previous posts, I just want to show what's new. 
 
-If we treat the frames as a 2D array, 
-![](assets/images/opencv/2Darray.png)
+If we treat the frames as a 2D array:
+
+![image]("assets/images/opencv/2Darray.png")
 
 
 then we can easily acces parts or sections of this frame (array) using Python:
