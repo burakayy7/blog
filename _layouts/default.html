@@ -103,6 +103,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
     
     <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
         // Prism.js will automatically highlight all <code> blocks on the page
