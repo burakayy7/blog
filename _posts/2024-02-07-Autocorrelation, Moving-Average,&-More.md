@@ -13,7 +13,7 @@ A simple introduction to Seasonal Trends, Decompositions, and many more! This is
 
 If we want to understand what a _Seasonal Trend _ is, I think it's best if we first understand what we are refrencing when we mean a _trend._ So, look at this graph, 
 
-![image](assets/AutoCorr/graph1.png)
+![image](https://github.com/user-attachments/assets/e5a7cd20-7f87-4778-8ac0-a9a151f86df0)
 
 as you can see, over time, the graph tends upwards. That simple relationship is what we mean when we talk about trends: <u>in which direction does the data tend?</u> If over time, it tends to increase, then we refer it to be a positive trend; if it tends to decrease over time, then we refer to it as a negative trend.
 
@@ -21,7 +21,7 @@ as you can see, over time, the graph tends upwards. That simple relationship is 
 
 These are patterns in the data which are affected by seasonal factors, such as the time of year, or day of weak. For example, we can observe that the sale of snow shovels will be a function of the time of year, whether it is winter or not. So over a 3 year period, we should expect a spike of sales every 12 or so months (which is the time between winters). 
 
-Please observe this graph of the Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system had between 1991 and 2008: ![image](https://github.com/burakayy7/blog/assets/120507146/b79a4fc8-d835-491c-a551-c69c2fb192a2).
+Please observe this graph of the Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system had between 1991 and 2008: ![image](assets/images/AutoCorr/graph1.png).
 
 As you can see, there is a spike in the data every 12 months. 
 
