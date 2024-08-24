@@ -4,13 +4,16 @@ title: Tags
 permalink: /tags/
 ---
 
-<h1>All Tags</h1>
-<ul>
-  {% assign tags = site.data.tags %}
-  {% for tag in tags %}
-    <li>
-      <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{ tag.name }}</a> ({{ tag.count }})
-    </li>
+<h1>Courses</h1>
+<div class="tags-list">
+  {% for tag in site.data.tags %}
+    <div class="tag-item">
+      <a href="{{ tag.name | prepend: site.baseurl | prepend: '/' }}">
+        <img src="{{ tag.cover }}" alt="{{ tag.name }}">
+        <h2>{{ tag.name }}</h2>
+      </a>
+      <p>{{ tag.description }}</p>
+    </div>
   {% endfor %}
-</ul>
+</div>
 
