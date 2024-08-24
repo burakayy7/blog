@@ -29,7 +29,7 @@ y = [i+(random.random()*250) for i in y]
 df = pd.DataFrame({'a1': x, 'a2': y})
 plt.scatter(df.a1, df.a2, color="black")
 ~~~
-![image](https://github.com/burakayy7/blog/assets/120507146/2188ce3a-3389-4903-a13c-547e5c2bd87e)
+![image](assets/images/AutoCorr/graph2.png)
 
 Well, we know that the final equation will look something like this:
 ```
