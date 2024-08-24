@@ -46,7 +46,8 @@ So, moving away from the stuff discussed in the previous posts, I just want to s
 
 If we treat the frames as a 2D array:
 
-![image](assets/images/opencv/2Darray.png)
+![image](https://github.com/user-attachments/assets/7fb1387b-6186-4cf0-8beb-dc3b7f8b2f3c)
+
 
 
 then we can easily acces parts or sections of this frame (array) using Python:
