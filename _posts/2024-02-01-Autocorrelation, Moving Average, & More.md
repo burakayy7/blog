@@ -97,7 +97,8 @@ or an alternate perspective using the partial autocorrelation (which I will not 
 from statsmodels.graphics.tsaplots import plot_pacf
 plot_pacf(data, lags=12)
 ```
-![image](https://github.com/burakayy7/blog/assets/120507146/a32710ee-85b5-48b4-9af6-aa42f7a45b57)
+![image](https://github.com/user-attachments/assets/7a875389-247a-4b62-85c5-6cef98ef3f3c)
+
 
 
 
