@@ -107,7 +107,7 @@ permalink: /tags/
     {% for tag in site.data.tags %}
       <div class="tag-card">
         <a href="{{ site.url }}/blog/tag/{{ tag[1].name }}" class="tag-link">
-          <div class="tag-cover" style="background-image: url('{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}');">
+          <div class="tag-cover" style="background-image: url('{{ tag[1].cover | prepend: site.baseurl }}');">
             {% if tag[1].cover == "false" %}
               <span>{{ tag[1].name }}</span>
             {% else %}
