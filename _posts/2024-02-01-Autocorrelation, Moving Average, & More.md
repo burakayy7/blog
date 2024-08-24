@@ -149,7 +149,8 @@ data = data.y
 data.plot()
 ```
 So you should get this:
-![image](https://github.com/burakayy7/blog/assets/120507146/b79a4fc8-d835-491c-a551-c69c2fb192a2)
+![image](https://github.com/user-attachments/assets/6a5b5e55-0aff-4b07-aee0-05cb6d0cbda6)
+
 
 
 Then we could run a moving average function on this dataset with this function:
