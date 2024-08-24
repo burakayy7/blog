@@ -59,17 +59,25 @@ permalink: /tags/
   font-size: 2em;
   font-weight: bold;
   background-color: #ff6f61; /* Fallback color */
-  background-image: linear-gradient(135deg, #ff6f61, #ff6fcf);
-  background-position: center;
-  background-size: cover;
+  position: relative;
 }
 
-/* Image element styling */
+/* Background image styling */
 .tag-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Fallback text when no image */
+.tag-cover span {
+  z-index: 2;
+  position: relative;
 }
 
 /* Information container within the card */
@@ -101,7 +109,9 @@ permalink: /tags/
         <a href="{{ site.url }}/blog/tag/{{ tag[1].name }}" class="tag-link">
           <div class="tag-cover" style="background-image: url('{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}');">
             {% if tag[1].cover == "false" %}
-              {{ tag[1].name }}
+              <span>{{ tag[1].name }}</span>
+            {% else %}
+              <img src="{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}" alt="{{ tag[1].name }}">
             {% endif %}
           </div>
           <div class="tag-info">
