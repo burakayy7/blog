@@ -111,7 +111,7 @@ permalink: /tags/
             {% if tag[1].cover == "false" %}
               <span>{{ tag[1].name }}</span>
             {% else %}
-              <img src="{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}" alt="{{ tag[1].name }}">
+              <img src="{{ tag[1].cover | prepend: site.baseurl }}" alt="{{ tag[1].name }}">
             {% endif %}
           </div>
           <div class="tag-info">
