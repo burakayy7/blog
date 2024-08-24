@@ -184,7 +184,8 @@ data.plot()
 ma = moving_average(data, 12)
 ma.plot()
 ```
-![image](https://github.com/burakayy7/blog/assets/120507146/fe7bc4e4-d446-4e75-8328-733664b23d7c)
+![image](https://github.com/user-attachments/assets/f6da89fe-f0ce-45b3-8896-852d1a7c1c35)
+
 
 As you can see, the new graph is like a flattened version of the original. Or like as if the high peaks have been shrunken down (refer [here](https://en.wikipedia.org/wiki/Low-pass_filter) and [here](https://en.wikipedia.org/wiki/High-pass_filter)). As we can see, this essentially smoothes our data (like a filter). 
 
