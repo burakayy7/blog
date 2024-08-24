@@ -1,0 +1,19 @@
+---
+navigation: true
+cover: assets/images/AutoCorr/ACmain.png
+title: Part 1 - How do ARIMA Models Work?
+date: 2024-02-25
+class: post-template
+tags: arima
+---
+
+Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will implement an Autoregressive Model from SCRATCH! 
+
+As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in usefull when
+we are talking about predicting a certain function. Please also make sure that you have read the Gradient Descent lesson and/or 
+have a solid understanding of Linear Regression.
+
+## Autoregression
+We can take the fundamental theory of autocorrelation and combine it with the ideas of Regression & Gradient Descent and arrive at something called Autoregression.
+In simple words, autoregression is like linear regression, but it runs the regression algorithm on sections of data, at once, unlike a linear regression,
+which runs a regression in a pair of values.
