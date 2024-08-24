@@ -78,7 +78,7 @@ permalink: /tags/
   <div class="tags-grid">
     {% for tag in site.data.tags %}
       <div class="tag-card">
-        <a href="{{ tag[1].name | prepend: site.baseurl | prepend: '/' }}" class="tag-link">
+        <a href="{{ tag[1].name | prepend: site.url | prepend: site.baseurl | prepend: '/' }}" class="tag-link">
           <img src="{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}" alt="{{ tag[1].name }}" class="tag-cover">
           <div class="tag-info">
             <h2 class="tag-name">{{ tag[1].name }}</h2>
