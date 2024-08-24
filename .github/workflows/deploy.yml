@@ -1,4 +1,4 @@
-name: Build and Deploy to GitHub Pages
+name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
@@ -6,30 +6,30 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v2
         with:
-          ruby-version: '3.1' # Specify the Ruby version you want to use
+          ruby-version: '3.1'
 
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
 
-      - name: Build the site
-        run: bundle exec jekyll build
+      - name: Build Jekyll site
+        run: |
+          bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          destination_dir: ./tag  # Only deploys the tag directory to gh-pages branch
-          keep_files: true  # Keeps existing files in the gh-pages branch
+          publish_branch: gh-pages
