@@ -26,7 +26,7 @@ Please observe this graph of the Monthly expenditure ($AUD) on corticosteroid dr
 As you can see, there is a spike in the data every 12 months. 
 
 If you run this piece of code, we can view the dates:
-```python
+~~~python
   #installations
 !pip install skforecast
 
@@ -51,7 +51,8 @@ data = data.sort_index()
 #data = data.y
 
 data
-```
+~~~
+
 Then you can click the "Convert this data to an interactive table" button and see the entire dataset.
 ![image](https://github.com/user-attachments/assets/18b20d7d-ae68-4dbb-8748-3955b6d24741)
 
