@@ -1,0 +1,16 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<h1>All Tags</h1>
+<ul>
+  {% assign tags = site.data.tags %}
+  {% for tag in tags %}
+    <li>
+      <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{ tag.name }}</a> ({{ tag.count }})
+    </li>
+  {% endfor %}
+</ul>
+
