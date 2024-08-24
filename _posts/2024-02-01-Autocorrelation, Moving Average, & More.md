@@ -89,7 +89,8 @@ Now to use a function from the statsmodel library to make a autocorrelation grap
 from statsmodels.graphics.tsaplots import plot_acf
 plot_acf(data, lags=12)
 ```
-![image](https://github.com/burakayy7/blog/assets/120507146/f5a29c55-ca48-4173-8c00-98606e20a72b)
+![image](https://github.com/user-attachments/assets/226c2f67-f72f-4336-9bcd-72e6547de6e5)
+
 
 or an alternate perspective using the partial autocorrelation (which I will not be discussing here, but I wanted to included just for you to see)
 ```python
