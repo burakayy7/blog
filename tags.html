@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Tags
-permalink: /tags/
 ---
 
 <style>
@@ -62,6 +61,13 @@ permalink: /tags/
   font-weight: bold;
 }
 
+/* Image styling when there's a valid image */
+.tag-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Information container within the card */
 .tag-info {
   padding: 15px;
@@ -87,11 +93,13 @@ permalink: /tags/
     {% for tag in site.data.tags %}
       <div class="tag-card">
         <a href="{{ site.url }}/blog/tag/{{ tag[1].name }}" class="tag-link">
-          {% if tag[1].cover and tag[1].cover != "false" %}
-            <img src="{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}" alt="{{ tag[1].name }}" class="tag-cover">
-          {% else %}
-            <div class="tag-cover">{{ tag[1].name }}</div>
-          {% endif %}
+          <div class="tag-cover">
+            {% if tag[1].cover and tag[1].cover != "false" %}
+              <img src="{{ tag[1].cover | prepend: site.baseurl | prepend: '/' }}" alt="{{ tag[1].name }}">
+            {% else %}
+              {{ tag[1].name }}
+            {% endif %}
+          </div>
           <div class="tag-info">
             <h2 class="tag-name">{{ tag[1].name }}</h2>
             <p class="tag-description">{{ tag[1].description }}</p>
