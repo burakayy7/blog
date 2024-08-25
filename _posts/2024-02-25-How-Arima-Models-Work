@@ -18,5 +18,4 @@ have a solid understanding of Linear Regression.
 
 ## Autoregression
 We can take the fundamental theory of autocorrelation and combine it with the ideas of Regression & Gradient Descent and arrive at something called Autoregression.
-In simple words, autoregression is like linear regression, but it runs the regression algorithm on sections of data, at once, unlike a linear regression,
-which runs a regression in a pair of values.
+In simple words, autoregression is like linear regression, but it runs the regression algorithm on sections of data, at once, unlike a linear regression, which runs a regression in a pair of values.

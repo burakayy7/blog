@@ -7,6 +7,10 @@
 #   description: Projects related to IMUs or PID controllers. 
 #   # cover: "assets/images/PID_en.png"
 #   cover: "false"
+arduino:
+  name: Arduino Getting Started
+  description: Course on Getting started with Engineering & Arduino. 
+  cover: "false"
 arima:
   name: arima
   description: Course on learning Forecasting Principles. 
