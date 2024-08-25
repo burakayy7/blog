@@ -7,6 +7,7 @@ class: post-template
 layout: post
 current: post
 subclass: 'post'
+tags: [arima]
 ---
 
 In this post I will be introducing the math behind Gradient Descent and how it works!
