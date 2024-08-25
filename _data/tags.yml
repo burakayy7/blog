@@ -8,15 +8,18 @@
 #   # cover: "assets/images/PID_en.png"
 #   cover: "false"
 arduino:
-  name: Arduino Getting Started
+  name: arduino
+  name_long: Arduino Getting Started
   description: Course on Getting started with Engineering & Arduino. 
   cover: "false"
 arima:
   name: arima
+  name_long: ARIMA Models
   description: Course on learning Forecasting Principles. 
   cover: "assets/images/AutoCorr/ma.png"
 opencv:
   name: opencv
+  name_long: Learn OpenCV
   description: A series of lessons/posts on AI and Python OpenCV.
   cover: "assets/images/opencv/opencv1.png"
 # plane:
