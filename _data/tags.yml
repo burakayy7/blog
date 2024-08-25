@@ -1,21 +1,22 @@
-electroncis:
-  name: electronics
-  description: A collection of my Electronics Projects.
-  cover: "assets/images/daprofile.jpg"
-pid:
-  name: pid
-  description: Projects related to IMUs or PID controllers. 
-  # cover: "assets/images/PID_en.png"
-  cover: "false"
-opencv:
-  name: opencv
-  description: A series of lessons/posts on AI and Python OpenCV.
-  cover: "assets/images/opencv/opencv1.png"
-plane:
-  name: plane
-  description: My Plane Project
-  cover: "assets/images/planeBkg.jpg"
+# electroncis:
+#   name: electronics
+#   description: A collection of my Electronics Projects.
+#   cover: "assets/images/daprofile.jpg"
+# pid:
+#   name: pid
+#   description: Projects related to IMUs or PID controllers. 
+#   # cover: "assets/images/PID_en.png"
+#   cover: "false"
 arima:
   name: arima
   description: Course on learning Forecasting Principles. 
   cover: "assets/images/AutoCorr/ma.png"
+opencv:
+  name: opencv
+  description: A series of lessons/posts on AI and Python OpenCV.
+  cover: "assets/images/opencv/opencv1.png"
+# plane:
+#   name: plane
+#   description: My Plane Project
+#   cover: "assets/images/planeBkg.jpg"
+
