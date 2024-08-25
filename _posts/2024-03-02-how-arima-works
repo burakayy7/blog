@@ -1,0 +1,15 @@
+---
+navigation: true
+cover: assets/images/AutoCorr/ACmain.png
+title: Part 2 - How do ARIMA Models Work? 
+date: 2024-03-02
+class: post-template
+tags: arima
+layout: post
+current: post
+subclass: 'post'
+---
+
+Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will implement an Autoregressive Model from SCRATCH! 
+
+
