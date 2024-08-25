@@ -36,8 +36,13 @@ logo: 'assets/images/ghost.png'
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
         <div class="post-feed">
-            <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
-            {%  include post-card.html %}
+            <!-- Sort posts by date in descending order (most recent first) -->
+            {% assign sorted_posts = paginator.posts | sort: 'date' | reverse %}
+            
+            <!-- Iterate over the sorted posts and include the post-card.html partial -->
+            {% for post in sorted_posts %}
+                {% include post-card.html %}
+            {% endfor %}
         </div>
     </div>
 </main>
