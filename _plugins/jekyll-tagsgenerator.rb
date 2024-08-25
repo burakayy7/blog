@@ -12,7 +12,12 @@ module Jekyll
     end
 
     def build_subpages(site, type, posts)
+      # Sort posts in descending order by date (newest first)
       posts[1] = posts[1].sort_by { |p| -p.date.to_f }
+
+      # Reverse the order if the type is "tag"
+      posts[1] = posts[1].reverse if type == "tag"
+
       atomize(site, type, posts)
       paginate(site, type, posts)
     end
