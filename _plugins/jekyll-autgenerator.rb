@@ -12,13 +12,7 @@ module Jekyll
     end
 
     def build_subpages(site, type, posts)
-      if type == 'tag'
-        # Reverse sorting order for tag pages
-        posts[1] = posts[1].sort_by { |p| p.date.to_f }
-      else
-        # Normal sorting order for other pages
-        posts[1] = posts[1].sort_by { |p| -p.date.to_f }
-      end
+      posts[1] = posts[1].sort_by { |p| -p.date.to_f }
       atomize(site, type, posts)
       paginate(site, type, posts)
     end
@@ -30,17 +24,21 @@ module Jekyll
     end
 
     def paginate(site, type, posts)
+      # Sort posts by date in ascending order for tag pages
+      if type == 'tag'
+        posts[1] = posts[1].sort_by { |p| p.date.to_f }
+      else
+        posts[1] = posts[1].sort_by { |p| -p.date.to_f }
+      end
+    
       pages = Jekyll::Paginate::Pager.calculate_pages(posts[1], site.config['paginate'].to_i)
       (1..pages).each do |num_page|
         pager = Jekyll::Paginate::Pager.new(site, num_page, posts[1], pages)
         path = "/author/#{posts[0]}"
-        if num_page > 1
-          path = path + "/page#{num_page}"
-        end
+        path += "/page#{num_page}" if num_page > 1
         newpage = GroupSubPageAuthor.new(site, site.source, path, type, posts[0])
         newpage.pager = pager
         site.pages << newpage
-
       end
     end
 
