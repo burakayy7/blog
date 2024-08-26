@@ -1,7 +1,7 @@
 ---
 navigation: true
 cover: assets/images/AutoCorr/ACmain.png
-title: Part 1 - How do ARIMA Models Work? 
+title: What are ARIMA models and how do they work? 
 date: 2024-02-25
 class: post-template
 tags: arima
@@ -10,7 +10,7 @@ current: post
 subclass: 'post'
 ---
 
-Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will implement an Autoregressive Model from SCRATCH! 
+Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will also implement an ARIMA model using open-source libraries!
 
 As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in useful when we are talking about predicting a certain function. Please also make sure that you have read the Gradient Descent lesson and/or 
 have a solid understanding of Linear Regression.
@@ -32,8 +32,20 @@ This basically means that the current y value will equal some relationship betwe
 
 What equation 1 represents, is something called an AR(p) model, or an autoregressive model of order p. Simply put, this is basically a multiple regression model. 
 
-If we want to go and design a model like this, the first thing we need to know is how is it going to learn? And if you have taken the Linear Regression lesson, then you should remember **Cost Functions**. 
 
-### Cost Functions
+## Integration
 
-There are many different cost functions out there, and each one can either help or hinder different models. 
+I hope you viewed the previous lesson on Stationary time series and differencing. In this context, Integrating means to make a non-stationary time series, stationary via differencing (again, if you are confused, please view the previous lesson).
+
+## Moving Average
+
+As you were probably introduced to in Parts 1 and 2 for Autocorrelations, you should know what a moving average model is and how to implment one. 
+
+
+
+
+
+### Using Python Libraries for Time Series Forecasting
+Before we go on to make our own ARIMA model, I wanted to quickly show you how you can use open-source libraries to deploy an ARIMA (or other forecasting models) model. 
+
+

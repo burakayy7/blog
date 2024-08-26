@@ -13,3 +13,8 @@ subclass: 'post'
 Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will implement an Autoregressive Model from SCRATCH! 
 
 
+If we want to go and design a model like this, the first thing we need to know is how is it going to learn? And if you have taken the Linear Regression lesson, then you should remember **Cost Functions**. 
+
+### Cost Functions
+
+There are many different cost functions out there, and each one can either help or hinder different models. 

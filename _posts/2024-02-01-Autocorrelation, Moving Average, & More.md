@@ -206,7 +206,7 @@ $$
 k = (m - 1)/2 
 $$
 
-This is known as averaging withtin k periods. And this is okay when m is odd but not when m is even (can you see why?). The short answer is because then k becomes a fraction and so when you try to get the average from -k to k, there becomes some difficulties in getting the exact value in code. 
+This is known as averaging within k periods. And this is okay when m is odd but not when m is even (can you see why?). The short answer is because then k becomes a fraction and so when you try to get the average from -k to k, there becomes some difficulties in getting the exact value in code. 
 
 So, as a solution, we will take the second-order moving average (2-MA):
 

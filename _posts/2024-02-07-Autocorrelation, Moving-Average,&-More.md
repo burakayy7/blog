@@ -63,7 +63,7 @@ As you can see, the spike occurs around winter time. Now there is probably an en
 
 And that is the simple, introductory, definition to seasonality. 
 
-And that's is simply what we are refering to when we say _Seasonal Trends._ Any patterns in data that has a repeated, predictable, and time-dependent factors, is a type of seasonal trend (can you see why we call it seasonal?).
+And that's simply what we are refering to when we say _Seasonal Trends._ Any patterns in data that has a repeated, predictable, and time-dependent factors, is a type of seasonal trend (can you see why we call it seasonal?).
 
 
 
