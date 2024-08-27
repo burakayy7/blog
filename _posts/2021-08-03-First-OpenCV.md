@@ -6,7 +6,8 @@ title: "I want to learn OpenCV and AI"
 date: 2021-08-03
 cover: 'assets/images/opencv/opencv1.png'
 class: post-template
-tags: opencv
+tags: OpenCV
+subclass: 'post'
 ---
 
 I have taken a crash course in Python, and I have now found an interest in Artificial Intelligence. And this is how I am going to start.

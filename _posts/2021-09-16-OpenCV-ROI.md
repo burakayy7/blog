@@ -4,10 +4,9 @@ cover: assets/images/opencv/opencv_roi.jpeg
 title: OpenCV ROI
 date: 2021-09-03
 class: post-template
-tags: opencv
+tags: OpenCV
 layout: post
 current: post
-class: post-template
 subclass: 'post'
 ---
 
