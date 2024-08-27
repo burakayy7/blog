@@ -159,7 +159,10 @@ error_mse = mean_squared_error(
 print(f"Test error (MSE): {error_mse}")
 ```
 
-which gives something like this
+which gives something like this:
+
+
+
 $$
 Test error (MSE): 0.07326833976120374
 $$
@@ -212,10 +215,22 @@ results_grid = grid_search_forecaster(
                    verbose            = False
                )
 ```
+
+
+
+
+
 $$
-Forecaster` refitted using the best-found lags and parameters, and the whole data set: 
+  Forecaster` refitted using the best-found lags and parameters, and the whole data set: 
+
+
+  
   Lags: [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] 
+
+  
   Parameters: {'max_depth': 3, 'n_estimators': 500}
+
+  
   Backtesting metric: 0.021992765856921042
 $$
 
