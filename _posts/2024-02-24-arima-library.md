@@ -144,7 +144,7 @@ predictions.plot(ax=ax, label='predictions')
 ax.legend();
 ```
 which should output something like this:
-![img](assets/images/AutoCorr/predictions.png)
+![img](assets/images/AutoCorr/predictions1.png)
 
 If you observe the graph above, you can see that our predictions, the orange trace, are actually not that accurate. But why is that? 
 And also, before we fix this, if you wanted to **quantify** how much we are off, we can use a cost function (something I went over in the previous lessons):
