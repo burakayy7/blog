@@ -42,10 +42,9 @@ I hope you viewed the previous lesson on Stationary time series and differencing
 As you were probably introduced to in Parts 1 and 2 for Autocorrelations, you should know what a moving average model is and how to implment one. 
 
 
+<!-- ### Using Python Libraries for Time Series Forecasting
+Before we go on to make our own ARIMA model, I wanted to quickly show you how you can use open-source libraries to deploy an ARIMA (or other forecasting models) model.  -->
 
 
-
-### Using Python Libraries for Time Series Forecasting
-Before we go on to make our own ARIMA model, I wanted to quickly show you how you can use open-source libraries to deploy an ARIMA (or other forecasting models) model. 
-
+Really, the ARIMA model is made up of two different models, an autoregressive model 
 
