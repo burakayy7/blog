@@ -9,3 +9,46 @@ current: post
 subclass: 'post'
 tags: arduino
 ---
+
+In this lesson, we will implement our first Arduino Project: our very own Hello World example!!
+
+Required Materials:
+  - Arduino Board (with USB cable)
+  - Breadboard
+  - Male-Male Jumper Wires
+  - Arduino IDE
+  - 1 LED
+  - 1 220 Ohm Resistor
+
+Here is how this will work, this program will print out "Hello, World" and blink an LED every 1 second.
+
+```cpp
+
+int ledPin = 8;
+String outputString = "Hello, World";
+int delayTime = 1000;
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+  Serial.println("Starting program...");
+}
+
+void main() {
+  Serial.println(outputString);
+  digitalWrite(ledPin, HIGH);
+  delay(delayTime);
+  Serial.println(outputString);
+  digitalWrite(ledPin, LOW);
+  delay(delayTime);
+}
+```
+
+First, I declare three valriables to be used in the program:
+```cpp
+int ledPin = 8;
+String outputString = "Hello, World";
+int delayTime = 1000;
+```

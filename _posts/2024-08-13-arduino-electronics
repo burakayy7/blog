@@ -58,6 +58,36 @@ standarized or hard to read and remeber, so I usually don't pay attention to the
 
 ## How Does a Transistor Work
 
+If you search this up, probably the first "definition" you will come accross is " a transistor is an electronic switch".
+However, I have never liked this definition, as I think not only is it basic but it's lacking.
+
+Below is a schematic diagram of a transistor:
+![img](assets/images/arduinoEng/transistor1.png)
+
+As you can see, there are three main pins (or leads): the collector, the base, and the emmittor. Now, I could go into what each pin is,
+but to understand a transistor, we have to go down to the atomic level and understand what's **in** a transistor first, then
+we can understand what the pins mean.
+
+To understand this, I think it is best if we tackle what a Diode is and how it works.
+
+### How Does a Diode Work
+
+A diode is an electronic component that basically restricts the flow of electrons, but only in one direction.
+
+
+Below is a diagram of what the inside of a diode might look like, at an atomic level:
+![img](assets/images/arduinoEng/diode1.png)
+
+To start, let me explain what you are looking at. Basically, there are two materials inside of a diode: a n-type material and a p-type material.
+But what does this mean? 
+
+Well first, these materials are made up of mostly silicon. 
+
+
+
 ## How Does an LED Work
+
+Simply put, this is stands for a **L**ight **E**mmitting **D**iode, and it does exactly as it sounds like: emmites light by
+utilizing physical properties of certain materials. 
 
 ## Creating Basic Ciruits
