@@ -10,4 +10,54 @@ subclass: 'post'
 tags: arduino
 ---
 
-Welcome back; here I will introduce 
+Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering.
+
+To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard.
+
+
+## How Does a BreadBoard Work
+
+A breadboard's purpose is to help with efficiency when prototyping a circuit; instead of having to [solder](https://en.wikipedia.org/wiki/Solder) every component, without knowing the circuit will work, wouldn't it be nice to have a "plug-n-play" set up where you can easily interchange components?
+
+Well, the breadboard comes to the rescue!
+
+Below is a diagram of how the various pins on your board are connected:
+![img](burakayy7/blog/assets/images/arduinoEng/breadboardLayout.png)
+
+Usually, breadboards have two sets of horizontal strips that run accross the long side, each usually labelled with a red or blue strip. These are generally used for 
+power, providing current to your ciruit; however, these are not directly connected to the pins on the inside. I will explain how this works further, with examples.
+
+![img](assets/images/arduinoEng/breadboard1.png)
+
+
+So, refering to both of the diagrams above, each pin along a column is connected. But pins across rows are not connected. Furthermore, pins that cross the barrier
+in the middle are also not connected. 
+
+This setup provides a framework which you can easily and systematically desin your own ciruits.
+
+
+## How Do Resistors Work
+
+Resistor are an electronic component that, as the name implies, restricts and resists the flow of electrons in a circuit.
+
+But how does this work? 
+
+Well, each [conductive material](https://en.wikipedia.org/wiki/Electrical_conductor) has its own properties, which results in each material conducting electricity
+slightly differently. Thus, each material will also resist electricity differently. For example, copper is a very conductive material, which means 
+it has a low resistance. 
+
+Below is a diagram showing the guts of a resistor:
+![img](assets/images/arduinoEng/resistor1.png)
+
+As you can see, there is some internal conductive material that is a mixture of various material with different properties.
+This will result in the final material to have a different resistance than the pins (connecting leads). 
+
+The coloring on the resistor also has a meaning. It is some sort of code for the resistance. However, these are often not
+standarized or hard to read and remeber, so I usually don't pay attention to them.
+
+
+## How Does a Transistor Work
+
+## How Does an LED Work
+
+## Creating Basic Ciruits
