@@ -255,7 +255,7 @@ This will compare our code, to an official Decomposition Function:
 to 
 ![image](https://github.com/user-attachments/assets/836217a4-232b-40cb-9cb4-a8b1bf0001a9)
 
-And as you can see, they are prett damn close!! :)
+And as you can see, they are pretty damn close!! :)
 
 
 ### STL Decomposition

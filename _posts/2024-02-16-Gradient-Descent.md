@@ -145,7 +145,7 @@ $$
 and
 
 $$
-\frac{\partial \text{error}}{\partial m} = -\frac{2}{n} \cdot \sum_{i=0}^n (y_i - m \cdot x_i - b)
+\frac{\partial \text{error}}{\partial b} = -\frac{2}{n} \cdot \sum_{i=0}^n (y_i - m \cdot x_i - b)
 $$
 
 Voila!
@@ -206,7 +206,7 @@ In each epoch, we update m and b, and re-run our algorithm; each time getting cl
 
 If you went to the [repo](https://github.com/burakayy7/LinearRegression) and ran the cell, you should see something like this:
 
-![](https://github.com/burakayy7/blog/assets/120507146/a1b84c1c-0eb2-4d25-adc1-aad4c1fd70bc)
+![](assets\images\Gradient\gd1.png)
 
 And if you print out the m and b values, you should get something close to 
 

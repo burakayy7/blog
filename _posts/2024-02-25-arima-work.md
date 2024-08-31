@@ -148,6 +148,68 @@ and then subtracting the actual value, *batch_ys*.
 Now that we have our error, we will run a gradient descent algorithm on that error value.
 If we do the partial-derivative math to see how each beta will effect the error, you should get something like this:
 $$
-    \beta_i = \alpha * 
+  \frac{\partial \text{MSE}}{\partial b_i} = \lim_{h \to 0} \frac{(\sum_{i=0}^n (y_{i} - (b_{i-p} \cdot x_{i-p}))^2 +\ldots+ (y_{i} - ((b_{i}+h) \cdot x_i))^2) - (\sum_{i=0}^n (y_{i} - (b_{i-p} \cdot x_{i-p}))^2 +\ldots+ (y_{i} - (b_{i} \cdot x_i))^2)}{h}
 $$
+
+which after you do the math, becomes:
+
+$$
+  \frac{\partial \text{MSE}}{\partial b_i} = \frac{2}{n} \cdot \sum_{i=p}^n x_{t-i} \cdot (x_{t-p}\cdot b_{t-p} +\ldots +x_{t-i}\cdot b_{t-i} - y_t)
+$$
+
+In code, here is how it would look like:
+```python
+for b_i in range(len(beta)):
+  beta[b_i] -= learning_rate*(2*xs[start-p]*error)/count
+bias -= learning_rate*(2*error)/count
+```
+We adjust our coefficients (an array of betas) and our bias (using a very similar partial derivative as shown above, but instead for a constant variable).
+
+Now, this function assumes our data is passed in a specific format, and I made a separate function that will handle that:
+```python
+def prepare_data(data, order):
+  X, y = [], []
+  for i in range(order, len(data)):
+    X.append(data[i - order:i])
+    y.append(data[i])
+  return np.array(X), np.array(y)
+```
+
+Here, we simply get our original data and split it into x and y batches, of length order (our lag amount).
+
+
+Below is the code for running this function on our data:
+
+```python
+x = []
+y = []
+#lag_plot(data)
+new_data = data
+for i in range(len(new_data)):
+  x.append(i)
+  y.append(new_data.iloc[i].item())
+  #print(type(data.iloc[i]))
+p = 12
+be, bias = auto_regressive(x[12:], y[12:], 0.0001, 100, p)
+print(be)
+print(bias)
+plt.plot(x, y)
+x_lag = []
+y_lag = []
+def sum_of_array(arr):
+  sum = 0.0
+  for num in arr:
+    sum += num
+  return sum
+for i in range(len(x)):
+  if i >= p:
+    #y_lag.append(sum([be[j-i+p] * x[j] for j in range(i-p, i)]))
+    y_lag.append(sum_of_array([be[j-i+p] * x[j] for j in range(i-p, i)])+bias)
+print(y_lag)
+#plt.plot(list(np.arange(0, 2, .01)), [be[i]*x_lag[i] + be[i]*x_lag[i] for x in np.arange(0, 2, .01)], color="red")
+num = .05+(p*.01)
+plt.plot(list(np.arange(17, 200, 1)), y_lag, color="red")
+```
+which you should get something like this:
+![img](/assets/images/AutoCorr/predictions5.png)
 

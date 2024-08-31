@@ -17,4 +17,5 @@ If we want to go and design a model like this, the first thing we need to know i
 
 ### Cost Functions
 
-There are many different cost functions out there, and each one can either help or hinder different models. 
+There are many different cost functions out there, and each one can either help or hinder different models. In this lesson, we will show three main and common cost functions
+_Mean Squared Error_(MSE), _Mean Absolute Error_(MAE), and _Root Mean Squared Error_(RMSE). 
