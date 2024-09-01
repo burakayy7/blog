@@ -23,7 +23,7 @@ $$
   \frac{\partial \text{MSE}}{\partial b_i} = \frac{2}{n} \cdot \sum_{i=p}^n x_{t-i} \cdot (x_{t-p}\cdot b_{t-p} +\ldots +x_{t-i}\cdot b_{t-i} - y_t)
 $$
 
-Previously, we relied solely on Python arithmetic for this, but there is also an laternative method: **The Dot Product!**
+Previously, we relied solely on Python arithmetic for this, but there is also an alternative method: **The Dot Product!**
 
 $$
   \beta = (X^T \cdot X)^{-1} \cdot X^T \cdot y
@@ -163,7 +163,7 @@ $$
 
 Where _c_ is the mean of the series, and _q_ is the order/lag amount.
 
-In theory, any MA(q) can be represented as AR(p), this is known as inevitability. [There is some really nice math behind this that I would really like to dive into; however, I am afraid it might be out of scope, so I might touch on it briefly at the end](https://otexts.com/fpp2/arima-r.html#plotting-the-characteristic-roots).
+In theory, any MA(q) can be represented as AR(p), this is known as invertibility. [There is some really nice math behind this that I would really like to dive into; however, I am afraid it might be out of scope, so I might touch on it briefly at the end](https://otexts.com/fpp2/arima-r.html#plotting-the-characteristic-roots).
 
 Below is my autoregressive, moving average model:
 ```python
@@ -266,16 +266,16 @@ def arima(data, p, q, epoch, train_size, cost_function):
 Let's walk through it together. So first, in the ARIMA function, we split our data into training and testing, make that data stationary (this is the Integrating part of ARIMA, please refer to prior lessons), and we use a prepare_data function to output our data in a specific format (where they are in batches):
 ```python
 train_ori = data[:int(len(data)*train_size)]
-  test_ori = data[int(len(data)*train_size):]
+test_ori = data[int(len(data)*train_size):]
 
-  stationary = difference_data(data)
-  #stationary = data
-  train = stationary[:int(len(stationary)*train_size)]
-  test = stationary[int(len(stationary)*train_size):]
+stationary = difference_data(data)
+#stationary = data
+train = stationary[:int(len(stationary)*train_size)]
+test = stationary[int(len(stationary)*train_size):]
 
-  #prepare data
-  X_train, y_train = prepare_data(train, p)
-  X_test, y_test = prepare_data(test, p)
+#prepare data
+X_train, y_train = prepare_data(train, p)
+X_test, y_test = prepare_data(test, p)
 ```
 
 We start at 12 (because that is our order for this dataset; ideally I should of not of have hard coded this!) and create our weights and predictions arrays. 

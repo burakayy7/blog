@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/opencv/mouse1.png
+cover: assets/images/opencv/color1.png
 title: OpenCV Color Finder
 date: 2021-10-31
 class: post-template
@@ -60,4 +60,40 @@ while True:
 cam.release()
 ```
 
-This is pretty similar to the previous lessons on Mouse Clicks, so I will skip over those sections. Instead, let's look at how we choose the 
+This is pretty similar to the previous lessons on Mouse Clicks, so I will skip over those sections. Instead, let's look at how we choose the the color.
+
+Once you click on the frame, our function stores the x and y coordinates, and we obtain the pixel color using this code:
+```python
+clr = y[yVal][xVal]
+```
+
+The rest of the code is just displaying that on another window, which should be self explanatory.
+
+
+I also wanted to show a quick program that will output the full color range, in HSV (Hue, Saturation, and Value):
+```python
+import cv2
+import numpy as np
+x = np.zeros([256,720,3],dtype=np.uint8)
+for row in range(0,256,1):
+    for column in range(0,720,1):
+        x[row,column]=(int(column/4),row,255)
+x=cv2.cvtColor(x,cv2.COLOR_HSV2BGR)
+y = np.zeros([256,720,3],dtype=np.uint8)
+for row in range(0,256,1):
+    for column in range(0,720,1):
+        y[row,column]=(int(column/4),255,row)
+y=cv2.cvtColor(y,cv2.COLOR_HSV2BGR)
+while True:
+    cv2.imshow('my HSV',x)
+    cv2.moveWindow('my HSV',0,0)
+    cv2.imshow('my HSV 2',y)
+    cv2.moveWindow('my HSV 2',0,row+40)
+    if cv2.waitKey(1) & 0xff == ord('q'):
+        break
+cv2.destroyAllWindows()
+```
+HSV is just another color space, like RGB. For more info, please visit [here](https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html)
+Play around with that if you want.
+
+Thanks, see you next time. 
