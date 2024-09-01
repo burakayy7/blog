@@ -82,4 +82,6 @@ cam.release()
 
 That's it!!
 
+**These lessons will be short posts summarizing OpenCV principles!** 
+
 Hope you enjoyed!!

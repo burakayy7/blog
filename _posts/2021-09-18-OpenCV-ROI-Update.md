@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/opencv/opencv_roi.jpeg
+cover: assets/images/opencv/roi2.png
 title: OpenCV ROI Update
 date: 2021-09-18
 class: post-template
@@ -81,6 +81,6 @@ Finally, here is how the activate ROI capture works (based off variables):
     frame=cv2.cvtColor(frame,cv2.COLOR_GRAY2BGR)
     frame[int(boxCR-snipH/2):int(boxCR+snipH/2),int(boxCC-snipW/2):int(boxCC+snipW/2)]=frameROI
 ```
-That last part actually puts the ROI back into the original frame; again, Highly reccommend that you run this yourself to see it in action!!
+That last part actually puts the ROI back into the original frame; again, Highly recommend that you run this yourself to see it in action!!
 
 That's it! Thanks!!
