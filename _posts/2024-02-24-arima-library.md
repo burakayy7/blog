@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/AutoCorr/ACmain.png
+cover: assets/images/AutoCorr/predictions4.png
 title: Using Scikit & SKtime for Forecasting 
 date: 2024-02-24
 class: post-template

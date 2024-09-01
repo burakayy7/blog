@@ -1,7 +1,7 @@
 ---
 navigation: true
-cover: assets/images/AutoCorr/ACmain.png
-title: Part 2 - How do ARIMA Models Work? 
+cover: assets/images/AutoCorr/predictions7.png
+title: Part 2 - Implementing a Full ARIMA model from SCRATCH!
 date: 2024-03-02
 class: post-template
 tags: arima
@@ -278,7 +278,7 @@ train_ori = data[:int(len(data)*train_size)]
   X_test, y_test = prepare_data(test, p)
 ```
 
-We start at 12 (because that is our order for this dataset; ideally I should of not hard coded this!) and create our weights and predictions arrays. 
+We start at 12 (because that is our order for this dataset; ideally I should of not of have hard coded this!) and create our weights and predictions arrays. 
 
 Next, in every epoch (pronounced e-po-ck; I learned this a bit too late!) we train an autoregressive model, get it's predictions and the prediction errors, and then feed these _residuals_ into our moving average model (by first converting it to the right format, like a Pandas DataFrame):
 ```python
@@ -332,3 +332,47 @@ Next up, I wanted compare the performance of various Cost functions, just for fu
 
 There are many different cost functions out there, and each one can either help or hinder different models. In this lesson, I will show three main and common cost functions
 _Mean Squared Error_(MSE), _Mean Absolute Error_(MAE), and _Root Mean Squared Error_(RMSE). 
+
+I have already coded in each cost function and their partial derivatives (I highly suggest you go through the math yourself on these, if you need any help, just reach out), so all we have to do is compare them here:
+
+```python
+x_test, y_test, training, test, predictions_mse = arima(data=data, p=12, q=1, epoch=1, train_size=0.6, cost_function='mse')
+print("MSE squared error: ", squared_error(predictions_mse, y_test))
+x_test, y_test, training, test, predictions_mae = arima(data=data, p=12, q=1, epoch=1, train_size=0.6, cost_function='mae')
+print("MAE squared error: ", squared_error(predictions_mae, y_test))
+x_test, y_test, training, test, predictions_rmse = arima(data=data, p=12, q=1, epoch=1, train_size=0.6, cost_function='rmse')
+print("RMSE squared error: ", squared_error(predictions_rmse, y_test))
+
+```
+
+
+
+And below, we plot them:
+```
+ax1=training.plot()
+test.plot()
+ax2 = predictions_mse.plot()
+predictions_mae.plot(ax=ax2)
+predictions_rmse.plot(ax=ax2)
+```
+
+Which should result in this:
+![im](assets/images/AutoCorr/graph7.png)
+
+Above, is the data in stationary form. 
+
+![img](assets/images/AutoCorr/predictions7.png)
+
+
+And as you can see, they all seem very similar. But if you looked at the print statements:
+
+```python
+MSE squared error:  1.0386990408088193
+MAE squared error:  0.9324816705511001
+RMSE squared error:  0.8846827347232624
+```
+
+We see that _RMSE_ had the least error. 
+
+Now, one thing I left out is turning this data make to non-stationary data. Since this lesson is already getting long, I would like to leave this up to the reader!
+
