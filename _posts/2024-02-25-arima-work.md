@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/AutoCorr/ACmain.png
+cover: assets/images/AutoCorr/predictions5.png
 title: What are ARIMA models and how do they work? 
 date: 2024-02-25
 class: post-template
@@ -92,6 +92,7 @@ data = data.y
 
 So, now that we have eveything configured, I want to show you the autoregressive function I made, and I will walk you through it:
 ```python
+from pandas.plotting import lag_plot
 def auto_regressive(xs, ys, learning_rate, epoch, p):
   assert len(xs) == len(ys)
   beta = [0 for _ in range(p)]
@@ -128,6 +129,8 @@ $$
 $$
 
 As said before, we run our algorithm in an epoch for loop that represents how many times we update betas. 
+
+### The Algorithm
 
 The next part is where the regression happens. First, we need to run the regression in a moving window, of length p; we start at x = p (because we can't run a regression for values less that p).
 
@@ -211,5 +214,15 @@ num = .05+(p*.01)
 plt.plot(list(np.arange(17, 200, 1)), y_lag, color="red")
 ```
 which you should get something like this:
-![img](/assets/images/AutoCorr/predictions5.png)
+![img](assets/images/AutoCorr/predictions5.png)
+
+**Woops!!** What's going on here!!!
+
+Well, I did some investigations, and I suspect it's due to how python handles float operations. And during our gradient descent operation, the numbers are either getting too large or small and are not being handled properly. Thus, you end up with a bunch of zeros, which is not what we want. 
+
+## The Problem
+
+What we want, is a library that will automatically handle this heavy number arithmetic for us (because doing this from scratch would be very intensive). 
+
+**NumPy to the rescue!!** In the next lesson, I will show you how to utilize a free Python Library to take care of this multiplication for us.
 
