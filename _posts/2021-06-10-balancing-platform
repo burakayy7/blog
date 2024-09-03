@@ -1,0 +1,12 @@
+---
+navigation: true
+title: "Self-Balancing PID Platform"
+date: 2021-06-10
+cover: 'assets/images/'
+class: post-template
+tags: pid
+layout: post
+current: post
+subclass: 'post'
+---
+

@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/AutoCorr/stationary.png
+cover: assets/images/plane/plane-computer1.jpeg
 title: "Plane Project: Designing the Flight Computer"
 date: 2022-03-13
 class: post-template
@@ -9,3 +9,15 @@ layout: post
 current: post
 subclass: 'post'
 ---
+
+
+
+
+## Wiring
+![img](assets/images/plane/plane-computer2.jpeg)
+
+
+
+
+## The Case
+![img](assets/images/plane/plane-computer3.jpeg)
