@@ -9,3 +9,20 @@ layout: post
 current: post
 subclass: 'post'
 ---
+
+Imagine a plane travelling at 60 MPH perpendicular to the ground. What do you think would happen. 
+
+This is what happened to me when I went to go test out my glider software. I had hit full throttle when it was travelling
+straight down, in an attempt to recover. When impact came, the entire plane just folded. 
+
+The crazy thing is that this plane has two thick aluminum rods in the wing chasis, and the impact exerted such a strong
+force that it bent the rods. Furthermore, the internal battery slide off the mount and the front motor
+punctured the battery (I don't have pictures of this, as it was a fire hazard and I had to dispose of it quickly).
+
+### The Problem
+
+The main inertia is in the wings, so in a sudden stop, they will be the parts that pose the most issues.
+
+This plane's wings work by 'clicking' into the chasis, as below:
+![img](brocken image)
+

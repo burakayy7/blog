@@ -68,11 +68,11 @@ As you can see, there are three main pins (or leads): the collector, the base, a
 but to understand a transistor, we have to go down to the atomic level and understand what's **in** a transistor first, then
 we can understand what the pins mean.
 
-To understand this, I think it is best if we tackle what a Diode is and how it works.
+To understand this, I think it is best if we tackle what a Diode is and how it works first.
 
 ### How Does a Diode Work
 
-A diode is an electronic component that basically restricts the flow of electrons, but only in one direction.
+A diode is an electronic component that basically restricts the flow of electrons, but only in one direction. It only allows electricity to flow in one direction.
 
 
 Below is a diagram of what the inside of a diode might look like, at an atomic level:
@@ -81,8 +81,11 @@ Below is a diagram of what the inside of a diode might look like, at an atomic l
 To start, let me explain what you are looking at. Basically, there are two materials inside of a diode: a n-type material and a p-type material.
 But what does this mean? 
 
-Well first, these materials are made up of mostly silicon. 
+Well first, these materials are made up of mostly silicon. Which is something called a Semi-conductor.
 
+#### What Are Semiconductors?
+
+You are probably similar to conductors and insulators. 
 
 
 ## How Does an LED Work
