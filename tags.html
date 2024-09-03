@@ -111,21 +111,23 @@ permalink: /courses/
   <h1 class="tags-title">Courses</h1>
   <div class="tags-grid">
     {% for tag in site.data.tags %}
-      <div class="tag-card">
-        <a href="{{ site.url }}/blog/tag/{{ tag[1].name }}" class="tag-link">
-          <div class="tag-cover" style="background-image: url('{{ tag[1].cover | prepend: site.baseurl }}');">
-            {% if tag[1].cover == "false" %}
-              <span>{{ tag[1].name_long }}</span>
-            {% else %}
-              <img src="{{ tag[1].cover | prepend: site.baseurl }}" alt="{{ tag[1].name }}">
-            {% endif %}
-          </div>
-          <div class="tag-info">
-            <h2 class="tag-name">{{ tag[1].name_long }}</h2>
-            <p class="tag-description">{{ tag[1].description }}</p>
-          </div>
-        </a>
-      </div>
+      {% if tag[1].name_long %}
+        <div class="tag-card">
+          <a href="{{ site.url }}/blog/tag/{{ tag[1].name }}" class="tag-link">
+            <div class="tag-cover" style="background-image: url('{{ tag[1].cover | prepend: site.baseurl }}');">
+              {% if tag[1].cover == "false" %}
+                <span>{{ tag[1].name_long }}</span>
+              {% else %}
+                <img src="{{ tag[1].cover | prepend: site.baseurl }}" alt="{{ tag[1].name }}">
+              {% endif %}
+            </div>
+            <div class="tag-info">
+              <h2 class="tag-name">{{ tag[1].name_long }}</h2>
+              <p class="tag-description">{{ tag[1].description }}</p>
+            </div>
+          </a>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>

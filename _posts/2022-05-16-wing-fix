@@ -1,0 +1,11 @@
+---
+navigation: true
+cover: assets/images/
+title: "Plane Project: Fixing the Wing Compartment after a Crash"
+date: 2022-05-16
+class: post-template
+tags: plane
+layout: post
+current: post
+subclass: 'post'
+---

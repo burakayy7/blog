@@ -4,7 +4,7 @@ layout: post
 current: post
 cover: assets/images/AutoCorr/ma.png
 title: Part 1 - Autocorrelation, Moving Average, & More
-date: 2024-02-01
+date: 2024-01-15
 class: post-template
 subclass: 'post'
 tags: [arima]

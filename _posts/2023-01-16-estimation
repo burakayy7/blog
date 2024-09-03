@@ -1,0 +1,13 @@
+---
+navigation: true
+cover: assets/images/
+title: "Project: Head Pose Estimation"
+date: 2023-01-16
+class: post-template
+tags: 
+layout: post
+current: post
+subclass: 'post'
+---
+
+

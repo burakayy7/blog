@@ -1,0 +1,11 @@
+---
+navigation: true
+cover: assets/images/
+title: "Plane Project: How will the Plane be Tested"
+date: 2022-03-28
+class: post-template
+tags: plane
+layout: post
+current: post
+subclass: 'post'
+---

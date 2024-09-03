@@ -2,7 +2,7 @@
 navigation: true
 cover: assets/images/AutoCorr/ACmain.png
 title: Part 2 - Autocorrelation, Moving Average, & More
-date: 2024-02-07
+date: 2024-01-25
 class: post-template
 tags: [arima]
 layout: post

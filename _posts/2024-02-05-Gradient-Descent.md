@@ -2,7 +2,7 @@
 navigation: true
 cover: 'assets/images/Gradient/gdMain.png'
 title: Gradient Descent & Linear Regression
-date: 2024-02-16
+date: 2024-02-05
 class: post-template
 layout: post
 current: post

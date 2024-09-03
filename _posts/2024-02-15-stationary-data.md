@@ -2,7 +2,7 @@
 navigation: true
 cover: assets/images/AutoCorr/stationary.png
 title: What is Stationary Data & Unit Root Tests
-date: 2024-02-20
+date: 2024-02-15
 class: post-template
 tags: arima
 layout: post
