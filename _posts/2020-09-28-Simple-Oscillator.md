@@ -3,7 +3,7 @@ layout: post
 current: post
 navigation: true
 title: "Simple Oscillator"
-date: 2021-02-14
+date: 2020-09-28
 cover: 'assets/images/oscilpic.jpg'
 class: post-template
 ---

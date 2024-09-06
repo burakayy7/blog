@@ -4,7 +4,7 @@ current: post
 cover: assets/images/td2.jpg
 navigation: true
 title: "Project Touch Delay"
-date: 2021-03-24
+date: 2020-10-02
 class: post-template
 ---
 
