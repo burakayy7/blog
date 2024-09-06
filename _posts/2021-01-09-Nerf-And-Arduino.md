@@ -16,4 +16,15 @@ See, after watching Iron Man, I really wanted to build my own "arm gun". And I h
 
 ## How does an Automatic Nerf Gun Work
 
-If you have every gotten the chance to take a nerf gun apart, you will see two DC motors (at least the ones that are battery powered). 
+If you have every gotten the chance to take a nerf gun apart, you will see two DC motors (at least the ones that are battery powered). And if you ever experimented with it, you will see that the motors actually rotate in opposite directions. So how does this work?
+
+### Motor Launching
+
+Below is a diagram I drew to illistrate this concept:
+
+![img](assets/images/nerfmotor.png)
+
+As you can see, the alternate rotating wheels "propell" the robot forwards.
+And the friction that is generated from the motor attachments is what grips the motor.
+
+The only thing that is required is a way to feed each bullet into the wheels.
