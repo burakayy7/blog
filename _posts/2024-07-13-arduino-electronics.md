@@ -2,7 +2,7 @@
 navigation: true
 cover: ""
 title: How to get started with Engineering | Electronics
-date: 2024-08-13
+date: 2024-07-13
 class: post-template
 layout: post
 current: post
@@ -22,7 +22,8 @@ A breadboard's purpose is to help with efficiency when prototyping a circuit; in
 Well, the breadboard comes to the rescue!
 
 Below is a diagram of how the various pins on your board are connected:
-![img](burakayy7/blog/assets/images/arduinoEng/breadboardLayout.png)
+
+![img](assets/images/arduinoEng/breadboardLayout.png)
 
 Usually, breadboards have two sets of horizontal strips that run accross the long side, each usually labelled with a red or blue strip. These are generally used for 
 power, providing current to your ciruit; however, these are not directly connected to the pins on the inside. I will explain how this works further, with examples.
