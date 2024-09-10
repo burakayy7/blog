@@ -77,3 +77,5 @@ delay(25);
 
 }
 ```
+
+This was a super fun project as I got to understand how bar codes work, and I got the chance to make my own bar-code patterns. But since I don't have that advanced technology, I had to go with simple patterns. Never the less, I got to understand the theory behind how these work. 

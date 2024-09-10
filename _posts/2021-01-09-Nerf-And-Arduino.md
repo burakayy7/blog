@@ -28,3 +28,11 @@ As you can see, the alternate rotating wheels "propell" the robot forwards.
 And the friction that is generated from the motor attachments is what grips the motor.
 
 The only thing that is required is a way to feed each bullet into the wheels.
+
+### The Arm
+
+To handle this task, I carefully investigated how the nerf gun handles this, and it is basically done by utilizing a lever that will "push" each bullet into the motors. But since this has to be completly electronic, I need an alternative solution. This is where Servo motors come in. 
+
+The plan is to use a servo motor to push the "plug" that is utilized in the nerf gun. 
+
+Below is a picture of how the setup looks like:

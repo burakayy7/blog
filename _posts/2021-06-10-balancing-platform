@@ -10,3 +10,16 @@ current: post
 subclass: 'post'
 ---
 
+To apply the control theory I learned from the Internet, let's make a self-balancing platform that implements
+a PID Controller. 
+
+Below are the materials I used:
+- a breadboard
+- Arduino Nano
+- BNO055 IMU
+- 2 sets of high torque servos
+
+The inspiration for this project is from Paul McWhorter's lesson on [PID Controllers](https://www.youtube.com/watch?v=IlJ_F4jDKLo&list=PLGs0VKk2DiYwEo-k0mjIkWXlkrJWAU4L9&index=24).
+You can follow his lessons on building the servo rig, as it can get complicated and it best learned through video.
+
+
