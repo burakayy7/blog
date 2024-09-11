@@ -14,7 +14,7 @@ Recently, I had to write a short paper in my Advanced Chemistry class related to
 
 While I will not go through the report in this post (reach out if you would like me to do that), I will just provide the PDF:
 
-<embed src="assets/images/pdfs/ChemPaper2.pdf" type="application/pdf">
+<embed src="assets/images/pdfs/ChemPaper2.pdf" type="application/pdf" width="100%" height="100vh">
 
 
 I hope you enjoyed that, I will see you next time!
