@@ -2,7 +2,7 @@
 navigation: true
 cover: assets/images/AutoCorr/predictions7.png
 title: Part 2 - Implementing a Full ARIMA model from SCRATCH!
-date: 2024-03-02
+date: 2024-03-15
 class: post-template
 tags: arima
 layout: post

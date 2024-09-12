@@ -2,7 +2,7 @@
 navigation: true
 cover: assets/images/AutoCorr/predictions5.png
 title: Part 1 - What are ARIMA models and how do they work? 
-date: 2024-02-25
+date: 2024-03-07
 class: post-template
 tags: arima
 layout: post
