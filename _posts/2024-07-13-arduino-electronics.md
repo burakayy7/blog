@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/arduinoEng/arduino_electronics.png"
 title: How to get started with Engineering | Electronics
 date: 2024-07-13
 class: post-template
@@ -51,7 +51,7 @@ Below is a diagram showing the guts of a resistor:
 ![img](assets/images/arduinoEng/resistor1.png)
 
 As you can see, there is some internal conductive material that is a mixture of various material with different properties.
-This will result in the final material to have a different resistance than the pins (connecting leads). 
+This will result in the final material to have a **different resistance than the pins** (connecting leads). 
 
 The coloring on the resistor also has a meaning. It is some sort of code for the resistance. However, these are often not
 standarized or hard to read and remeber, so I usually don't pay attention to them.
@@ -93,6 +93,33 @@ You are probably similar to conductors and insulators. But what are [semiconduct
 Below, I have linked a paper I had written in my sophomore year of high school to explain what photoresistors are and how they work. 
 
 <embed src="assets/images/pdfs/ChemPaper2.pdf" type="application/pdf">
+
+Even though I talk about photoresistors in that paper, I still explain semi-conductive materials and how various other materials, like phosphorus, are added to the silicon to achieve certain properties (mainly how there will be extra electrons in one mixture and a depletion, or holes, in another mixture).
+
+
+Refering back to this image of how the electrons will behave in a diode:
+![img](assets/images/arduinoEng/diode1.png)
+
+We can see that due to the material properties of the p-type, it will create various holes (a lack of electrons in an atoms outer electron shell) and due to the properties of the n-type, there will be an excess of electrons. 
+
+Now the key is notice what will happen (at an atomic scale) at the border/barrier between these two materials. Some of the free electrons nearest to the border will actually **cross** over to the p-type material. So, after this interaction, the p-type material right-most side will be slightly negatively charged, and the left-most side of the n-type material will be positively charged. 
+
+Now, you might think that this process will continue, but it actually will not. See this transfer of inital electrons will create a charge barrier. This barrier will stop the electrons from the n-type to cross further to the p-type. But why does this happen?
+
+See, after the initial cross, like I said the right-most p-type side will be slightly negatively charged. So, when other electrons try to cross over to the p-type again, the negative charge created from the initial cross will repel further crosses. 
+
+So currently, with no further charges applied, this diode will be locked in this charge state and no further electrons will flow (at least across the border; there might be small flow from electrons within the n-type). 
+
+But let's see what happens when we apply a charge, like from a battery, to the terminals of this diode. 
+
+![img](assets/images/arduinoEng/diode1.png)
+
+So, electrons from the battery's negative side will flow into the -----explain------
+
+
+
+
+So, since we now know how diodes work, let's see how we can apply this to understand how transitors work. Basically, transistors are two diodes in parallel. Now, don't just think you can put two diodes in series on a breadboard and think you have created a transistor (this is actually something I believed in middle school)
 
 
 ## How Does an LED Work
