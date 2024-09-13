@@ -9,7 +9,7 @@
 #   cover: "false"
 arduino:
   name: arduino
-  #name_long: Arduino Getting Started
+  name_long: Arduino Getting Started
   description: Course on Getting started with Engineering & Arduino. 
   cover: "false"
 arima:
