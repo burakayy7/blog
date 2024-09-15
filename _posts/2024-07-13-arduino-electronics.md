@@ -157,4 +157,17 @@ So, an LED is just a diode with some modifications.
 
 
 
-## Creating Basic Ciruits
+
+## Creating Basic Circuits
+
+
+
+
+### Notes/References
+- a few pages of notes from my old notebook related to How transistors work:
+
+![1](assets\images\arduinoEng\notes1.jpg)
+![2](assets\images\arduinoEng\notes2.jpg)
+![3](assets\images\arduinoEng\notes3.jpg)
+![4](assets\images\arduinoEng\notes4.jpg)
+![5](assets\images\arduinoEng\notes5.jpg)
