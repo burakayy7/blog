@@ -129,7 +129,7 @@ Let's quickly observe the math behind why this would be true:
 consider the below, some what generic, equation for our time series:
 
 $$
-y_t = a_1 \cdot y_{t-1} + \mathcal_t
+y_t = a_1 \cdot y_{t-1} + \mathscr{E}_t
 $$
 
 if that doesn't trend to a long therm mean (meaning it can "drift away"), then it has a unit root. It has a unit root (a root of 1) when a = 1 because the characteristic equation

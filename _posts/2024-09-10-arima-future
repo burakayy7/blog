@@ -1,0 +1,11 @@
+---
+navigation: true
+cover: assets/images/AutoCorr/stationary.png
+title: Future Works & Next Steps
+date: 2024-09-10
+class: post-template
+tags: arima
+layout: post
+current: post
+subclass: 'post'
+---
