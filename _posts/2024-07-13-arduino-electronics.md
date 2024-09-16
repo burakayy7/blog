@@ -88,7 +88,7 @@ Well first, these materials are made up of mostly silicon. Which is something ca
 
 You are probably similar to conductors and insulators. But what are [semiconductors](https://en.wikipedia.org/wiki/Semiconductor)? Well, simply put, semiconductors are materials (specifically metals) that can have both conductive, and less conductive properties, depending on the environment. Factors that might influence this are 
 
-[link](#-my-technical-report-on-photoresistors)
+[#### My Technical Report on Photoresistors](#-my-technical-report-on-photoresistors)
 
 Below, I have [linked a paper](https://burakayy.com/blog/chem-paper) I had written in my sophomore year of high school to explain what photoresistors are and how they work. 
 
