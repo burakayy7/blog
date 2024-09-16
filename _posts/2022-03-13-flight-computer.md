@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets/images/plane/plane-computer1.jpeg
+cover: assets/images/plane/plane-computer3.jpg
 title: "Plane Project: Designing the Flight Computer"
 date: 2022-03-13
 class: post-template

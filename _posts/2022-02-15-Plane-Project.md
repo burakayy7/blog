@@ -1,8 +1,8 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/planeBkg.jpg"
 title: Introducing the Plane Project
-date: 2022-2-15
+date: 2022-02-15
 class: post-template
 tags: Plane
 layout: post
@@ -21,3 +21,19 @@ After many failed attempts, there I was a couple months back, in winter break. Y
 So, I got myself one of [these](https://www.amazon.com/XFLY-MODEL-Wingspan-Airplane-Beginner-Transmitter/dp/B0BXD5R27D/ref=sr_1_15?crid=WZMKIZSUOAT4&dib=eyJ2IjoiMSJ9.9OWWmkdCHsz5c-DNkaQEVo5dcEsyN6YgMk2Jh6pfwYn-7OCxUGz47DwV7FBpYgiSUy5ZZizDdL_rXp-tFn2dxgsmeqqXCv9zOYPHiXomlUAzDSGgnSF6U17HNJWNdMgpP4XzlZ-0RcZLCktkPGsGLAGi8avZwyn6T1VsiaOEdMRackGgAovn_xBZwFRZ9BZe-4-WMrchm7K31_wqc1zBKMxKihaUryryl2EgthBlgSu4BO3LXGnrp9W6ZXOqph2QF4GnLsTna1z0FyISWm3T9qumG_ynAnxrc-Sf04sLAWc.jEpOzOXoMyrPtl7LCrAT3I9b4OoVqs5ST567iDZtuDo&dib_tag=se&keywords=volantex+rc+glider&qid=1721079633&sprefix=volantex+rc+glider%2Caps%2C103&sr=8-15) but like a 2-meter one.
 
 
+This took some time to build, as it was quite complicated and I also had to figure outwhat I had to do to modify this into a usable craft for my goals. 
+
+Here are the main specifications/details of this plane:
+
+- it has a 2-meter wingspan, meaning it has <ins>flaps and ailerons</ins>. This large wing is supported by _carbon fiber_ strips/rods in the control services and the foam is suooprted with two _aluminum rods_!
+- the main body is made from PVC plastic, and is supported by wooden platforms in the interior. All control services are from compressed foam (more durable and flexible). 
+- the motor is in the front, and is quite a beast. To support this (and to prevent breaking on landing), the propeller is foldable.
+- the plane has a single wheel under the chasis, to aid landing
+- the wings can be taken off, via clips. Thus, the wings, after fitted to the aluminum rods, "clip" onto the main fram via plastic clips.
+
+
+As you cans see, this is quite a complicated project, and it will have plenty of complex mini-projects involved with it. And you probably are wondering how long will this project take me? <ins>I expect that I will be working on this my entire high school career.</ins>
+
+I will try to document as much I can, but since this will take a lot of time and focus, I believe I am bound to fall out of precedence for documenting this.
+
+Thanks, and I hope to see you back for updates!
