@@ -120,8 +120,81 @@ def bickel_doksum_transform(data, lam):
   But for more information on this, please refer to the previous lessons. 
 
 
+## What are Unit Root Tests
+
+While there might be various different types of Unit Root Tests, I will specifically be referencing the ADF (Augmented Dickey-Fuller) test. This tests the null hypotheses: does the series have **a unit root** (non-stationary, non seasonal, and is a function of previous values/time, which basically means has an autocorrelation). If the statistic is _less than a **critical value**_ then the null hypothesis is rejected and the series is stationary. 
+
+Let's quickly observe the math behind why this would be true:
+
+consider the below, some what generic, equation for our time series:
+
+$$
+y_t = a_1 \cdot y_{t-1} + \mathcal_t
+$$
+
+if that doesn't trend to a long therm mean (meaning it can "drift away"), then it has a unit root. It has a unit root (a root of 1) when a = 1 because the characteristic equation
+
+$$
+m - a_1 = 0
+$$
+
+which has a root of 1. 
+
+So, that means that at some point in time, y_t will be based off "random drift" or "random walk", which is unpredictable because it's random. Logically, this makes sense because once we come to the t value which will give use a unit root, then the data becomes random, so it cannot tend to a long term mean, by definition.
+
+
+Below is the code I used with our dataset (and previously provided functions) to do this test:
+
+```python
+from statsmodels.tsa.stattools import adfuller
+adftest = adfuller(data, maxlag=12, autolag='AIC', regression='ct')
+#adftest = adfuller(seasonal_difference(data, 12), maxlag=12, autolag='AIC', regression='ct')
+print("ADF Test Results")
+print("Null Hypothesis: The series has a unit root (non-stationary)")
+print("ADF-Statistic:", adftest[0])
+print("P-Value:", adftest[1]) #IF THIS IS BELOW .05, THEN IT IS STATIONARY
+print("Number of lags:", adftest[2])
+print("Number of observations:", adftest[3])
+print("Critical Values:", adftest[4])
+print("Note: If P-Value is smaller than 0.05, we reject the null hypothesis and the series is stationary")
+```
+
+Which should provide you with the below output:
+
+```python
+ADF Test Results
+Null Hypothesis: The series has a unit root (non-stationary)
+ADF-Statistic: -1.775994155207604
+P-Value: 0.7162169120872566
+Number of lags: 12
+Number of observations: 182
+Critical Values: {'1%': -4.009392790586421, '5%': -3.434893396561173, '10%': -3.141378799874199}
+Note: If P-Value is smaller than 0.05, we reject the null hypothesis and the series is stationary
+```
+
+Since we fed in non-stationary data (the original), the P-Value is 0.7162, which is greater than the critical value of 0.05, thus we **don't reject** the hypothesis, and the data is not stationary, as expected.
+
+Below are some nice references from [this wikipedia article](https://en.wikipedia.org/wiki/Unit_root):
+
+"
+If the other roots of the characteristic equation lie inside the unit circle—that is, have a modulus (absolute value) less than one—then the first difference of the process will be stationary; otherwise, the process will need to be differenced multiple times to become stationary.[1] If there are d unit roots, the process will have to be differenced d times in order to make it stationary.[2] Due to this characteristic, unit root processes are also called difference stationary.[3][4]
+"
+
+"
+If the process has a unit root, then it is a non-stationary time series. That is, the moments of the stochastic process depend on 
+t
+{\displaystyle t}. To illustrate the effect of a unit root, we can consider the first order case, starting from y0 = 0:
+"
+
+
+
+
 
 To summarize:
   - Stationary data is when the time series contains properties which are **not** dependent on when the dataset is observed.
   - You can make your own non-stationary by differencing
   - You can fix the variance via transformations
+  - If a dataset has a unit root, then the data is non-stationary
+  - You can use a ADF test to statistically measure the amount of "stationarity"
+
+
