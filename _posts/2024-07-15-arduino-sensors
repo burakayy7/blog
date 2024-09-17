@@ -19,13 +19,17 @@ Or sometimes called, photoresistors, these are electronic components that will c
 
 ## Touch Sensors
 
-## Temperatur and Humidity
+There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in [this](https://burakayy.com/blog/Touch-Delay) lesson.
 
-## PIR Motion Sensors
+# Temperature and Humidity
 
-## Ultrasound Sensors
+Let's say you are gardening plants in a greenhouse and you need an automated way to collect the temperature and humidity, how will you accomplish this? Well, you can use [this](https://store-usa.arduino.cc/products/grove-temperature-humidity-sensor-pro?srsltid=AfmBOoqYoffAkhPifA9yp4xX23G8pze6Jj0sfVQu1lXpHfzy7GpCsR8A) module. There should be a temperature sensor in the [Elegoo Kit](https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino), which you can follow along with. 
 
-## IR Reciever
+# PIR Motion Sensors
 
-## Inertial Measurement Units (IMU)
+# Ultrasound Sensors
+
+# IR Reciever
+
+# Inertial Measurement Units (IMU)
 

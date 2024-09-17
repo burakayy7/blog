@@ -1,7 +1,7 @@
 ---
 navigation: true
 cover: ""
-title: How to get started with Engineering | Hello World
+title: How to get started with Engineering | Hello World Example
 date: 2024-07-14
 class: post-template
 layout: post
@@ -18,19 +18,29 @@ Required Materials:
   - Male-Male Jumper Wires
   - Arduino IDE
   - 1 LED
-  - 1 220 Ohm Resistor
+  - 1 1K Ohm Resistor
 
 Here is how this will work, this program will print out "Hello, World" and blink an LED every 1 second.
 
-```cpp
+Please get out your breadboard and the required components above from your [Elegoo Kit](https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino) and wire the below diagram:
 
-int ledPin = 8;
-String outputString = "Hello, World";
-int delayTime = 1000;
+![img](assets/images/arduinoEng/arduino_1.png)
+
+As you can see, the Arduino pin 8 connects to a resistor, which is connected to an LED. How this works is that electrons from the negative pin will flow through the resistor and LED only if the Arduino Pin 8 is open, or has a positive charge. Because if it doesn't, then there will be no charge potential, thus the electrons won't flow. At a microscopic level, what is going on is a transistor is opening its gate, allowing electrons to flow, thus eluminating the LED. This function is controlled by binary code, that is processed in some central processing unit in the chip. 
+
+Below, is the code which I will be using, please try to follow along with your own Arduino IDE. Unfortunetly, I cannot go through teaching programming in this course, but I will try to explain everything as I go along. But, I highly suggest you check out [this Arduino Refrence](https://docs.arduino.cc/learn/programming/reference/) to get in depth knowledge of C++.
+
+When I first started to learn the Arduino Programming language, I kept a journal of various functions or names, and every day my goal was to learn five new "names". I tried to memorize all the symbols and what they meant, but I later figured out that it is much faster to learn programming while applying it and programming along with a tutorial, not trying to memorize every function or symbol. So if you are worried you don't understand how C++ works, don't worry! Just try your best to 
+
+```cpp
+// defines a comment
+int ledPin = 8; // defines an integer variable names ledPin
+String outputString = "Hello, World"; // defines a string (a bunch of characters) variable, named output String
+int delayTime = 1000; // defines an integer (called int) variable, named delayTime
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); //Start the serial communication protocol 
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   Serial.println("Starting program...");
@@ -52,3 +62,28 @@ int ledPin = 8;
 String outputString = "Hello, World";
 int delayTime = 1000;
 ```
+
+Then I initialize some "setting" in a part of the program that will only run once, the setup() function:
+```cpp
+void setup() {
+  Serial.begin(9600); //Start the serial communication protocol 
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+  Serial.println("Starting program...");
+}
+```
+This program doesn't loop, and it runs once, at the beginning of the program. However, the main() function will loop indefinetly until the Arduino looses power:
+
+```cpp
+void main() {
+  Serial.println(outputString);
+  digitalWrite(ledPin, HIGH);
+  delay(delayTime);
+  Serial.println(outputString);
+  digitalWrite(ledPin, LOW);
+  delay(delayTime);
+}
+```
+
+the above code will blink the LED to infinity!
+
