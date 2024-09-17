@@ -87,3 +87,43 @@ void main() {
 
 the above code will blink the LED to infinity!
 
+the _pinMode()_ function sets the pin we want to use and how we want to use it, either INPUT or OUTPUT. And the key function that allows us to do this blinking is _digitalWrite()_ which takes in an integer for the pin number and whether it needs to go HIGH or LOW (can also use 1 or 0). The delay happens with the _delay()_ function, which takes in milliseconds to stop execution for that period of time. 
+
+So that's interesting right? 
+
+Compare how easy this is to making an electronic ciruit to [blink an LED manually](https://burakayy.com/blog/Simple-Oscillator)!
+
+## Experimentation
+
+I want to you go in an manually and adjust the time between blinks, if necessary, use the _delayMicroseconds()_ function to get smaller intervals. Once you get to a small enough number, you **shouldn't be able to see a blink**! WHY is this?
+
+### PWM (Pulse Width Modulation)
+
+Modifying the amount of time between a signal can be referred to as PWM (Pulse Width Modulation) because we are modifying (or modulating) the width (or the amount of time the pulse/signal is sent). 
+
+This concept of PWM is actually how all modern computers work; they use PWM on computer screens or smartphones to adjust the brightness, and refress the screen (and others). 
+
+So what this does is two fold. First, it blinkes so fast, that our eyes cannot see it blink, so it just looks constantly on. Can you see how we could use this to "adjust" the brightness of the LED by using PWM?
+
+The answer is simple, just adjust the ratio the LED stays on to how long it stays off when doing PWM. So in the code above, you might want to have the first delay be a little bit longer than the second one, which will make it seem brighter compared to the second one being off longer. 
+
+
+## Serial Monitor
+
+The next and final part of this is viewing print statements in the Arduino IDE. So, as you saw in the code, I used the built-in _Serial_ library to access the serial monitor from the Arduino. I first initialize it at a baud rate (basically how fast we communicate):
+```cpp
+Serial.being(9600);
+```
+
+So now in the loop, to print out a string, you can run the below function:
+```cpp
+Serial.println(outputString);
+```
+
+here, we call the _println()_ functino from the _Serial_ class. To prove that this works, you can open the Serial Monitor by clicking the _Serial Monitor_ button in the top right corner. 
+
+
+
+This was quite a simple example, which is why it is often reffered to as the Hello World Example. I hope this got you excited to learn more about Engineering with Arduino!!
+
+See you next time!!

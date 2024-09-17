@@ -27,7 +27,13 @@ Let's say you are gardening plants in a greenhouse and you need an automated way
 
 # PIR Motion Sensors
 
+This is a motion sensor that utilizes changes in IR (Infared Red) Light. It basically has hemispheres with sensors in it, and when there is a gradient from one to another, it will send a pin high (from a 0 to a 1). We will need to read this using Arduino Analog Pins.
+
+
+
 # Ultrasound Sensors
+
+Ok, this sensor is actually quite interesting. To introduce it, 
 
 # IR Reciever
 
