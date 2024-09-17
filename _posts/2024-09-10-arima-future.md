@@ -21,7 +21,7 @@ to look forward to in the future, and next steps to learn more.
 I am sure you all remember the COVID-19 pandemic, and the possible catastrophic effects it had. This is a poor example as it was a new disease
 and we didn't have much data on it at the time, so we will get back to that. 
 
-But let's consider an outbreak of the FLU, we already have plenty of data on that, including hospitilizations (when and specifically which locations got impacted),
+But let's consider an outbreak of the FLU, we already have plenty of data on that, including hospitalizations (when and specifically which locations got impacted),
 and multiple other statistically measurable metrics have been recorded. What if there was a way for scientists and doctors
 to be able to not only predict the next FLU outbreak, but also in which location that will occur, over time? 
 
