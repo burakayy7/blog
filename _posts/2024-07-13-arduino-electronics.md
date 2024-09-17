@@ -143,7 +143,7 @@ So in this sense, a transistor is like a gate, it allows electrons to flow from 
 Ok, now that we have a basic understanding of semi-conductor materials, let's learn about some other components.
 
 
-## How Does an LED Work
+## How Does a LED Work
 
 Simply put, this is stands for a **L**ight **E**mitting **D**iode, and it does exactly as it sounds like: emits light by utilizing physical properties of certain materials. 
 

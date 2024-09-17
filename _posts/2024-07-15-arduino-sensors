@@ -15,7 +15,7 @@ One of the main applications of an Ardunio board is by utilizing various sensors
 
 ## Photosensors
 
-Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in [my report in this previous lesson](https://burakayy.com/blog/photoresistors#my-technical-report-on-photoresistors), and I hope you go back to that and review!
+Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in [my report in this previous lesson](https://burakayy.com/blog/arduino-electronics#my-technical-report-on-photoresistors), and I hope you go back to that and review!
 
 ## Touch Sensors
 

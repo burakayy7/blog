@@ -1,0 +1,58 @@
+---
+navigation: true
+cover: assets\images\AutoCorr\pmdarima1.png
+title: Auto ARIMA & SIR Models
+date: 2024-05-16
+class: post-template
+tags: arima
+layout: post
+current: post
+subclass: 'post'
+---
+
+This lesson is two fold: first introduce and apply Auto ARIMA models, and then talk about SIR Models. The first section is somewhat of a carry on from the previous lessons, while the second section is considered somewhat off-topic to the first. With that in mind, let's get started.
+
+## Auto ARIMA Models and how you can use One
+
+So, previously you have made your own ARIMA model from scratch, where you had to find and tune the hyperparameters. But what if I were to tell you that there is a library that will do this process for you? That is where pmd-ARIMA comes in. 
+
+So I think it is pretty self-explanatory as to why such a tool would be useful: it would help save time spent for manual tuning and a trial-error process for finding the hyperparameters. 
+
+To apply this, simply use the pmdarima library (run this in colab):
+
+```python
+!pip install pmdarima
+
+import pmdarima as pm
+from pmdarima.model_selection import train_test_split
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load/split your data
+train, test = train_test_split(data, train_size=130)
+
+# Fit your model
+model = pm.auto_arima(train, seasonal=True, m=12)
+
+# make your forecasts
+forecasts = model.predict(test.shape[0])  # predict N steps into the future
+
+# Visualize the forecasts (blue=train, green=forecasts)
+x = np.arange(data.shape[0])
+plt.plot(x[:130], train, c='blue')
+plt.plot(x[130:], forecasts, c='green')
+plt.show()
+```
+
+And please keep in mind that we will be using the same dataset we have been using for the above code. After some time of running on CPU, you should get the below output:
+
+![img](assets\images\AutoCorr\pmdarima1.png)
+
+and if you have coded along in the previous lessons, you should notice that is looks awfully close to our ARIMA model made from SCRATCH (WOW, our basically DIY model performs almost as well as mainstream ones)!
+
+Anyway, I thought I might include this piece of knowledge before jumping into a completely different subset of forecasting: forecasting based off classes, or states.
+
+# What are SIR Models?
+
+
+
