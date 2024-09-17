@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: assets\images\AutoCorr\sirfuture1.png
+cover: assets/images/AutoCorr/sirfuture1.png
 title: Future Works & Next Steps
 date: 2024-09-10
 class: post-template
