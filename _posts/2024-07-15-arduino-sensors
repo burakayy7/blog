@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/arduinoEng/sensor1.png"
 title: How to get started with Engineering | Sensors & Actuators
 date: 2024-07-15
 class: post-template
@@ -17,13 +17,122 @@ One of the main applications of an Ardunio board is by utilizing various sensors
 
 Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in [my report in this previous lesson](https://burakayy.com/blog/arduino-electronics#my-technical-report-on-photoresistors), and I hope you go back to that and review!
 
+Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resitance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance.
+
+
+
+
+Below is a super short script that will show you how to use this:
+
+```cpp
+
+void setup() {
+    Serial.begin(9600);
+    Serial.println("Let's begin!");
+}
+
+void loop() {
+    int value = analogRead(A2); //read value (voltage potential) from Analog Pin 2
+    Serial.println(value);
+    delay(50);
+}
+```
+To hook it up, just connect one end of the photoresistor to ground and the other end to Analog Pin 2. 
+
+And once you compile the script, you can experiment by putting your hand over the sensor and observing how the values change from the  Serial Monitor. 
+
+
+
 ## Touch Sensors
 
-There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in [this](https://burakayy.com/blog/Touch-Delay) lesson.
+There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in [this](https://burakayy.com/blog/Touch-Delay) lesson. Please go back to that lesson and build that circuit at the end.
+
+However, in that post I used just electronic components. But how can we use arduino with this?
+
+Well, once you build that circuit on your breadboard, all we have to do to measure the output, is connect the output of the transistor to an Arduino Analog Pin. Pick any you would like, and you can run the code below:
+
+```cpp
+
+void setup() {
+    Serial.being(9600);
+
+}
+
+void loop() {
+    int v = analogRead(A3); //or anyother pin you choose
+    Serial.println(v);
+    delay(10);
+}
+```
 
 # Temperature and Humidity
 
 Let's say you are gardening plants in a greenhouse and you need an automated way to collect the temperature and humidity, how will you accomplish this? Well, you can use [this](https://store-usa.arduino.cc/products/grove-temperature-humidity-sensor-pro?srsltid=AfmBOoqYoffAkhPifA9yp4xX23G8pze6Jj0sfVQu1lXpHfzy7GpCsR8A) module. There should be a temperature sensor in the [Elegoo Kit](https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino), which you can follow along with. 
+
+In this sensor, there are three main pins: ground, power, and an output pin. 
+
+Connect the power pin and ground to 5v and ground on your arduino, respectively. Then, connect the output pin to a digital pin on the Arduino:
+
+![img](assets/images/arduinoEng/temp1.png)
+
+Then, to use this we will use a library provided by the producers to help us out:
+
+```cpp
+#include <dht.h> //this is how you include a library in Arduino
+
+dht DHT;
+
+#define DHT11_PIN 2
+
+void setup(){
+  Serial.being(9600);
+}
+
+void loop() {
+    int value = DHT.read11(DHT11_PIN);
+
+    Serial.print("Temperature: ");
+    Serial.print(DHT.temperature);
+    Serial.println((char)223);
+    Serial.print("Humidity: ");
+    Serial.print(DHT.humidity);
+    Serial.println("%");
+    delay(500);
+}
+```
+
+Let's walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named _DHT_, and define the pin which it's connected to Digital Pin 2. Once we intialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidtity values, we need to refrence them from the built in dht class; they are set in the _temperature_ and _humidity_ values. Finally, we print them out twice every second (or once every .5 seconds). 
+
+Below is the range/accuracy for the DHT sensor:
+- Humidity Range: 20-90% RH
+- Humidity Accuracy: ±5% RH
+- Temperature Range: 0-50 °C
+- Temperature Accuracy: ±2% °C
+- Operating Voltage: 3V to 5.5V
+
+This dht sensor measures relative humidity, which is basically the amount of water vapor in the air vs. the saturation point of water vapor in the air. This saturation point is when water vapor starts to condense and leave behind due on surfaces. 
+
+The saturation point changes with air temperature. Cold air can hold less water vapor before it becomes saturated, and hot air can hold more water vapor before it becomes saturated.
+
+The formula to calculate relative humidity is:
+
+$$
+RH = (\fraq{P_w}{P_s}) X \cdot 100%
+$$
+
+- RH = relative humidity
+- density of water vapor
+- density of water vapor at saturation
+
+So how can we use this to measure temperature and humidity. Well, this sensor is made up of two electrodes and a substrate. When water vapor accumulates on this surfaces, it will release ions, changing the conductivity between the electrodes. 
+
+For the temperature part, it will basically measure the resistance a certain material makes, which depends on the temperature. However, since the Arduino can't directly measure resistance, it will measure voltage from a voltage divider, which is defined by this equation:
+
+$$
+V_{out} = V_{in} \cdot (\fraq{R2}{R1 + R2})
+$$
+
+Where R1 and R2 are resistors in series. If one of these is a constant resistor, and the other is the thermistor, then we can rearange and calculate for the resistance, which we can convert to temperature. 
 
 # PIR Motion Sensors
 
@@ -42,6 +151,10 @@ While this can also be used for a proximity sensor, in this case, we won't be do
 # Inertial Measurement Units (IMU)
 
 In my opinion, one of the most important sensors for your robotics projects, the IMU is basically an orientation sensor. It will measure your acceleration and gyroscopic rotation. How it works is really fancy, so I will try to simplify it. 
+
+
+
+To use it with your Arduino, you can check out [this past blog post](https://burakayy.com/blog/IMU-Measurments) for more information.
 
 
 
