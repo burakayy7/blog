@@ -33,9 +33,15 @@ This is a motion sensor that utilizes changes in IR (Infared Red) Light. It basi
 
 # Ultrasound Sensors
 
-Ok, this sensor is actually quite interesting. To introduce it, 
+Ok, this sensor is actually quite interesting. To introduce it, this sensor is basically a proximity sensor that uses sound waves. You can think of it like a radar, it sends out a sound wave, and listens for the time between when it will return, and since we know the speed of sound we can use math to calculate the distance an object is from us. 
 
 # IR Reciever
 
+While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply recieves IR (Infared Red) light. 
+
 # Inertial Measurement Units (IMU)
+
+In my opinion, one of the most important sensors for your robotics projects, the IMU is basically an orientation sensor. It will measure your acceleration and gyroscopic rotation. How it works is really fancy, so I will try to simplify it. 
+
+
 
