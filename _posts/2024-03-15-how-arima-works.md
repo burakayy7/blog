@@ -29,6 +29,11 @@ $$
   \beta = (X^T \cdot X)^{-1} \cdot X^T \cdot y
 $$
 
+$$
+  \beta = X^{+} \cdot y
+$$
+
+
 The above is a super simplified version of something called the [Moore-Penrose Inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse). It is somewhat technical, so I decided to keep that out of this lesson.
 
 
