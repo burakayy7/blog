@@ -37,12 +37,16 @@ There are plenty of other topics to discuss here, but, for now, I want to limit 
 
 
 
+I am currently working on a final lesson which will involve the below two topics. So, please stay in tune to hear more about that!
+
+
+
+
 ### Auto-ARIMA Models
+
+
 
 ### SIR Models and Dynamic Systems
 
 
 
-
-
-I am currently working on a final lesson which will involve the below two topics. So, please stay in tune to hear more about that!

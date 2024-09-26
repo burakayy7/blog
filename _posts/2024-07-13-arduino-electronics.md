@@ -140,6 +140,8 @@ Now, let's observe what will happen when I add a positive charge to the base: ag
 
 So in this sense, a transistor is like a gate, it allows electrons to flow from one end to another only when a "key" (a positive charge on the base) is applied.
 
+There is also PNP type transistors, which work very similarly, but instead of a positive charge on the base opening the gate, a negative charge will open the gate. 
+
 Ok, now that we have a basic understanding of semi-conductor materials, let's learn about some other components.
 
 

@@ -9,14 +9,16 @@ current: post
 subclass: 'post'
 ---
 
-For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment 
-Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But, keep in mind that these 
-are made with MEMS \(Micro-electromechanical systems\), or cell-phone grade sensors. They will have inperfections. 
+For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment.
+
+Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But, keep in mind that these are made with MEMS \(Micro-electromechanical systems\), or cell-phone grade sensors. They will have imperfections. 
 
 I first started on a bunch of online tutorials on how to use this and I got the accelerometer to measure angles. 
 
+First, we need to hook up the MPU6050 to our Arduino. First, simply connect the voltage pins to 5 volts and ground to negative. Next, we have to connect the i2C pins on the sensor. If you have an Arduino Uno or Nano, connect the SCL and SDA pins to A5 and A4, respectively. If you're using an Arduino Mega, it has its own SDA and SCL pins, on the communication block. Just connect SCL to SCL and SDA and SDA.
 
-Here is a short piece of code that will do the basic readings from the MPU6050 \(also make sure you hooked up the sensor correclty, search it up\):
+
+Here is a short piece of code that will do the basic readings from the MPU6050 \(also make sure you hooked up the sensor correctly\):
 
 ```cpp
 #include <MPU6050.h>
