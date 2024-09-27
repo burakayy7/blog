@@ -35,6 +35,10 @@ So first, please go to the [Arduino Software Website](https://www.arduino.cc/en/
 -
 -
 
+## What Different Kinds of Arduinos?
+
+### Layout and Hardware on an Arduino
+
 ### Electronics
 
 A strong knowledge of Arduino prototyping requires a pretty good understanding of breadboard prototyping. I learned this with trial and error, but you can use plenty of free online resources. Furthermore, you will need an understanding of basic electronic components, like transistors, capacitors, resistors, LEDs, and general ciruit grounding. 

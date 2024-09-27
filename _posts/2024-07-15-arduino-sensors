@@ -10,14 +10,14 @@ subclass: 'post'
 tags: arduino
 ---
 
-One of the main applications of an Ardunio board is by utilizing various sensors, actuators, and other devices
+One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices
 
 
 ## Photosensors
 
 Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in [my report in this previous lesson](https://burakayy.com/blog/arduino-electronics#my-technical-report-on-photoresistors), and I hope you go back to that and review!
 
-Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resitance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance.
+Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resistance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance.
 
 
 
@@ -101,7 +101,7 @@ void loop() {
 }
 ```
 
-Let's walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named _DHT_, and define the pin which it's connected to Digital Pin 2. Once we intialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidtity values, we need to refrence them from the built in dht class; they are set in the _temperature_ and _humidity_ values. Finally, we print them out twice every second (or once every .5 seconds). 
+Let's walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named _DHT_, and define the pin which it's connected to Digital Pin 2. Once we initialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidity values, we need to reference them from the built in dht class; they are set in the _temperature_ and _humidity_ values. Finally, we print them out twice every second (or once every .5 seconds). 
 
 Below is the range/accuracy for the DHT sensor:
 - Humidity Range: 20-90% RH
@@ -183,7 +183,7 @@ Okay, now time for the fun part.
 
 Let's first understand how this sensor works:
 
-On this sensor, there are two main 'tubes', one of them is kind of like a speaker for ultrasonic sound, and the other one is a reciever for this sound. 
+On this sensor, there are two main 'tubes', one of them is kind of like a speaker for ultrasonic sound, and the other one is a receiver for this sound. 
 
 ![img](assets/images/arduinoEng/ultra1.png)
 
@@ -225,6 +225,8 @@ To use it with your Arduino, you can check out [this past blog post](https://bur
 
 
 # Motors
+
+Now, we move into actuators. The first thing I want to talk about are motors. 
 
 ## DC Motors
 

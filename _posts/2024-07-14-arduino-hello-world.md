@@ -13,6 +13,7 @@ tags: arduino
 In this lesson, we will implement our first Arduino Project: our very own Hello World example!!
 
 Required Materials:
+
   - Arduino Board (with USB cable)
   - Breadboard
   - Male-Male Jumper Wires
@@ -56,7 +57,7 @@ void main() {
 }
 ```
 
-First, I declare three valriables to be used in the program:
+First, I declare three variables to be used in the program:
 ```cpp
 int ledPin = 8;
 String outputString = "Hello, World";
@@ -72,7 +73,7 @@ void setup() {
   Serial.println("Starting program...");
 }
 ```
-This program doesn't loop, and it runs once, at the beginning of the program. However, the main() function will loop indefinetly until the Arduino looses power:
+This program doesn't loop, and it runs once, at the beginning of the program. However, the main() function will loop indefinitely until the Arduino looses power:
 
 ```cpp
 void main() {
@@ -91,7 +92,7 @@ the _pinMode()_ function sets the pin we want to use and how we want to use it, 
 
 So that's interesting right? 
 
-Compare how easy this is to making an electronic ciruit to [blink an LED manually](https://burakayy.com/blog/Simple-Oscillator)!
+Compare how easy this is to making an electronic circuit to [blink an LED manually](https://burakayy.com/blog/Simple-Oscillator)!
 
 ## Experimentation
 
@@ -101,9 +102,9 @@ I want to you go in an manually and adjust the time between blinks, if necessary
 
 Modifying the amount of time between a signal can be referred to as PWM (Pulse Width Modulation) because we are modifying (or modulating) the width (or the amount of time the pulse/signal is sent). 
 
-This concept of PWM is actually how all modern computers work; they use PWM on computer screens or smartphones to adjust the brightness, and refress the screen (and others). 
+This concept of PWM is actually how all modern computers work; they use PWM on computer screens or smartphones to adjust the brightness, and refresh the screen (and others). 
 
-So what this does is two fold. First, it blinkes so fast, that our eyes cannot see it blink, so it just looks constantly on. Can you see how we could use this to "adjust" the brightness of the LED by using PWM?
+So what this does is two fold. First, it blinks so fast, that our eyes cannot see it blink, so it just looks constantly on. Can you see how we could use this to "adjust" the brightness of the LED by using PWM?
 
 The answer is simple, just adjust the ratio the LED stays on to how long it stays off when doing PWM. So in the code above, you might want to have the first delay be a little bit longer than the second one, which will make it seem brighter compared to the second one being off longer. 
 
@@ -120,10 +121,10 @@ So now in the loop, to print out a string, you can run the below function:
 Serial.println(outputString);
 ```
 
-here, we call the _println()_ functino from the _Serial_ class. To prove that this works, you can open the Serial Monitor by clicking the _Serial Monitor_ button in the top right corner. 
+here, we call the _println()_ function from the _Serial_ class. To prove that this works, you can open the Serial Monitor by clicking the _Serial Monitor_ button in the top right corner. 
 
 
 
-This was quite a simple example, which is why it is often reffered to as the Hello World Example. I hope this got you excited to learn more about Engineering with Arduino!!
+This was quite a simple example, which is why it is often referred to as the Hello World Example. I hope this got you excited to learn more about Engineering with Arduino!!
 
 See you next time!!
