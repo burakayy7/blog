@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/nerfgun.jpg"
 title: Nerf And Arduino
 date: 2021-01-09
 class: post-template
@@ -36,3 +36,9 @@ To handle this task, I carefully investigated how the nerf gun handles this, and
 The plan is to use a servo motor to push the "plug" that is utilized in the nerf gun. 
 
 Below is a picture of how the setup looks like:
+
+![img](assets/images/nerfgun.jpg)
+
+Here is a video of it in action:
+
+![gif](assets\videos\nerfgunvideo.gif)

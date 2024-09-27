@@ -12,6 +12,9 @@ tags: arduino
 
 One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices
 
+#### Common Sensors
+
+
 
 ## Photosensors
 
@@ -213,7 +216,7 @@ But how do we send a ping in the first place? Well, for this specific module, al
 
 # IR Reciever
 
-While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply recieves IR (Infared Red) light. 
+While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply receives IR (Infared Red) light. 
 
 # Inertial Measurement Units (IMU)
 
@@ -223,16 +226,24 @@ In my opinion, one of the most important sensors for your robotics projects, the
 
 To use it with your Arduino, you can check out [this past blog post](https://burakayy.com/blog/IMU-Measurments) for more information.
 
+Ok, since I linked a previous lesson on how to use IMUs, I will keep this section pretty short. 
 
-# Motors
+
+# Actuators | Motors
 
 Now, we move into actuators. The first thing I want to talk about are motors. 
 
 ## DC Motors
 
+### Using Low Voltage Motors with Arduino
+
+### Using High Voltage Motors with Arduino | Motor Drivers
+
 ## Stepper Motors
 
 ## Servo Motors
+
+Lastly, maybe on of the most useful types of motors for your Engineering Projects, 
 
 
 
