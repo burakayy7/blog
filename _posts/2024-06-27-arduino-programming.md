@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/arduinoEng/arduino_prog.png"
 title: How to get started with Engineering | Programming
 date: 2024-06-27
 class: post-template
@@ -115,7 +115,7 @@ And similarly, we can declare Strings and characters:
 
 String name = "Bob";
 
-Char initial = 'B';
+char initial = 'B';
 ```
 
 
@@ -195,6 +195,7 @@ function2(4);
 So here, number is incremented by 4 instead of 1 in function1. All of the code is written in between the parenthesis, that is what defines the function code, everything in between the parenthesis.
 
 
+**Again, like all the other things, I will go in more detail once we actually start coding!**
 
 
 
@@ -202,4 +203,6 @@ So here, number is incremented by 4 instead of 1 in function1. All of the code i
 # Arduino Sketches, revisited
 
 So now that we know about functions, we can see that the _setup()_ and _loop()_ sections in the Arduino IDE, are really just functions that are already defined for us. In these functions, we will write our main code, but we can also make our own functions!
+
+In the following lessons, we will write code to accomplish tasks using these two; this lesson was just an introductary lesson for coding.
 
