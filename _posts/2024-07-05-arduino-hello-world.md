@@ -31,7 +31,7 @@ As you can see, the Arduino pin 8 connects to a resistor, which is connected to 
 
 Below, is the code which I will be using, please try to follow along with your own Arduino IDE. Unfortunetly, I cannot go through teaching programming in this course, but I will try to explain everything as I go along. But, I highly suggest you check out [this Arduino Refrence](https://docs.arduino.cc/learn/programming/reference/) to get in depth knowledge of C++.
 
-When I first started to learn the Arduino Programming language, I kept a journal of various functions or names, and every day my goal was to learn five new "names". I tried to memorize all the symbols and what they meant, but I later figured out that it is much faster to learn programming while applying it and programming along with a tutorial, not trying to memorize every function or symbol. So if you are worried you don't understand how C++ works, don't worry! Just try your best to 
+When I first started to learn the Arduino Programming language, I kept a journal of various functions or names, and every day my goal was to learn five new "names". I tried to memorize all the symbols and what they meant, but I later figured out that it is much faster to learn programming while applying it and programming along with a tutorial, not trying to memorize every function or symbol. So if you are worried you don't understand how C++ works, don't worry! Just try your best to understand/follow along.
 
 ```cpp
 // defines a comment
@@ -96,7 +96,7 @@ Compare how easy this is to making an electronic circuit to [blink an LED manual
 
 ## Experimentation
 
-I want to you go in an manually and adjust the time between blinks, if necessary, use the _delayMicroseconds()_ function to get smaller intervals. Once you get to a small enough number, you **shouldn't be able to see a blink**! WHY is this?
+I want to you go in and manually and adjust the time between blinks, if necessary, use the _delayMicroseconds()_ function to get smaller intervals. Once you get to a small enough number, you **shouldn't be able to see a blink**! WHY is this?
 
 ### PWM (Pulse Width Modulation)
 
