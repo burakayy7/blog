@@ -1,7 +1,7 @@
 ---
 navigation: true
 cover: "assets/images/arduinoEng/arduino_prog.png"
-title: How to get started with Engineering | Programming
+title: How to get started with Engineering | Arduino Programming
 date: 2024-06-27
 class: post-template
 layout: post
@@ -47,11 +47,17 @@ So, let's say you had a bunch of data or information you wanted to store in a co
 That's simply what a variable is, a way to store information. 
 
 Let's see a few examples of the different types of info you can store:
-    - Characters: store single characters, like 'A' or '$'
-    - Integers: stores integer numbers, like 20 or 4
-    - Floats: stores numbers with a decimal value, up to a certain degree, like 30.799 or 3.1415
-    - Doubles: can store even more deicmal values that floats, like 40.2991988476
-    - Strings: is actually a class/object that stores a group of characters, like "Hello"
+
+- Characters: store single characters, like 'A' or '$'
+
+- Integers: stores integer numbers, like 20 or 4
+
+- Floats: stores numbers with a decimal value, up to a certain degree, like 30.799 or 3.1415
+
+- Doubles: can store even more deicmal values that floats, like 40.2991988476
+
+- Strings: is actually a class/object that stores a group of characters, like "Hello"
+
 
 Now, let's see how we can use these in Arduino code (which is just C++) to store data. 
 
