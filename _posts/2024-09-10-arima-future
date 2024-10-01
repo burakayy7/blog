@@ -1,0 +1,49 @@
+---
+navigation: true
+cover: assets/images/AutoCorr/stationary.png
+title: Future Works & Next Steps
+date: 2024-09-10
+class: post-template
+tags: arima
+layout: post
+current: post
+subclass: 'post'
+---
+
+In the previous lessons, we have learned topics from Autocorrelation, Moving Average, and Differencing, to 
+ARIMA Models and Multiple Regression. And we have applied these methods to various datasets, to better understand
+how to apply this in the real world. However, there is a whole other world in the field of forecasting epidemic diseases
+outside of ARIMA. So, to summarize and finish this course, I would like to talk about the importance of forecasting, what
+to look forward to in the future, and next steps to learn more. 
+
+## How utilize forecasting principles in the real world and How is this relevant
+
+I am sure you all remember the COVID-19 pandemic, and the possible catastrophic effects it had. This is a poor example as it was a new disease
+and we didn't have much data on it at the time, so we will get back to that. 
+
+But let's consider an outbreak of the FLU, we already have plenty of data on that, including hospitilizations (when and specifically which locations got impacted),
+and multiple other statistically measurable metrics have been recorded. What if there was a way for scientists and doctors
+to be able to not only predict the next FLU outbreak, but also in which location that will occur, over time? 
+
+This would be of tremendous interest to governments as it would give them a 'heads up' or advance to disease outbreaks,
+giving them extra time to prepare a response.
+
+This was actually one of the reasons the COVID-19 Pandemic had such wide spread effects, because we weren't ready to battle such a disease. The nations
+around the world weren't prepared for it, which resulted in both a panicked state by the public, and late decisions by government
+officials, something that if made earlier, could of saved millions.
+
+
+## Next Steps to Research on Your Own
+
+I have found my interests shift towards these types of mathematical related programming quite a bit over the time I have researched this topic,
+and I highly suggest that you too start to individually observe this topic too! As you probably have seen in this course, there is quite a bit of math topics
+we dicuss here, some I go in-depth on, others I leave to the reader. And out of all the things about Computer Science, the thing I enjoy
+the most is applying math I have learned and understood to solve real world problems. And I suggest you invest in your own interests
+and projects to apply theories to solve real world problems and have an affect on the world.
+
+### SIR Models
+
+### Datasets
+
+I made this course because when I wanted to learn more about this field, either there was a limited amount of resources, or they didn't explain everything in advance, which would help me understand.
+I hope that this course was easy to follow and has taught you something interesting, hopefully encouraging you to learn further.
