@@ -146,6 +146,21 @@ How this works is that we set the memory space for num3 to what num3 is now plus
 num3 += num2;
 ```
 
+I can also subtract:
+```cpp
+num3 -= num1;
+```
+
+multiply:
+```cpp
+num3 *= num2;
+```
+
+or divide:
+```cpp
+num3 /= num1;
+```
+
 
 # Functions
 
@@ -155,12 +170,36 @@ In modern programming, this is called _functions._ In our Aruino C++ Programming
 
 ```cpp
 int number = 0;
-def function1() {
+void function1() {
     number = number + 1;
 }
 ```
 
+So now, every time I want to increment _number_, instead of writing that line of code, and just simply call the function. Let's break the above code apart; the _void_ key word refers to what this function will return. Every function can return a value, say I'm making a calculation, I can have a function return or output the final value of the math calculation. So when we define a function, we have to define which type of variable will it return. In this case, we made it a void (which is nothing, basically), which means this function will not return anything.
+
+But now let's say I want to increment the number by a variable amount, how would I do that:
+
+```cpp
+int amount = 5;
+int number = 0;
+void function2(int addAmount) {
+    number += addAmount;
+}
+```
+
+In the parenthesis of the function, I can make a variable, in this case an Integer named _addAmount_, and I can refrence that in the code. Here is how I would use this function:
+
+```cpp
+function2(4);
+```
+So here, number is incremented by 4 instead of 1 in function1. All of the code is written in between the parenthesis, that is what defines the function code, everything in between the parenthesis.
+
+
+
+
 
 
 # Arduino Sketches, revisited
+
+So now that we know about functions, we can see that the _setup()_ and _loop()_ sections in the Arduino IDE, are really just functions that are already defined for us. In these functions, we will write our main code, but we can also make our own functions!
 
