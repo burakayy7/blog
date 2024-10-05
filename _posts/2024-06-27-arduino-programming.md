@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: "assets/images/arduinoEng/arduino_prog.png"
+cover: "assets/images/arduinoEng/arduino_prog2.png"
 title: How to get started with Engineering | Arduino Programming
 date: 2024-06-27
 class: post-template
