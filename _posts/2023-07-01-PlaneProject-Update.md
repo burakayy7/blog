@@ -2,7 +2,7 @@
 navigation: true
 cover: ''
 title: Plane Project Update
-date: 2022-02-21
+date: 2023-07-01
 class: post-template
 tags: Plane
 layout: post

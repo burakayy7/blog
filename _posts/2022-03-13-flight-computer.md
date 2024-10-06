@@ -49,7 +49,7 @@ It's not a very well defined diagram, it is mainly for me to have a reference as
 For the first version, there will be only two characteristics: read data packets from the radio receiver and send control signals to the control surfaces. That means we don't need to add a IMU yet.
 
 After I have soldered everything by hand, here is the final result:
-![img](assets/images/plane/plane-computer2.jpeg)
+![img](assets\images\plane\plane-computer2.jpg)
 
 
 It is very simple, for now all we need is access to PWM channels to control the motor and control surfaces. Furthermore, we need an i2c input from the radio receiver. 
@@ -57,7 +57,7 @@ It is very simple, for now all we need is access to PWM channels to control the 
 
 
 ## The Case - **UPDATE** - July 9th, 2022
-![img](assets/images/plane/plane-computer3.jpeg)
+![img](assets\images\plane\plane-computer3.jpg)
 
 to secure this board in the frame of the plane, I 3D designed a case in Autodesk Fusion 360. Around this time, I finally saved enough money to buy myself a 3D printer. I got it on discount so it was quite cheap, but still. I bought the Ender 3 V2 3D Printer from Amazon.
 

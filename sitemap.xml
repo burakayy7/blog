@@ -9,158 +9,238 @@
 
 <url>
   <loc>https://burakayy.com/blog/</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/about/</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/courses/</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arima-future</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Books-for-Learning-Technical-Topics</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arduino-hello-world</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arduino-programming</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arduino-electronics</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/how-arima-works</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arima-work</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/arima-library</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/stationary-data</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Gradient-Descent</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Autocorrelation,-Moving-Average,&amp;-More</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Autocorrelation,-Moving-Average,-&amp;-More</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/NeuralBike-Update</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/BikeCrash-Sim</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/PanTilt-For-Pi</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://burakayy.com/blog/My-First-Post</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <loc>https://burakayy.com/blog/chem-paper</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/flight-software</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/flight-computer</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/PlaneProject-Update</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Plane-Project</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/opencv-color</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/opencv-trackbars</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/OpenCV-MouseClick</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/OpenCV-ROI-Update</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/OpenCV-ROI</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/blog/OpenCV-Update</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/First-OpenCV</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/What-is-PID</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Self-Balancing-Robot</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/IMU-Measurments</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Audio-Amplifier</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Bar-Code-Scan</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/blog/Personal-Door-Alarm</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/SR-Latch-Memory</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/blog/Touch-Delay</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/blog/Simple-Oscillator</loc>
-  <lastmod>2024-08-15T18:46:28+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/blog/Nerf-And-Arduino</loc>
-  <lastmod>2024-08-15T18:46:29+00:00</lastmod>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/Personal-Door-Alarm</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/Touch-Delay</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/Simple-Oscillator</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://burakayy.com/</loc>
-  <lastmod>2024-19-15T17:59:27+00:00</lastmod>
+  <lastmod>2024-08-25T00:34:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/arduino/</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/arima/</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/opencv/</loc>
+  <lastmod>2024-10-05T17:54:15+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/plane/</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/pid/</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://burakayy.com/blog/tag/electronics/</loc>
+  <lastmod>2024-10-05T17:54:16+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://burakayy.com/components.html</loc>
-  <lastmod>2024-08-15T17:59:27+00:00</lastmod>
+  <lastmod>2024-08-25T00:34:56+00:00</lastmod>
   <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/gallery_blog/</loc>
-  <lastmod>2024-03-26T21:41:57+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://burakayy.com/gallery_blog/about/</loc>
-  <lastmod>2024-03-26T21:41:57+00:00</lastmod>
-  <priority>0.41</priority>
 </url>
 
 

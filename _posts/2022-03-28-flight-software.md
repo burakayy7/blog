@@ -13,3 +13,11 @@ subclass: 'post'
 This is probably the most important part of this project: software. This is actually the whole point in what I am trying to achieve with this!
 
 The idea is that I will be able to plug in a GPS coordinate anywhere in a certain range, and the plane will automatically navigate to that spot. Cool right? Well, this is SUPER DUPER complicated, especially with the aspect of testing this in a safe manner. Like, even if I do code this, how can I make sure it works??
+
+## Plane Testing Stages
+
+There will be three main stages for testing this plane: software to test we can effectively control new aspects, in-house testing via software-in-the-loop, in-field testing by manual flying and switching to autonomous. 
+
+For this post, I will touch on what I have done so far to prepare for the first stage of testing.
+
+
