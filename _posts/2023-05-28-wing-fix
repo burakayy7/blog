@@ -2,7 +2,7 @@
 navigation: true
 cover: assets/images/
 title: "Plane Project: Fixing the Wing Compartment after a Crash"
-date: 2022-05-16
+date: 2022-05-28
 class: post-template
 tags: plane
 layout: post
@@ -10,12 +10,12 @@ current: post
 subclass: 'post'
 ---
 
-Imagine a plane travelling at 60 MPH perpendicular to the ground. What do you think would happen. 
+Imagine a plane traveling at 60 MPH perpendicular to the ground. What do you think would happen. 
 
-This is what happened to me when I went to go test out my glider software. I had hit full throttle when it was travelling
+This is what happened to me when I went to go test out my glider software. I had hit full throttle when it was traveling
 straight down, in an attempt to recover. When impact came, the entire plane just folded. 
 
-The crazy thing is that this plane has two thick aluminum rods in the wing chasis, and the impact exerted such a strong
+The crazy thing is that this plane has two thick aluminum rods in the wing chases, and the impact exerted such a strong
 force that it bent the rods. Furthermore, the internal battery slide off the mount and the front motor
 punctured the battery (I don't have pictures of this, as it was a fire hazard and I had to dispose of it quickly).
 
@@ -25,4 +25,11 @@ The main inertia is in the wings, so in a sudden stop, they will be the parts th
 
 This plane's wings work by 'clicking' into the chasis, as below:
 ![img](brocken image)
+
+
+
+
+# **UPDATE** - 5/25/2023
+
+
 
