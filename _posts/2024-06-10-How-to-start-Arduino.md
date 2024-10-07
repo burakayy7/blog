@@ -60,15 +60,16 @@ To not discourage you, I wanted to provide a quick _"hello world"_ example of an
 
 [This link is the lesson for that](https://burakayy.com/blog/arduino-hello-world)
 
-<!-- ### Sensors and Actuators
+### Sensors and Actuators
 
+To build your "toolbelt" for Arduino Projects, this lesson is on "mini-tutorials" on how to operate/use different types of sensors with Arduino. I cover topics/sensors from simple photoresistors to sensors that require different libraries.
 
 ### Ardunio Code
 
 
 
 
-### Future Projects -->
+### Future Projects
 
 
 

@@ -14,7 +14,7 @@ One of the main applications of an Arduino board is by utilizing various sensors
 
 #### Common Sensors
 
-
+Below are simple introductions to simple/common sensors for Arduino. These usually don't require extra software (a library) to operate.
 
 ## Photosensors
 
@@ -67,6 +67,9 @@ void loop() {
     delay(10);
 }
 ```
+## Library - Sensors
+
+These are sensors that may require a library to some extra knowlegde to operate.
 
 # Temperature and Humidity
 
@@ -212,9 +215,79 @@ But how do we send a ping in the first place? Well, for this specific module, al
 
 
 
+Ok, so using this knowlegde, we can use this sensor to calculate the distance an object is away.
+
+So, to get us started, below is the code I will be using:
+
+```cpp
+
+int trigPin = 9;
+int echoPin = 10;
+
+// define some variables
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  Serial.begin(9600); // Starts the serial communication (check serial monitor)
+}
+
+void loop() {
+  // Clears the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+  // Calculating the distance
+  distance = duration * 0.034 / 2;
+  // Prints the distance on the Serial Monitor
+  Serial.print("Distance: ");
+  Serial.println(distance);
+}
+```
+
+Here, I somewhat cheated as I am using a built-in function to measure the time taken, using the _pulseIn()_ function.
+
+<!-- ---
+explain with better, paul's code
+--- -->
 
 
-# IR Reciever
+But anyways, as you can see, with this code I send out a ping:
+```cpp
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+```
+and then, with the below function, I measure how long it would take for the echoPin to go HIGH:
+```cpp
+duration = pulseIn(echoPin, HIGH);
+```
+
+Now, since we know the speed of sound, and the time the sound wave took (round-trip), we can calculate the distance to the object:
+
+$$
+distance = velocity \cdot time
+\\\\
+distance = 0.034 \cdot duration
+$$
+
+Which would give us the distance of the object twice, because the wave travels to and back to the object, so we have to divide by 2:
+```cpp
+distance = duration * 0.034 / 2;
+```
+
+Now, if you view the Serial Monitor, you will see print outs of the ditance measurement. 
+
+This is a very useful sensor, I have used this for making a sonar, which I suggect you try yourself!!
+
+<!-- # IR Reciever
 
 While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply receives IR (Infared Red) light. 
 
@@ -244,7 +317,7 @@ Now, we move into actuators. The first thing I want to talk about are motors.
 ## Servo Motors
 
 Lastly, maybe on of the most useful types of motors for your Engineering Projects, 
-
+ -->
 
 
 
