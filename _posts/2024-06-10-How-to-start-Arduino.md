@@ -2,7 +2,7 @@
 navigation: true
 cover: "assets/images/arduinoEng/arduino_getting_started.png"
 title: How to get started with Engineering
-date: 2024-07-10
+date: 2024-06-10
 class: post-template
 layout: post
 current: post

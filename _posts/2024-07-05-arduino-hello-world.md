@@ -2,7 +2,7 @@
 navigation: true
 cover: "assets/images/arduinoEng/helloworld.jpeg"
 title: How to get started with Engineering | Hello World Example
-date: 2024-07-14
+date: 2024-07-05
 class: post-template
 layout: post
 current: post
