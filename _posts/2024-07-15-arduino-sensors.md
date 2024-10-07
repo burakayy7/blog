@@ -67,6 +67,14 @@ void loop() {
     delay(10);
 }
 ```
+
+
+<!-- ## Joystick
+
+## Water Level Sensor -->
+
+
+
 ## Library - Sensors
 
 These are sensors that may require a library to some extra knowlegde to operate.
