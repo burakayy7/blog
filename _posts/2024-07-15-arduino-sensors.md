@@ -62,7 +62,7 @@ void setup() {
 }
 
 void loop() {
-    int v = analogRead(A3); //or anyother pin you choose
+    int v = analogRead(A3); //read Analog Pin 3, or anyother pin you choose
     Serial.println(v);
     delay(10);
 }

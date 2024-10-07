@@ -49,7 +49,7 @@ Let's go back to the graph. Our system without the Integral term is pretty good,
 
 If you want a visual:
 
-![PID Contoller block diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/PID_en.svg/400px-PID_en.svg.png)
+![PID Contoller block diagram](assets/images/PID_en.png)
 
 
 Also, depending on the system, you will need to play around with the P, I, and D values to perfectly tune it to your specific system. This takes lots of trial and error, but is definetly worth it!
