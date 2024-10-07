@@ -66,12 +66,12 @@ To build your "toolbelt" for Arduino Projects, [this lesson is on "mini-tutorial
 
 I am constantly updated this page, so it doesn't cover all of the sensors.
 
-### Ardunio Code
+<!-- ### Ardunio Code
 
 
 
 
-### Future Projects
+### Future Projects -->
 
 
 

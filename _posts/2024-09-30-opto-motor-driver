@@ -17,3 +17,5 @@ Ok, so how this will work is that I will use a Photocoupler (Optocoupler) to con
 ## What is an Optocoupler
 
 Well, in short terms, it is a device that uses light to transfer a signal from one circuit to another, all while being voltage independent from the other circuit.
+
+In one end of the sensor, there is a built-in LED, which is turned on with a signal. Then this light will turn on a "transistor-like" electronic switch that is actiavted via light. 

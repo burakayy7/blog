@@ -123,7 +123,7 @@ The saturation point changes with air temperature. Cold air can hold less water 
 The formula to calculate relative humidity is:
 
 $$
-RH = (\fraq{P_w}{P_s}) X \cdot 100%
+RH = (\frac{P_w}{P_s}) X \cdot 100%
 $$
 
 - RH = relative humidity
@@ -135,7 +135,7 @@ So how can we use this to measure temperature and humidity. Well, this sensor is
 For the temperature part, it will basically measure the resistance a certain material makes, which depends on the temperature. However, since the Arduino can't directly measure resistance, it will measure voltage from a voltage divider, which is defined by this equation:
 
 $$
-V_{out} = V_{in} \cdot (\fraq{R2}{R1 + R2})
+V_{out} = V_{in} \cdot (\frac{R2}{R1 + R2})
 $$
 
 Where R1 and R2 are resistors in series. If one of these is a constant resistor, and the other is the thermistor, then we can rearange and calculate for the resistance, which we can convert to temperature. 
@@ -206,7 +206,7 @@ $$
 And we know the speed of sound to be 343 meters/second. But since the distance the sound travels after first released from speaker is twice the distance from the object (back and forth, round trip), our equation will be:
 
 $$
-distance = \frq{(343 \cdot time)}{2}
+distance = \frac{(343 \cdot time)}{2}
 $$
 
 Now, all we have to do is count the time between the first ping and the returning signal.
