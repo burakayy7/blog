@@ -1,6 +1,6 @@
 ---
 navigation: true
-cover: ""
+cover: "assets/images/arduinoEng/arduino_getting_started.png"
 title: How to get started with Engineering
 date: 2024-07-10
 class: post-template
@@ -29,11 +29,11 @@ But if you are looking for an electronics kit and an Arduino kit, I suggest you 
 
 To start programming we will need a **I**ntegrated **D**evelopment **E**nvironment (IDE), specifically, we will be using the official Arduino IDE. Currently, there are three ways you can program an Arduino, either use the original Arduino 1.X IDE, the new Arduino 2.X IDE, or use the Cloud based IDE. While you can go either route, I suggest you start with the original IDE, if you are a beginner. 
 
-So first, please go to the [Arduino Software Website](https://www.arduino.cc/en/software#legacy-ide-18x) and download the .exe file for your environment. The instructions that follow should be pretty straight forward.
+So first, please go to the [Arduino Software Website](https://www.arduino.cc/en/software#legacy-ide-18x) and download the .exe file for your environment. The instructions that follow should be pretty straight forward. Just make sure to install the software on the PATH (if prompted), and you should be ready to go.
 
+<!-- - listing instructions
 -
--
--
+- -->
 
 ## What Different Kinds of Arduinos?
 
@@ -47,12 +47,20 @@ A strong knowledge of Arduino prototyping requires a pretty good understanding o
 
 If you would like to learn this, the first lesson in this course is an [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics), please check it out if you are a beginner to Arduino and/or need a refresher. 
 
+### Arduino Programming Basics | Arduino Code
+
+Before we can start with projects, we also need a quick summary of basic programming concepts, so you don't get lost later on. If you're already familiar with programming languages, then I suggest to skip this section. This section is only for simple and basic programming concepts; I plan on teaching more advanced porgamming via examples and projects because I believe in teaching with hands-on work.
+
+So please view [this lesson](https://burakayy.com/blog/arduino-programming) for a simple introduction to programming.
+
 
 ### Hello World
 
+To not discourage you, I wanted to provide a quick _"hello world"_ example of an Arduino Project, it will include some concepts we have covered in the previous lessons. 
 
+[This link is the lesson for that](https://burakayy.com/blog/arduino-hello-world)
 
-### Sensors and Actuators
+<!-- ### Sensors and Actuators
 
 
 ### Ardunio Code
@@ -60,7 +68,7 @@ If you would like to learn this, the first lesson in this course is an [Introduc
 
 
 
-### Future Projects
+### Future Projects -->
 
 
 
