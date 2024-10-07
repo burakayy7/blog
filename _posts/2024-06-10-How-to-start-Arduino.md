@@ -62,7 +62,9 @@ To not discourage you, I wanted to provide a quick _"hello world"_ example of an
 
 ### Sensors and Actuators
 
-To build your "toolbelt" for Arduino Projects, this lesson is on "mini-tutorials" on how to operate/use different types of sensors with Arduino. I cover topics/sensors from simple photoresistors to sensors that require different libraries.
+To build your "toolbelt" for Arduino Projects, [this lesson is on "mini-tutorials"](https://burakayy.com/blog/arduino-sensors) on how to operate/use different types of sensors with Arduino. I cover topics/sensors from simple photoresistors to sensors that require different libraries.
+
+I am constantly updated this page, so it doesn't cover all of the sensors.
 
 ### Ardunio Code
 
