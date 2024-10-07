@@ -21,10 +21,10 @@ arima:
 opencv:
   name: opencv
   name_long: Learn OpenCV
-  description: A series of lessons/posts on AI and Python OpenCV.
+  description: A series of short lessons/posts on AI and Python OpenCV.
   cover: "assets/images/opencv/opencv1.png"
 plane:
   name: plane
-  description: My Plane Project
+  description: My Plane Project (a >4 year long project)
   cover: "assets/images/planeBkg.jpg"
 

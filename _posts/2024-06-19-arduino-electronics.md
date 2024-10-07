@@ -1,8 +1,8 @@
 ---
 navigation: true
-cover: "assets/images/arduinoEng/arduino_electronics3.png"
+cover: "assets/images/arduinoEng/arduino_electronics3.jpg"
 title: How to get started with Engineering | Electronics
-date: 2024-06-2
+date: 2024-06-02
 class: post-template
 layout: post
 current: post
