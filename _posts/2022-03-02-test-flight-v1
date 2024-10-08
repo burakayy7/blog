@@ -16,3 +16,17 @@ So, I have hooked up the Radio Receiver to the plane, plugged everything in and 
 
 
 So, here is how the Radio Receiver looks like:
+
+
+As you can see, to one of the columns, I have the ESC hooked up, this is how the receiver and the servos will be getting power. And the ESC is powered by attaching a Li-po battery to one of its terminals.
+
+Then, we simply hook up each of the servos which control the ailerons, elevator, and rudder to the corresponding pins on the receiver. 
+
+
+### How the Flight Went
+
+I took my plane out to a local soccer field, assembled it there, and powered it on. Since I was the only one there, that meant that I had to launch and fly it, at the same time. So, with the heavy plane in one hand, and the radio controller in my left hand, I flung the plane forward....baaang! Straight into the ground. 
+
+This was harder than I thought it would be. Since this plane was heavy, but also had wide wings, it was hard to aim, especially given that even a bit of wind could pick this glider up. And this is a problem that I noted down in my notebook: how to best launch this plane?
+
+Eventually, I managed to throw the plane with enough force, while still being able to control it via the Radio Controller. And once I hit the throttle

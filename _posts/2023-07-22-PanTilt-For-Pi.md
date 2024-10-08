@@ -15,8 +15,9 @@ I have a whole seperate github repository for it [here](https://github.com/burak
 # Servo-PanTilt-PiCam
 I decided to make a Pan-tilt Servo mount for the Raspberry Pi Camera. It is ment for the common 9g servos. I first thought of this to use in Paul McWhorter's Raspberry Pi class, put know maybe I might use it in a few of my own projects as well. I've included all the 3D Models and code. Use this however you like! Enjoy!
 
-First, print out the cad files. 
-![image](assets/images/piCam/images/parts.jpg)
+First, 3D print out the cad files. 
+
+![ima](assets/images/piCam/images/parts.jpg)
 
 Then I got one of my servos, and put it in the quadropod mount where the wires are facing the back \(the front is where the 2 legs point forwards\). I then screwed it in with the 2 long screws servos come with. 
 ![2](assets/images/piCam/images/1.jpg)

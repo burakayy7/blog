@@ -32,7 +32,7 @@ However, this board still has a lot of features.
 - has 48 KB of CPU Flash Memory
 - onboard 6 KB of SRAM
 - 256 bytes of EEPROM
-- has UART, SPI, and I2C compatibility
+- has UART, SPI, and I2C compatibility; MUST have multiple UART Channels!!
 - all while being 5V compatible
 
 
