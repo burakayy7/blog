@@ -2,7 +2,7 @@
 navigation: true
 cover: ""
 title: My Cheap & Simple Optocoupler based DC Motor Driver for 3.3v Devices
-date: 2024-09-30
+date: 2024-10-04
 class: post-template
 tags: plane
 layout: post
@@ -18,7 +18,7 @@ Ok, so how this will work is that I will use a Photocoupler (Optocoupler) to con
 
 Well, in short terms, it is a device that uses light to transfer a signal from one circuit to another, all while being voltage independent from the other circuit.
 
-In one end of the sensor, there is a built-in LED, which is turned on with a signal. Then this light will turn on a "transistor-like" electronic switch that is actiavted via light. 
+In one end of the sensor, there is a built-in LED, which is turned on with a signal. Then this light will turn on a "transistor-like" electronic switch that is activated via light. 
 
 ![opto1](assets/images/plane/opto1.png)
 
@@ -28,5 +28,8 @@ As, you can see, with the image above and below, this is a device that allows yo
 
 
 This is really usefull to me, as I am not in the situation right now to spend more money on electronic compnents (like an ESC, or MOSFETs).
+
+
+Ok, now for the actual build.
 
 

@@ -49,7 +49,16 @@ A strong knowledge of Arduino prototyping requires a pretty good understanding o
 
 If you would like to learn this, the first lesson in this course is an [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics), please check it out if you are a beginner to Arduino and/or need a refresher with the link below:
 
-<h4 href=https://burakayy.com/blog/arduino-electronics style="text-align: center;">Introduction to Electronics</h4>
+
+#### [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics)
+
+
+
+
+
+
+
+
 
 
 ### Arduino Programming Basics | Arduino Code
@@ -58,18 +67,40 @@ Before we can start with projects, we also need a quick summary of basic program
 
 So please view [this lesson](https://burakayy.com/blog/arduino-programming) for a simple introduction to programming.
 
+#### [Arduino Programming](https://burakayy.com/blog/arduino-programming)
+
+
+
+
+
+
+
+
+
 
 ### Hello World Example
 
 To not discourage you, I wanted to provide a quick _"hello world"_ example of an Arduino Project, it will include some concepts we have covered in the previous lessons. 
 
-[This link is the lesson for that](https://burakayy.com/blog/arduino-hello-world)
+#### [This link is the lesson for the Hello World Example](https://burakayy.com/blog/arduino-hello-world)
+
+
+
+
+
+
+
 
 ### Sensors and Actuators
 
 To build your "toolbelt" for Arduino Projects, [this lesson is on "mini-tutorials"](https://burakayy.com/blog/arduino-sensors) on how to operate/use different types of sensors with Arduino. I cover topics/sensors from simple photoresistors to sensors that require different libraries.
 
 I am constantly updated this page, so it doesn't cover all of the sensors.
+
+[Arduino Sensors](https://burakayy.com/blog/arduino-sensors)
+
+
+
 
 <!-- ### Ardunio Code
 
