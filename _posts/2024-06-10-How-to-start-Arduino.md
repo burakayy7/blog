@@ -48,7 +48,9 @@ If you search up "Arduino" you will see a bunch of different images pop-up. In f
 A strong knowledge of Arduino prototyping requires a pretty good understanding of breadboard prototyping. I learned this with trial and error, but you can use plenty of free online resources. Furthermore, you will need an understanding of basic electronic components, like transistors, capacitors, resistors, LEDs, and general ciruit grounding. 
 
 If you would like to learn this, the first lesson in this course is an [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics), please check it out if you are a beginner to Arduino and/or need a refresher with the link below:
-#### [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics)
+
+<h4 href=https://burakayy.com/blog/arduino-electronics style="text-align: center;">Introduction to Electronics</h4>
+
 
 ### Arduino Programming Basics | Arduino Code
 
