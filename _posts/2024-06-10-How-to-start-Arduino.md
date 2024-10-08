@@ -31,11 +31,13 @@ To start programming we will need a **I**ntegrated **D**evelopment **E**nvironme
 
 So first, please go to the [Arduino Software Website](https://www.arduino.cc/en/software#legacy-ide-18x) and download the .exe file for your environment. The instructions that follow should be pretty straight forward. Just make sure to install the software on the PATH (if prompted), and you should be ready to go.
 
+![ide](assets/images/arduinoEng/arduino_ide.png)
+
 <!-- - listing instructions
 -
 - -->
 
-## What Different Kinds of Arduinos?
+## What are the Different Kinds of Arduinos?
 
 If you search up "Arduino" you will see a bunch of different images pop-up. In fact, at the time of writing, there are over 25 different types of Arduinos! Which means we have a lot to play around with. 
 
@@ -45,7 +47,8 @@ If you search up "Arduino" you will see a bunch of different images pop-up. In f
 
 A strong knowledge of Arduino prototyping requires a pretty good understanding of breadboard prototyping. I learned this with trial and error, but you can use plenty of free online resources. Furthermore, you will need an understanding of basic electronic components, like transistors, capacitors, resistors, LEDs, and general ciruit grounding. 
 
-If you would like to learn this, the first lesson in this course is an [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics), please check it out if you are a beginner to Arduino and/or need a refresher. 
+If you would like to learn this, the first lesson in this course is an [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics), please check it out if you are a beginner to Arduino and/or need a refresher with the link below:
+#### [Introduction to Electronics](https://burakayy.com/blog/arduino-electronics)
 
 ### Arduino Programming Basics | Arduino Code
 
@@ -54,7 +57,7 @@ Before we can start with projects, we also need a quick summary of basic program
 So please view [this lesson](https://burakayy.com/blog/arduino-programming) for a simple introduction to programming.
 
 
-### Hello World
+### Hello World Example
 
 To not discourage you, I wanted to provide a quick _"hello world"_ example of an Arduino Project, it will include some concepts we have covered in the previous lessons. 
 
