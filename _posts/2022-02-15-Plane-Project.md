@@ -4,7 +4,7 @@ cover: "assets/images/planeBkg.jpg"
 title: Introducing the Plane Project
 date: 2022-02-15
 class: post-template
-tags: Plane
+tags: plane
 layout: post
 current: post
 subclass: 'post'

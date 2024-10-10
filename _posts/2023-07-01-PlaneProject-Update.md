@@ -4,7 +4,7 @@ cover: 'assets/images/plane/0702-plane-update.jpg'
 title: Plane Project Update | Fixing UART Communication Problems on SAMD11
 date: 2023-07-01
 class: post-template
-tags: Plane
+tags: plane
 layout: post
 current: post
 subclass: 'post'
@@ -27,7 +27,7 @@ I also made a bunch of changes to the flight computer soldering job, because a f
 
 I also have a big software update, that is actually why I am testing this. 
 
-for refrence, here was the old code:
+for reference, here was the old code:
 
 ```cpp
 
