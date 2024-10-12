@@ -1,0 +1,16 @@
+- title: "Random Coils"
+  description: "Just a bunch of coils I made for various projects. Most notably, I have made these for my DIY Radio, Metal Detector, and Solenoid projects."
+  image: "/assets/images/item1.jpg"
+  date: "2021-10-01"
+  
+- title: "Item 2"
+  description: "This is the second item description."
+  image: "/assets/images/item2.jpg"
+  date: "2024-09-15"
+  
+- title: "Item 3"
+  description: "This is the third item description."
+  image: "/assets/images/item3.jpg"
+  date: "2024-08-22"
+  
+# Add more items here
