@@ -20,7 +20,7 @@ By textbook definition, a stationary time series (a dataset which is a function 
 
 One quick and easy way to convert a stationary time series to a non stationary one is by taking the difference between consecutive values; this is known as **differencing**.
 
-To give an example, here is the data I will be using (all of these will be run in Google Colab, an environment I highly sugges you use!):
+To give an example, here is the data I will be using (all of these will be run in Google Colab, an environment I highly suggest you use!):
 ```python
   #installations
 !pip install skforecast

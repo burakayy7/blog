@@ -1,0 +1,61 @@
+---
+layout: default
+title: Miscellaneous
+---
+
+<div class="miscellaneous-page">
+    <h1>Miscellaneous</h1>
+
+    <div class="content-container">
+        <div class="content-item">
+            <img src="{{ site.baseurl }}/assets/images/item1.jpg" alt="Item 1">
+            <p>This is the first item description. It gives a brief explanation of what this image represents or how it connects to the theme.</p>
+        </div>
+
+        <div class="content-item">
+            <img src="{{ site.baseurl }}/assets/images/item2.jpg" alt="Item 2">
+            <p>This is the second item description. It gives more insight into the image or related content.</p>
+        </div>
+
+        <div class="content-item">
+            <img src="{{ site.baseurl }}/assets/images/item3.jpg" alt="Item 3">
+            <p>This is the third item description. Add any details or insights here.</p>
+        </div>
+
+        <!-- Add more content items as needed -->
+    </div>
+</div>
+
+<style>
+.miscellaneous-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.content-item {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.content-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+</style>
