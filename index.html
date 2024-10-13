@@ -21,6 +21,34 @@ into the {body} of the default.hbs template -->
 </script>
 </head>
 
+<style>
+    .nav {
+        background-color: rgba(0, 0, 0, 0.288); /* Dark murky background with 60% opacity */
+        padding: 1px;
+        border-radius: 4px;
+    }
+    
+    .nav li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .nav li a {
+        color: white; /* Make the text white for visibility */
+        text-decoration: none;
+        font-size: 20px;
+        opacity: 0.99;
+        padding: 8px 15px;
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+    
+    .nav li a:hover {
+        background-color: rgba(255, 255, 255, 0); /* Light translucent hover effect */
+        border-radius: 4px;
+    }
+    </style>
+    
+
 <!-- The big featured header, it uses blog cover image as a BG if available -->
 <header class="site-header outer {% if page.cover or site.cover %}" style="background-image:  url({{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}) {% else %}no-cover{% endif %}">
     <div class="inner">

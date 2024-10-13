@@ -77,7 +77,7 @@ And you should be Done!!
 I used this with a Jekyll Theme, so I am assuming that you also are using this with a Jekyll website made for GitHub Pages.
 
 
-And the output provides an Address which the local website should be, and where you can see live changes, locally.
+And the output provides an Address which the local website should be, and where you can see live changes, locally. The good thing about this is that we can easily view live changes we made to our website (just by clicking refresh), which is much faster than how quick gh-pages redeploys changes (which could take up to 5 minutes!). 
 
 Hope this was helpful!
 

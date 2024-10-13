@@ -1,7 +1,16 @@
 ---
 layout: default
 title: Miscellaneous
+navigation: True
+current: page
+class: page-template
 ---
+
+<header class="site-header outer">
+    <div class="inner">
+        {% include site-nav.html %}
+    </div>
+</header>
 
 <div class="miscellaneous-page">
     <h1>Miscellaneous</h1>
@@ -9,6 +18,7 @@ title: Miscellaneous
     <!-- Sorting Button -->
     <div class="sort-controls">
         <button onclick="sortByDate('asc')">Sort by Date (Ascending)</button>
+        <button onclick="sortByDate('desc')">Sort by Date (Descending)</button>
     </div>
 
     <!-- Container for the content items -->
@@ -16,17 +26,83 @@ title: Miscellaneous
         {% assign sorted_items = site.data.miscellaneous-items | sort: 'date' %}
         {% for item in sorted_items %}
         <div class="content-item" data-date="{{ item.date }}">
-            <img src="{{ site.baseurl }}{{ item.image }}" alt="{{ item.title }}">
+            <h3>{{ item.title }}</h3> 
+    
+            <!-- Carousel container -->
+            <div class="image-carousel">
+                <button class="prev-btn">‹</button>
+                <div class="carousel-images">
+                    {% for image in item.images %}
+                    <img src="{{ site.baseurl }}{{ image }}" alt="{{ item.title }}" class="carousel-image">
+                    {% endfor %}
+                </div>
+                <button class="next-btn">›</button>
+            </div>
+    
             <p>{{ item.description }}</p>
             <small class="date">{{ item.date }}</small>
         </div>
         {% endfor %}
     </div>
+    
+    <script>
+    document.querySelectorAll('.image-carousel').forEach(function(carousel) {
+        let currentIndex = 0;
+        const images = carousel.querySelectorAll('.carousel-image');
+        const prevBtn = carousel.querySelector('.prev-btn');
+        const nextBtn = carousel.querySelector('.next-btn');
+    
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none';
+            });
+        }
+    
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        });
+    
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        });
+    
+        showImage(currentIndex); // Show the first image initially
+    });
+    </script>
 </div>
 
 <style>
 h1 {
     text-align:center;
+}
+h3 {
+    text-align:center;
+}
+.image-carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-images {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: none; /* Hide all images initially */
+}
+
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
 }
 
 .miscellaneous-page {

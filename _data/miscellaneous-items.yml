@@ -1,16 +1,54 @@
-- title: "Random Coils"
+- title: "Random Coils for DIY Radios, Solenoids, & Medal Detectors."
   description: "Just a bunch of coils I made for various projects. Most notably, I have made these for my DIY Radio, Metal Detector, and Solenoid projects."
-  image: "assets/images/miscellaneous/coils1.jpg"
+  images: 
+    - "assets/images/miscellaneous/coils1.jpg"
   date: "2021-10-01"
   
-- title: "Item 2"
-  description: "This is the second item description."
-  image: "/assets/images/item2.jpg"
-  date: "2024-09-15"
+- title: "DIY Capacitor"
+  description: "In an attempt to prove to myself my knowledge of chemistry, electronics, and physics I tried to make my own capacitor. It didn't really work that well (probably because it was made out of paper and aluminum foil)."
+  images: 
+    - "assets/images/miscellaneous/capacitor.jpg"
+  date: "2020-11-15"
   
-- title: "Item 3"
-  description: "This is the third item description."
-  image: "/assets/images/item3.jpg"
-  date: "2024-08-22"
+- title: "2-wheeled Grapple Bot"
+  description: "Before tackling my Self-balancing robot, I thought I would make a simpler one, which just contains two motors, and a arm activated by a field-affect sensor."
+  images: 
+    - "/assets/images/miscellaneous/grapple_bot.jpg"
+  date: "2021-03-22"
+
+- title: "Levitation with a Speaker"
+  description: "Curious, I wanted to levitate foam balls using sound from a speaker."
+  images: 
+    - "/assets/images/miscellaneous/levitation.jpg"
+  date: "2020-11-16"
+
+- title: "Metal Detector"
+  description: "I wanted to build my own DIY metal detector just for fun, using my electronics & physics knowledge. So, here are my notebook entries related to this project."
+  images: 
+    - "/assets/images/miscellaneous/md1.jpg"
+    - "/assets/images/miscellaneous/md2.jpg"
+    - "/assets/images/miscellaneous/md3.jpg"
+    - "/assets/images/miscellaneous/md4.jpg"
+  date: "2020-12-22"
+
+- title: "Automatic Bed Alarm"
+  description: "In an attempt to not stay cold at night, I built a bed cover puller that would pull the blanket over me, after some conditions were met (light, time, etc.)."
+  images: 
+    - "/assets/images/miscellaneous/bd1.jpg"
+    - "/assets/images/miscellaneous/bd2.jpg"
+    - "/assets/images/miscellaneous/bd3.jpg"
+    - "/assets/images/miscellaneous/bd4.jpg"
+    - "/assets/images/miscellaneous/bd5.jpg"
+    - "/assets/images/miscellaneous/bd6.jpg"
+  date: "2021-01-02"
+
+- title: "Arduino based Metal Detector"
+  description: "With my DIY one not working very well, I thought to use an Arduino instead. So, here are my notebook entries related to this project."
+  images: 
+    - "/assets/images/miscellaneous/md5.jpg"
+    - "/assets/images/miscellaneous/md6.jpg"
+  date: "2021-01-16"
+
+
   
 # Add more items here
