@@ -12,4 +12,4 @@ gem "jekyll-sitemap"
 gem 'jekyll-paginate'
 
 
-ruby "3.4.1"
+# ruby "2.7.8"
