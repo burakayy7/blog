@@ -11,11 +11,45 @@ permissions:
   contents: write
   
 jobs:
-  github-pages:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: helaili/jekyll-action@v2
+      # 1️⃣ Checkout code
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Set up Ruby >= 3.0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+
+      # 3️⃣ Build & deploy Jekyll site
+      - name: Build and deploy Jekyll site
+        uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: 'gh-pages'
+          target_branch: 'gh-pages'   # Deploy to gh-pages
+          jekyll_env: 'production'    # Optional, for production build
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+
+  #     # Install Ruby >= 3.0
+  #     - name: Set up Ruby
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 3.2  # or latest 3.x
+
+  #     - name: Build Jekyll site
+  #       uses: helaili/jekyll-action@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  # github-pages:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: helaili/jekyll-action@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         target_branch: 'gh-pages'
