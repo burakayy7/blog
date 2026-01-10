@@ -22,9 +22,20 @@ jobs:
         with:
           ruby-version: 3.4.1
           bundler-cache: true
+      
+      - name: set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: install Node
+        run: npm install 
+
+      - name: build assets
+        run: npm run build
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --verbose
 
       - name: verify build
         run: |
@@ -34,8 +45,8 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add -f _site
-          git commit -m "Deploy site" || echo "No changes"
+          # git add -f _site
+          # git commit -m "Deploy site" || echo "No changes"
           git subtree push --prefix _site origin gh-pages
 
 # jobs:
