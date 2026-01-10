@@ -13,23 +13,47 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      # 1️⃣ Checkout code
       - uses: actions/checkout@v3
 
-      # # 2️⃣ Set up Ruby >= 3.0
-      # - name: Set up Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: 3.2
-
-      # 3️⃣ Build & deploy Jekyll site
-      - name: Build and deploy Jekyll site
-        uses: helaili/jekyll-action@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: 'gh-pages'   # Deploy to gh-pages
-          jekyll_env: 'production'    # Optional, for production build
+          ruby-version: 3.4.1
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Deploy to gh-pages
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -f _site
+          git commit -m "Deploy site" || echo "No changes"
+          git subtree push --prefix _site origin gh-pages
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # 1️⃣ Checkout code
+#       - uses: actions/checkout@v3
+
+#       # # 2️⃣ Set up Ruby >= 3.0
+#       # - name: Set up Ruby
+#       #   uses: ruby/setup-ruby@v1
+#       #   with:
+#       #     ruby-version: 3.2
+
+#       # 3️⃣ Build & deploy Jekyll site
+#       - name: Build and deploy Jekyll site
+#         uses: helaili/jekyll-action@v2
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           target_branch: 'gh-pages'   # Deploy to gh-pages
+#           jekyll_env: 'production'    # Optional, for production build
   # build:
   #   runs-on: ubuntu-latest
   #   steps:
