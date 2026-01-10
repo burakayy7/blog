@@ -3,13 +3,10 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 permissions:
-  actions: read
   contents: write
-  
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,37 +14,87 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Ruby for Jekyll
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4.1
           bundler-cache: true
-      
-      - name: set up node
+
+      # Node 10 for Gulp 3 (jasper2 requirement)
+      - name: Set up Node (legacy for jasper2)
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 10
 
-      - name: install Node
-        run: npm install 
+      - name: Install Node dependencies
+        run: npm install
 
-      - name: build assets
+      - name: Build jasper2 assets
         run: npx gulp build
 
+      # Build Jekyll site
       - name: Build Jekyll site
-        run: bundle exec jekyll build --verbose
+        run: bundle exec jekyll build
 
-      - name: verify build
-        run: |
-          test -d _site || (echo "_site directory not found!" && exit 1)
-
+      # Deploy
       - name: Deploy to gh-pages
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          # git add -f _site
-          # git commit -m "Deploy site" || echo "No changes"
           git subtree push --prefix _site origin gh-pages
+
+
+# name: Build and deploy to GitHub Pages
+
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+# permissions:
+#   actions: read
+#   contents: write
+  
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Set up Ruby
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: 3.4.1
+#           bundler-cache: true
+      
+#       - name: set up node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
+
+#       - name: install Node
+#         run: npm install 
+
+#       - name: build assets
+#         run: npx gulp build
+
+#       - name: Build Jekyll site
+#         run: bundle exec jekyll build --verbose
+
+#       - name: verify build
+#         run: |
+#           test -d _site || (echo "_site directory not found!" && exit 1)
+
+#       - name: Deploy to gh-pages
+#         run: |
+#           git config user.name "GitHub Actions"
+#           git config user.email "actions@github.com"
+#           # git add -f _site
+#           # git commit -m "Deploy site" || echo "No changes"
+#           git subtree push --prefix _site origin gh-pages
 
 # jobs:
 #   build-and-deploy:
