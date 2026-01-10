@@ -26,6 +26,10 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
 
+      - name: verify build
+        run: |
+          test -d _site || (echo "_site directory not found!" && exit 1)
+
       - name: Deploy to gh-pages
         run: |
           git config user.name "GitHub Actions"
