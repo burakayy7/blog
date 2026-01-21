@@ -5,6 +5,7 @@ ruby "3.0.6"
 gem "jekyll", "~> 3.10"
 gem "jekyll-paginate", "~> 1.1"
 gem "jekyll-sitemap", "~> 1.4"
+gem "jekyll-feed", "~> 0.12"
 gem "rake", "~> 13.0"
 gem "slugify", "~> 1.0.7"
 
