@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>How to get started with Engineering | Sensors & Actuators</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/arduino-sensors" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to get started with Engineering | Sensors & Actuators" />
+    <meta property="og:description" content="One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices Common Sensors Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate. Photosensors Or sometimes called, photoresistors, these are electronic components that will" />
+    <meta property="og:url" content="https://burakayy.com/blog/arduino-sensors" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/arduinoEng/sensor1.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:author" content="https://www.facebook.com/ghost" />
+    <meta property="article:published_time" content="2024-07-15T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2024-07-15T00:00:00+00:00" />
+    <meta property="article:tag" content="Arduino" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to get started with Engineering | Sensors & Actuators" />
+    <meta name="twitter:description" content="One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices Common Sensors Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate. Photosensors Or sometimes called, photoresistors, these are electronic components that will" />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/arduinoEng/sensor1.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Arduino" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/arduino-sensors",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/arduinoEng/sensor1.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/arduino-sensors"
+    },
+    "description": "One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices Common Sensors Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate. Photosensors Or sometimes called, photoresistors, these are electronic components that will"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="How to get started with Engineering | Sensors & Actuators" href="/blog/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-arduino post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="15 July 2024">15 July 2024</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/blog/tag/arduino/'>ARDUINO</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">How to get started with Engineering | Sensors & Actuators</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/blog/assets/images/arduinoEng/sensor1.png); height: 400px; background-size: cover; background-position: center;">
+            </figure>
+            
+
+            <section class="post-full-content" style="margin-top: 60px;">
+                <div class="kg-card-markdown">
+                    <p>One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices</p>
+
+<h4 id="common-sensors">Common Sensors</h4>
+
+<p>Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate.</p>
+
+<h2 id="photosensors">Photosensors</h2>
+
+<p>Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in <a href="https://burakayy.com/blog/arduino-electronics#my-technical-report-on-photoresistors">my report in this previous lesson</a>, and I hope you go back to that and review!</p>
+
+<p>Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resistance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance.</p>
+
+<p>Below is a super short script that will show you how to use this:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Let's begin!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A2</span><span class="p">);</span> <span class="c1">//read value (voltage potential) from Analog Pin 2</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>To hook it up, just connect one end of the photoresistor to ground and the other end to Analog Pin 2.</p>
+
+<p>And once you compile the script, you can experiment by putting your hand over the sensor and observing how the values change from the  Serial Monitor.</p>
+
+<h2 id="touch-sensors">Touch Sensors</h2>
+
+<p>There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in <a href="https://burakayy.com/blog/Touch-Delay">this</a> lesson. Please go back to that lesson and build that circuit at the end.</p>
+
+<p>However, in that post I used just electronic components. But how can we use arduino with this?</p>
+
+<p>Well, once you build that circuit on your breadboard, all we have to do to measure the output, is connect the output of the transistor to an Arduino Analog Pin. Pick any you would like, and you can run the code below:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">being</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A3</span><span class="p">);</span> <span class="c1">//read Analog Pin 3, or anyother pin you choose</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<!-- ## Joystick
+
+## Water Level Sensor -->
+
+<h2 id="library---sensors">Library - Sensors</h2>
+
+<p>These are sensors that may require a library to some extra knowlegde to operate.</p>
+
+<h1 id="temperature-and-humidity">Temperature and Humidity</h1>
+
+<p>Let’s say you are gardening plants in a greenhouse and you need an automated way to collect the temperature and humidity, how will you accomplish this? Well, you can use <a href="https://store-usa.arduino.cc/products/grove-temperature-humidity-sensor-pro?srsltid=AfmBOoqYoffAkhPifA9yp4xX23G8pze6Jj0sfVQu1lXpHfzy7GpCsR8A">this</a> module. There should be a temperature sensor in the <a href="https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino">Elegoo Kit</a>, which you can follow along with.</p>
+
+<p>In this sensor, there are three main pins: ground, power, and an output pin.</p>
+
+<p>Connect the power pin and ground to 5v and ground on your arduino, respectively. Then, connect the output pin to a digital pin on the Arduino:</p>
+
+<p><img src="assets/images/arduinoEng/temp1.png" alt="img" /></p>
+
+<p>Then, to use this we will use a library provided by the producers to help us out:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;dht.h&gt; //this is how you include a library in Arduino
+</span>
+<span class="n">dht</span> <span class="n">DHT</span><span class="p">;</span>
+
+<span class="cp">#define DHT11_PIN 2
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">being</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">DHT</span><span class="p">.</span><span class="n">read11</span><span class="p">(</span><span class="n">DHT11_PIN</span><span class="p">);</span>
+
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Temperature: "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">DHT</span><span class="p">.</span><span class="n">temperature</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="mi">223</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Humidity: "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">DHT</span><span class="p">.</span><span class="n">humidity</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"%"</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named <em>DHT</em>, and define the pin which it’s connected to Digital Pin 2. Once we initialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidity values, we need to reference them from the built in dht class; they are set in the <em>temperature</em> and <em>humidity</em> values. Finally, we print them out twice every second (or once every .5 seconds).</p>
+
+<p>Below is the range/accuracy for the DHT sensor:</p>
+<ul>
+  <li>Humidity Range: 20-90% RH</li>
+  <li>Humidity Accuracy: ±5% RH</li>
+  <li>Temperature Range: 0-50 °C</li>
+  <li>Temperature Accuracy: ±2% °C</li>
+  <li>Operating Voltage: 3V to 5.5V</li>
+</ul>
+
+<p>This dht sensor measures relative humidity, which is basically the amount of water vapor in the air vs. the saturation point of water vapor in the air. This saturation point is when water vapor starts to condense and leave behind due on surfaces.</p>
+
+<p>The saturation point changes with air temperature. Cold air can hold less water vapor before it becomes saturated, and hot air can hold more water vapor before it becomes saturated.</p>
+
+<p>The formula to calculate relative humidity is:</p>
+
+\[RH = (\frac{P_w}{P_s}) X \cdot 100%\]
+
+<ul>
+  <li>RH = relative humidity</li>
+  <li>density of water vapor</li>
+  <li>density of water vapor at saturation</li>
+</ul>
+
+<p>So how can we use this to measure temperature and humidity. Well, this sensor is made up of two electrodes and a substrate. When water vapor accumulates on this surfaces, it will release ions, changing the conductivity between the electrodes.</p>
+
+<p>For the temperature part, it will basically measure the resistance a certain material makes, which depends on the temperature. However, since the Arduino can’t directly measure resistance, it will measure voltage from a voltage divider, which is defined by this equation:</p>
+
+\[V_{out} = V_{in} \cdot (\frac{R2}{R1 + R2})\]
+
+<p>Where R1 and R2 are resistors in series. If one of these is a constant resistor, and the other is the thermistor, then we can rearange and calculate for the resistance, which we can convert to temperature.</p>
+
+<h1 id="pir-motion-sensors">PIR Motion Sensors</h1>
+
+<p>This is a motion sensor that utilizes changes in IR (Infared Red) Light. It basically has hemispheres with sensors in it, and when there is a gradient from one to another, it will send a pin high (from a 0 to a 1). We will need to read this using Arduino Analog Pins.</p>
+
+<p>To connect this, the pinout is as follows:</p>
+
+<ul>
+  <li>GND – connect to ground</li>
+  <li>OUT – connect to an Arduino digital pin</li>
+  <li>5V – connect to 5V</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+<span class="kt">int</span> <span class="n">sensorPin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">being</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Motion detected"</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"No Motion"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>This code is pretty simple, as all we do is do a digital read on the sensor output pin, and if it is high, then we say there was motion on the serial monitor.</p>
+
+<h1 id="ultrasound-sensors">Ultrasound Sensors</h1>
+
+<p>Ok, this sensor is actually quite interesting. To introduce it, this sensor is basically a proximity sensor that uses sound waves. You can think of it like a radar, it sends out a sound wave, and listens for the time between when it will return, and since we know the speed of sound we can use math to calculate the distance an object is from us.</p>
+
+<p>So, the first thing we have to do is to hook this up:</p>
+
+<ul>
+  <li>GND - to Arduino ground</li>
+  <li>VCC - to Arduino 5v</li>
+  <li>Trig - to Arduino digital pin 9</li>
+  <li>Echo - to Arduino digital pin 10</li>
+</ul>
+
+<p>Okay, now time for the fun part.</p>
+
+<p>Let’s first understand how this sensor works:</p>
+
+<p>On this sensor, there are two main ‘tubes’, one of them is kind of like a speaker for ultrasonic sound, and the other one is a receiver for this sound.</p>
+
+<p><img src="assets/images/arduinoEng/ultra1.png" alt="img" /></p>
+
+<p>The transmitter emits a “ping” (sound for a short period of time) and that sound bounces off an object, returning to the sound sensor.</p>
+
+<p>So, how can we calculate the distance an object is away, given this information.</p>
+
+<p>Well, consider this equation:</p>
+
+\[distance = speed \cdot time\]
+
+<p>And we know the speed of sound to be 343 meters/second. But since the distance the sound travels after first released from speaker is twice the distance from the object (back and forth, round trip), our equation will be:</p>
+
+\[distance = \frac{(343 \cdot time)}{2}\]
+
+<p>Now, all we have to do is count the time between the first ping and the returning signal.</p>
+
+<p>But how do we send a ping in the first place? Well, for this specific module, all we have to do is send a “trigger” signal, that goes HIGH for 10 milliseconds. This will cause the module (which has on board electronics to control this) to send out an 8 cycle ping.</p>
+
+<p>Ok, so using this knowlegde, we can use this sensor to calculate the distance an object is away.</p>
+
+<p>So, to get us started, below is the code I will be using:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="n">trigPin</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">echoPin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// define some variables</span>
+<span class="kt">long</span> <span class="n">duration</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">distance</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span> <span class="c1">// Sets the trigPin as an Output</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span> <span class="c1">// Sets the echoPin as an Input</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> <span class="c1">// Starts the serial communication (check serial monitor)</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Clears the trigPin</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="c1">// Sets the trigPin on HIGH state for 10 micro seconds</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="c1">// Reads the echoPin, returns the sound wave travel time in microseconds</span>
+  <span class="n">duration</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="c1">// Calculating the distance</span>
+  <span class="n">distance</span> <span class="o">=</span> <span class="n">duration</span> <span class="o">*</span> <span class="mf">0.034</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="c1">// Prints the distance on the Serial Monitor</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Distance: "</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, I somewhat cheated as I am using a built-in function to measure the time taken, using the <em>pulseIn()</em> function.</p>
+
+<!-- ---
+explain with better, paul's code
+--- -->
+
+<p>But anyways, as you can see, with this code I send out a ping:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+</code></pre></div></div>
+<p>and then, with the below function, I measure how long it would take for the echoPin to go HIGH:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">duration</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now, since we know the speed of sound, and the time the sound wave took (round-trip), we can calculate the distance to the object:</p>
+
+\[distance = velocity \cdot time
+\\\\
+distance = 0.034 \cdot duration\]
+
+<p>Which would give us the distance of the object twice, because the wave travels to and back to the object, so we have to divide by 2:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">distance</span> <span class="o">=</span> <span class="n">duration</span> <span class="o">*</span> <span class="mf">0.034</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Now, if you view the Serial Monitor, you will see print outs of the ditance measurement.</p>
+
+<p>This is a very useful sensor, I have used this for making a sonar, which I suggect you try yourself!!</p>
+
+<!-- # IR Reciever
+
+While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply receives IR (Infared Red) light. 
+
+# Inertial Measurement Units (IMU)
+
+In my opinion, one of the most important sensors for your robotics projects, the IMU is basically an orientation sensor. It will measure your acceleration and gyroscopic rotation. How it works is really fancy, so I will try to simplify it. 
+
+
+
+To use it with your Arduino, you can check out [this past blog post](https://burakayy.com/blog/IMU-Measurments) for more information.
+
+Ok, since I linked a previous lesson on how to use IMUs, I will keep this section pretty short. 
+
+
+# Actuators | Motors
+
+Now, we move into actuators. The first thing I want to talk about are motors. 
+
+## DC Motors
+
+### Using Low Voltage Motors with Arduino
+
+### Using High Voltage Motors with Arduino | Motor Drivers
+
+## Stepper Motors
+
+## Servo Motors
+
+Lastly, maybe on of the most useful types of motors for your Engineering Projects, 
+ -->
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Burak Ayyorgun</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/blog/assets/images/planeBkg.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Burak Ayyorgun &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/blog/tag/arduino/">Arduino</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-hello-world">How to get started with Engineering | Hello World Example</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-programming">How to get started with Engineering | Arduino Programming</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-electronics">How to get started with Engineering | Electronics</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/blog/tag/arduino/">
+                                
+                                    See all 4 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/arima-future">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/AutoCorr/sirfuture1.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arima-future">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arima</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Future Works & Next Steps</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>In the previous lessons, we have learned topics from Autocorrelation, Moving Average, and Differencing, to ARIMA Models and Multiple Regression. And we have applied these methods to various datasets, to better understand how</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/Books-for-Learning-Technical-Topics">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/books/booksCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/Books-for-Learning-Technical-Topics">
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">Books for Learning Technical Topics</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>For a long time, I have been gathering resources to help me with my goals and projects. Specifically, I have been slowly growing my collection of technical books, from 6th grade to the</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      6 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://burakayy.com/blog/">
+            
+                <img src="/blog/assets/images/favicon.png" alt="Burak Ayyorgun icon" />
+            
+            <span>Burak Ayyorgun</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">
+        How to get started with Engineering | Sensors & Actuators
+    <span></span></div>
+    
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How+to+get+started+with+Engineering+%7C+Sensors+%26+Actuators&amp;url=https://burakayy.com/blog/arduino-sensors"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://burakayy.com/blog/arduino-sensors"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+
+
+
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

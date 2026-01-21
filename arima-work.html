@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Part 1 - What are ARIMA models and how do they work?</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/arima-work" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Part 1 - What are ARIMA models and how do they work?" />
+    <meta property="og:description" content="Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will also implement an Autoregressive model from SCRATCH! As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in useful" />
+    <meta property="og:url" content="https://burakayy.com/blog/arima-work" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/AutoCorr/predictions5.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:author" content="https://www.facebook.com/ghost" />
+    <meta property="article:published_time" content="2024-03-07T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2024-03-07T00:00:00+00:00" />
+    <meta property="article:tag" content="Arima" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Part 1 - What are ARIMA models and how do they work?" />
+    <meta name="twitter:description" content="Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will also implement an Autoregressive model from SCRATCH! As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in useful" />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/AutoCorr/predictions5.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Arima" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/arima-work",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/AutoCorr/predictions5.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/arima-work"
+    },
+    "description": "Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will also implement an Autoregressive model from SCRATCH! As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in useful"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Part 1 - What are ARIMA models and how do they work?" href="/blog/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-arima post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 7 March 2024"> 7 March 2024</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/blog/tag/arima/'>ARIMA</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Part 1 - What are ARIMA models and how do they work?</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/blog/assets/images/AutoCorr/predictions5.png); height: 400px; background-size: cover; background-position: center;">
+            </figure>
+            
+
+            <section class="post-full-content" style="margin-top: 60px;">
+                <div class="kg-card-markdown">
+                    <p>Here, we will learn what ARIMA models are, how they work, and how they can be useful; we will also implement an Autoregressive model from SCRATCH!</p>
+
+<p>As in the previous lessons, you probably learned what Autocorrelation is and how it works. Well, the idea of autocorrelation can come in useful when we are talking about predicting a certain function. Please also make sure that you have read the Gradient Descent lesson and/or 
+have a solid understanding of Linear Regression.</p>
+
+<p>So what, if any, does ARIMA stand for?</p>
+
+<p>ARIMA stands for an <strong>A</strong>uto<strong>R</strong>egressive, <strong>I</strong>ntegrated, <strong>M</strong>oving <strong>A</strong>verage. But what do each of these terms mean?</p>
+
+<h2 id="autoregression">Autoregression</h2>
+<p>We can take the fundamental theory of autocorrelation and combine it with the ideas of Regression &amp; Gradient Descent and arrive at something called Autoregression. 
+In simple words, autoregression is like linear regression, but it runs the regression algorithm on sections of data, at once, unlike a linear regression, which runs a regression in a pair of values.</p>
+
+<p>In equation terms:
+\(y_t = \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} + ... + \phi_p \cdot y_{t-p} \tag{1}\)</p>
+
+<p>This basically means that the current y value will equal some relationship between the past p-lagged values. But what do I mean when I say <em>lagged</em>? Well, all I mean by that is the past p values, where p can be any number greater than zero, but less than (or equal to) n (the length of the data). Can you see why we call it <em>lags</em>?</p>
+
+<p>What equation 1 represents, is something called an AR(p) model, or an autoregressive model of order p. Simply put, this is basically a multiple regression model.</p>
+
+<h2 id="integration">Integration</h2>
+
+<p>I hope you viewed the previous lesson on Stationary time series and differencing. In this context, Integrating means to make a non-stationary time series, stationary via differencing (again, if you are confused, please view the previous lesson).</p>
+
+<h2 id="moving-average">Moving Average</h2>
+
+<p>As you were probably introduced to in Parts 1 and 2 for Autocorrelations, you should know what a moving average model is and how to implment one.</p>
+
+<!-- ### Using Python Libraries for Time Series Forecasting
+Before we go on to make our own ARIMA model, I wanted to quickly show you how you can use open-source libraries to deploy an ARIMA (or other forecasting models) model.  -->
+
+<p>Really, the ARIMA model is made up of two different models, an autoregressive model and a moving average model. For this post, we will implement an autoregressive model using basic math principles we learned in the gradient descent &amp; linear regression lesson to make a multiple regression (autoregressive) model.</p>
+
+<h2 id="autoregression-from-scratch">Autoregression from scratch</h2>
+
+<p>In this section, I will share my first attempt at making my own autoregression model. I will walk you through how it works, its <strong>flaws</strong>, and how we could make it better.</p>
+
+<p>As always, we will be using the same dataset we used previously:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">#installations
+</span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">skforecast</span>
+
+<span class="c1"># Data manipulation
+# ==============================================================================
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">skforecast.datasets</span> <span class="kn">import</span> <span class="n">fetch_dataset</span>
+
+<span class="c1"># Plots
+# ==============================================================================
+</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'fivethirtyeight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'lines.linewidth'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'font.size'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Data download
+# ==============================================================================
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">fetch_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'h2o_exog'</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1">#this dataset is on australian health system, from 1991 to 2008. This is from Hyndman (2023) fpp3
+#Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system had between 1991 and 2008. Two additional variables (exog_1, exog_2) are simulated.
+</span>
+<span class="c1"># Data preparation
+# ==============================================================================
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'fecha'</span><span class="p">:</span> <span class="s">'date'</span><span class="p">})</span>
+<span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s">'%Y-%m-%d'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">'date'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s">'MS'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="c1">#data.head()
+</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">y</span>
+</code></pre></div></div>
+
+<p>So, now that we have eveything configured, I want to show you the autoregressive function I made, and I will walk you through it:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">lag_plot</span>
+<span class="k">def</span> <span class="nf">auto_regressive</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span>
+  <span class="n">beta</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
+  <span class="n">bias</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">error_sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)):</span>
+      <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="n">p</span><span class="p">):</span> <span class="c1">#and start &lt;= len(xs)):
+</span>        <span class="n">batch_xs</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[</span><span class="n">start</span><span class="o">-</span><span class="n">p</span><span class="p">:</span><span class="n">start</span><span class="p">]</span>
+        <span class="c1">#print(start, batch_xs)
+</span>        <span class="n">batch_ys</span> <span class="o">=</span> <span class="n">ys</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch_xs</span><span class="p">)):</span>
+          <span class="n">error</span> <span class="o">+=</span> <span class="n">batch_xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">error</span> <span class="o">+=</span> <span class="n">bias</span>
+        <span class="n">error</span> <span class="o">-=</span> <span class="n">batch_ys</span>
+        <span class="c1">#print(count)
+</span>        <span class="k">for</span> <span class="n">b_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)):</span>
+          <span class="n">beta</span><span class="p">[</span><span class="n">b_i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xs</span><span class="p">[</span><span class="n">start</span><span class="o">-</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="n">error</span><span class="p">)</span><span class="o">/</span><span class="n">count</span>
+        <span class="n">bias</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">error</span><span class="p">)</span><span class="o">/</span><span class="n">count</span>
+    <span class="c1">#print(beta)
+</span>  <span class="k">return</span> <span class="n">beta</span><span class="p">,</span> <span class="n">bias</span>
+</code></pre></div></div>
+<p>So first, the function takes in the input, training x-values and y-values, learning rate (refer to the gradient descent lesson), an epoch size (which is how many times we are going to run our algorithm, or update the weights), and p (which is our lag length).</p>
+
+<p>Next, we make an array of weights, called beta. This are our coefficients in our autocorrelation function, below.</p>
+
+\[y_t = \beta_1 \cdot y_{t-1} + \beta_2 \cdot y_{t-2} + ... + \beta_p \cdot y_{t-p} \tag{1}\]
+
+<p>As said before, we run our algorithm in an epoch for loop that represents how many times we update betas.</p>
+
+<h3 id="the-algorithm">The Algorithm</h3>
+
+<p>The next part is where the regression happens. First, we need to run the regression in a moving window, of length p; we start at x = p (because we can’t run a regression for values less that p).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch_xs</span><span class="p">)):</span>
+    <span class="n">error</span> <span class="o">+=</span> <span class="n">batch_xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">error</span> <span class="o">+=</span> <span class="n">bias</span>
+<span class="n">error</span> <span class="o">-=</span> <span class="n">batch_ys</span>
+</code></pre></div></div>
+<p>The first thing we do is calculate the error across our window, which we do by calculating our prediction:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch_xs</span><span class="p">)):</span>
+    <span class="n">error</span> <span class="o">+=</span> <span class="n">batch_xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">error</span> <span class="o">+=</span> <span class="n">bias</span>
+</code></pre></div></div>
+<p>and then subtracting the actual value, <em>batch_ys</em>.</p>
+
+<p>Now that we have our error, we will run a gradient descent algorithm on that error value.
+If we do the partial-derivative math to see how each beta will effect the error, you should get something like this:
+\(\frac{\partial \text{MSE}}{\partial b_i} = \lim_{h \to 0} \frac{(\sum_{i=0}^n (y_{i} - (b_{i-p} \cdot x_{i-p}))^2 +\ldots+ (y_{i} - ((b_{i}+h) \cdot x_i))^2) - (\sum_{i=0}^n (y_{i} - (b_{i-p} \cdot x_{i-p}))^2 +\ldots+ (y_{i} - (b_{i} \cdot x_i))^2)}{h}\)</p>
+
+<p>which after you do the math, becomes:</p>
+
+\[\frac{\partial \text{MSE}}{\partial b_i} = \frac{2}{n} \cdot \sum_{i=p}^n x_{t-i} \cdot (x_{t-p}\cdot b_{t-p} +\ldots +x_{t-i}\cdot b_{t-i} - y_t)\]
+
+<p>In code, here is how it would look like:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">b_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)):</span>
+  <span class="n">beta</span><span class="p">[</span><span class="n">b_i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xs</span><span class="p">[</span><span class="n">start</span><span class="o">-</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="n">error</span><span class="p">)</span><span class="o">/</span><span class="n">count</span>
+<span class="n">bias</span> <span class="o">-=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">error</span><span class="p">)</span><span class="o">/</span><span class="n">count</span>
+</code></pre></div></div>
+<p>We adjust our coefficients (an array of betas) and our bias (using a very similar partial derivative as shown above, but instead for a constant variable).</p>
+
+<p>Now, this function assumes our data is passed in a specific format, and I made a separate function that will handle that:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">prepare_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+  <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">X</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">order</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, we simply get our original data and split it into x and y batches, of length order (our lag amount).</p>
+
+<p>Below is the code for running this function on our data:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#lag_plot(data)
+</span><span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)):</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">item</span><span class="p">())</span>
+  <span class="c1">#print(type(data.iloc[i]))
+</span><span class="n">p</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">be</span><span class="p">,</span> <span class="n">bias</span> <span class="o">=</span> <span class="n">auto_regressive</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">12</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="mi">12</span><span class="p">:],</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">be</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bias</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x_lag</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y_lag</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">sum_of_array</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+  <span class="k">return</span> <span class="nb">sum</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">p</span><span class="p">:</span>
+    <span class="c1">#y_lag.append(sum([be[j-i+p] * x[j] for j in range(i-p, i)]))
+</span>    <span class="n">y_lag</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">sum_of_array</span><span class="p">([</span><span class="n">be</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">)])</span><span class="o">+</span><span class="n">bias</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y_lag</span><span class="p">)</span>
+<span class="c1">#plt.plot(list(np.arange(0, 2, .01)), [be[i]*x_lag[i] + be[i]*x_lag[i] for x in np.arange(0, 2, .01)], color="red")
+</span><span class="n">num</span> <span class="o">=</span> <span class="p">.</span><span class="mi">05</span><span class="o">+</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="p">.</span><span class="mi">01</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">y_lag</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>which you should get something like this:
+<img src="assets/images/AutoCorr/predictions5.png" alt="img" /></p>
+
+<p><strong>Woops!!</strong> What’s going on here!!!</p>
+
+<p>Well, I did some investigations, and I suspect it’s due to how python handles float operations. And during our gradient descent operation, the numbers are either getting too large or small and are not being handled properly. Thus, you end up with a bunch of zeros, which is not what we want.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>What we want, is a library that will automatically handle this heavy number arithmetic for us (because doing this from scratch would be very intensive).</p>
+
+<p><strong>NumPy to the rescue!!</strong> In the next lesson, I will show you how to utilize a free Python Library to take care of this multiplication for us.</p>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Burak Ayyorgun</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/blog/assets/images/planeBkg.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Burak Ayyorgun &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/blog/tag/arima/">Arima</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arima-future">Future Works & Next Steps</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/how-arima-works">Part 2 - Implementing a Full ARIMA model from SCRATCH!</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arima-library">Using Scikit & SKtime for Forecasting</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/blog/tag/arima/">
+                                
+                                    See all 7 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/how-arima-works">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/AutoCorr/predictions7.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/how-arima-works">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arima</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Part 2 - Implementing a Full ARIMA model from SCRATCH!</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Here, we will build off the last lesson and properly implement an Autoregressive, Integrated, Moving Average Model. As usual, I will be using the same data as in the previous lesson. The fundamental</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      9 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/arima-library">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/AutoCorr/predictions4.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arima-library">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arima</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Using Scikit & SKtime for Forecasting</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Before we take a deep dive into how ARIMA models work, I wanted to show you some alternatives, mainly using Python ML libraries to do the prediction/forecasting. In this lesson, we will be</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      6 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://burakayy.com/blog/">
+            
+                <img src="/blog/assets/images/favicon.png" alt="Burak Ayyorgun icon" />
+            
+            <span>Burak Ayyorgun</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">
+        Part 1 - What are ARIMA models and how do they work?
+    <span></span></div>
+    
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Part+1+-+What+are+ARIMA+models+and+how+do+they+work%3F&amp;url=https://burakayy.com/blog/arima-work"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://burakayy.com/blog/arima-work"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+
+
+
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Part 2 - Autocorrelation, Moving Average, & More</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Part 2 - Autocorrelation, Moving Average, & More" />
+    <meta property="og:description" content="A simple introduction to Seasonal Trends, Decompositions, and many more! This is the second and last part of the lessons on Autocorrelation, Moving Averages, Trends, and Decompositions. For the code used in this tutorial, please view the previous post for the github link. Seasonal Trends If we want to understand" />
+    <meta property="og:url" content="https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/AutoCorr/ACmain.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:author" content="https://www.facebook.com/ghost" />
+    <meta property="article:published_time" content="2024-01-25T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2024-01-25T00:00:00+00:00" />
+    <meta property="article:tag" content="Arima" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Part 2 - Autocorrelation, Moving Average, & More" />
+    <meta name="twitter:description" content="A simple introduction to Seasonal Trends, Decompositions, and many more! This is the second and last part of the lessons on Autocorrelation, Moving Averages, Trends, and Decompositions. For the code used in this tutorial, please view the previous post for the github link. Seasonal Trends If we want to understand" />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/AutoCorr/ACmain.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Arima" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/AutoCorr/ACmain.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More"
+    },
+    "description": "A simple introduction to Seasonal Trends, Decompositions, and many more! This is the second and last part of the lessons on Autocorrelation, Moving Averages, Trends, and Decompositions. For the code used in this tutorial, please view the previous post for the github link. Seasonal Trends If we want to understand"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Part 2 - Autocorrelation, Moving Average, & More" href="/blog/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-arima post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="25 January 2024">25 January 2024</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/blog/tag/arima/'>ARIMA</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Part 2 - Autocorrelation, Moving Average, & More</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/blog/assets/images/AutoCorr/ACmain.png); height: 400px; background-size: cover; background-position: center;">
+            </figure>
+            
+
+            <section class="post-full-content" style="margin-top: 60px;">
+                <div class="kg-card-markdown">
+                    <p>A simple introduction to Seasonal Trends, Decompositions, and many more! This is the second and last part of the lessons on Autocorrelation, Moving Averages, Trends, and Decompositions. For the code used in this tutorial, please view the previous post for the github link.</p>
+
+<h2 id="seasonal-trends">Seasonal Trends</h2>
+
+<p>If we want to understand what a <em>Seasonal Trend _ is, I think it’s best if we first understand what we are refrencing when we mean a _trend.</em> So, look at this graph,</p>
+
+<p><img src="https://github.com/user-attachments/assets/e5a7cd20-7f87-4778-8ac0-a9a151f86df0" alt="image" /></p>
+
+<p>as you can see, over time, the graph tends upwards. That simple relationship is what we mean when we talk about trends: <u>in which direction does the data tend?</u> If over time, it tends to increase, then we refer it to be a positive trend; if it tends to decrease over time, then we refer to it as a negative trend.</p>
+
+<h4 id="seasonality-in-data">Seasonality in Data</h4>
+
+<p>These are patterns in the data which are affected by seasonal factors, such as the time of year, or day of weak. For example, we can observe that the sale of snow shovels will be a function of the time of year, whether it is winter or not. So over a 3 year period, we should expect a spike of sales every 12 or so months (which is the time between winters).</p>
+
+<p>Please observe this graph of the Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system had between 1991 and 2008: <img src="assets/images/AutoCorr/graph1.png" alt="image" />.</p>
+
+<p>As you can see, there is a spike in the data every 12 months.</p>
+
+<p>If you run this piece of code, we can view the dates:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">#installations
+</span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">skforecast</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">skforecast.datasets</span> <span class="kn">import</span> <span class="n">fetch_dataset</span>
+
+<span class="c1"># Data download
+# ==============================================================================
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">fetch_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'h2o_exog'</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1">#this dataset is on australian health system, from 1991 to 2008. This is from Hyndman (2023) fpp3
+#Monthly expenditure ($AUD) on corticosteroid drugs that the Australian health system had between 1991 and 2008. Two additional variables (exog_1, exog_2) are simulated.
+</span>
+<span class="c1"># Data preparation
+# ==============================================================================
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'fecha'</span><span class="p">:</span> <span class="s">'date'</span><span class="p">})</span>
+<span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s">'%Y-%m-%d'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">'date'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s">'MS'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1">#data = data.y
+</span>
+<span class="n">data</span>
+</code></pre></div></div>
+
+<p>Then you can click the “Convert this data to an interactive table” button and see the entire dataset.
+<img src="https://github.com/user-attachments/assets/18b20d7d-ae68-4dbb-8748-3955b6d24741" alt="image" /></p>
+
+<p>As you can see, the spike occurs around winter time. Now there is probably an entire medical reason for this (try to research and find the answer yourself), but that’s outside the scope of this lesson. The first data is April 1st, and from the next April 1st, you can see that there is exactly one major spike in the data. The spike is a function of time, and this pattern is reoccuring.</p>
+
+<p>And that is the simple, introductory, definition to seasonality.</p>
+
+<p>And that’s simply what we are refering to when we say <em>Seasonal Trends.</em> Any patterns in data that has a repeated, predictable, and time-dependent factors, is a type of seasonal trend (can you see why we call it seasonal?).</p>
+
+<h4 id="cycles">Cycles</h4>
+
+<p>Similarly, cycles are when the data shows rises and falls that are not of a fixed frequency. This could be from economic activity.</p>
+
+<p>Cycles and Seasonality are often confused, and their main differentiation is if the pattern is of fixed frequency.</p>
+
+<h2 id="decompositions">Decompositions</h2>
+
+<p>In this section, we will discuss two main ideas which are often closely related: transformations and decompositions.</p>
+
+<h3 id="box-cox-transformations">Box-Cox Transformations</h3>
+
+<p>Transformations are useful when the data exhibits increases or decreases with the level of the series, such as logorithmic transformations. Transformations are often used to simplify the data before forecasting. Here we will dicuss a common one: the Bickel &amp; Doksum Transformation which is actually a modified Box-Cox Transformation. Mathematically, it looks like this:</p>
+
+\[w_t =
+\begin{cases}
+    \log(y_t) &amp; \text{if } \lambda = 0, \\
+    \frac{\operatorname{sign}(y_t) \cdot |\lambda - 1|}{\lambda} &amp; \text{otherwise}.
+\end{cases}\]
+
+<p>Here, w<sub>t</sub> depends on 𝜆. If λ is zero, we take the logarithm of y (which in Box-Cox transformation is always a natural logarithm, i.e., to base <em>e</em>). However, if λ is anything else, w<sub>t</sub> will be</p>
+
+<p>\(\frac{\operatorname{sign}(y_t) \cdot |\lambda - 1|}{\lambda}\).</p>
+
+<p>here it is in code:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Data Transformations
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">y</span>
+<span class="k">def</span> <span class="nf">get_sign</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="k">return</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">bickel_doksum_transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lam</span><span class="p">):</span>
+  <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">lam</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+      <span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+      <span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_sign</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">lam</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">lam</span>
+  <span class="k">return</span> <span class="n">new_data</span>
+
+<span class="n">t_data</span> <span class="o">=</span> <span class="n">bickel_doksum_transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">t_data</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://github.com/user-attachments/assets/8e8b38b4-1aa0-4a4e-bae7-eaba83952ea4" alt="image" /></p>
+
+<p>Please visit here for a <a href="https://otexts.com/fpp3/transformations.html">more detailed explaination</a>.</p>
+
+<h2 id="decomposition">Decomposition</h2>
+
+<p>Here we will dicuss how we can “split” apart a time series dataset.</p>
+
+<h3 id="classical-decomposition">Classical Decomposition</h3>
+
+<p>In Classical Decomposition we assume the seasonal component is constant every year. But for multiplicative seasonality, the <em>m</em> values that form the seasonal component are sometimes called the “seasonal indicies”.</p>
+
+<h4 id="additive-and-multiplicative-decompositions">Additive and Multiplicative Decompositions</h4>
+
+<p>Steps to an Additive Decomposition:</p>
+
+<p><strong>Step 1:</strong> If m is an even number, compute the trend-cycle component 
+\(\hat{T}_t\) 
+using a 2 * m-MA. If m is an odd number, compute the trend-cycle component T<sub>t</sub> using an m-MA; using this:</p>
+
+\[\hat{T_t} = \frac{1}{2} \cdot [(\frac{1}{m} \cdot \sum_{j=-k-1}^k y_t + j) + ( \frac{1}{m} \cdot \sum_{j=-k}^{k+1} y_t + j)]\]
+
+<p><strong>Step 2:</strong> Calculate the detrended series: y<sub>t</sub> - T<sub>t</sub></p>
+
+<p><strong>Step 3:</strong> To estimate the seasonal component for each season, simply average the detrended values for that season. For example, with monthly data, the seasonal component for March is the average of all the detrended March values in the data. These seasonal component values are then adjusted to ensure that they sum to zero. The seasonal component \(\hat{S}_t\) is obtained by stringing together these monthly values and replicating the sequence for each year of data.</p>
+
+<p><strong>Step 4:</strong> The remainder component is calculated by subtracting the estimated seasonal and trend-cycle components:
+\(\hat{R}_t = y_t - \hat{T}_t - \hat{S}_t.\)</p>
+
+<p>And multiplicative decomposition is very similar (for this lesson, we will not be going into this one for now), but essentially, to detrend a multiplicative data, do 
+\(y_t / \hat{T}_t\)
+instead.</p>
+
+<h3 id="in-practice">In practice</h3>
+
+<p>So here is how decompositions basically work:</p>
+
+<p>We assume an addititve decomposition is y<sub>t</sub> = S<sub>t</sub> + T<sub>t</sub> + R<sub>t</sub>.</p>
+
+<p>and multiplicative is y<sub>t</sub> = S<sub>t</sub> * T<sub>t</sub> * R<sub>t</sub>. And also if you want to convert multiplicative to additive: y<sub>t</sub> = S<sub>t</sub> * T<sub>t</sub> * R<sub>t</sub> is equal to \(\log y_t = \log S_t + \log T_t + \log R_t.\)</p>
+
+<ul>
+  <li>T<sub>t</sub> - Trend-cycle component of period t</li>
+  <li>S<sub>t</sub> - Seasonal component of period t</li>
+  <li>R<sub>t</sub> - Remainder component of period t</li>
+</ul>
+
+<h4 id="estimating-the-seasonal-component">Estimating the Seasonal Component</h4>
+
+<p>First, take the average accross every Januaries to get S(1), if it’s monthly. Here’s what that means. If we had a dataset that spanned 4 years, we would take the averages of every January data point, then every February data point, then every March, and so on. Thus, we would be left with 12 averages if it’s monthly data. If it’s weekly, then we would take the average of every week in the year, and so on.</p>
+
+<p>So for additive monthly:
+\(S^{(1)} + S^{(2)} + ... + S^{(12)} = 0\)
+and for multiplicative monthly, we have:
+\(S^{(1)} + S^{(2)} + ... + S^{(12)} = m\)</p>
+
+<p>So first, de-trend the data. Then take the average values for each season!! And \(\hat{S}_t\) is just the replications of seasonal indicies!</p>
+
+<p>So here is the code:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span>
+<span class="k">def</span> <span class="nf">additive_de_trend</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+  <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">order</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">-</span><span class="n">k</span><span class="p">):</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">order</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">):</span>
+          <span class="nb">sum</span> <span class="o">+=</span> <span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">/</span><span class="n">order</span>
+        <span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">avg</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sum2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">):</span>
+          <span class="n">sum1</span> <span class="o">+=</span> <span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">avg1</span> <span class="o">=</span> <span class="n">sum1</span><span class="o">/</span><span class="n">order</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+          <span class="n">sum2</span> <span class="o">+=</span> <span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">avg2</span> <span class="o">=</span> <span class="n">sum2</span><span class="o">/</span><span class="n">order</span>
+        <span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">((</span><span class="n">avg1</span><span class="o">+</span><span class="n">avg2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">new_data</span>
+
+<span class="k">def</span> <span class="nf">seasonal_comp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+  <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">seasonal_components</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'y'</span><span class="p">])</span>
+  <span class="n">de_trended_data</span> <span class="o">=</span> <span class="n">additive_de_trend</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">de_trended_data</span><span class="p">):</span>
+      <span class="nb">sum</span> <span class="o">+=</span> <span class="n">de_trended_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+      <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">index</span> <span class="o">+=</span> <span class="n">order</span>
+    <span class="n">seasonal_components</span><span class="p">.</span><span class="n">y</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="n">count</span><span class="p">)</span>
+  <span class="n">place</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">new_data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">seasonal_components</span><span class="p">.</span><span class="n">y</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">place</span><span class="p">]</span>
+    <span class="n">place</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">place</span> <span class="o">&gt;=</span> <span class="n">order</span><span class="p">:</span>
+      <span class="n">place</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">return</span> <span class="n">new_data</span>
+
+<span class="n">ad_data</span> <span class="o">=</span> <span class="n">additive_de_trend</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">season_comps</span> <span class="o">=</span> <span class="n">seasonal_comp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">data</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1">#ad_data.plot()
+</span><span class="n">trend_comp</span> <span class="o">=</span> <span class="n">moving_average</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">trend_comp</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">season_comps</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">decomposition</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Plot the components
+</span><span class="n">decomposition</span><span class="p">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">season_comps</span><span class="p">)):</span>
+  <span class="n">sum1</span> <span class="o">+=</span> <span class="n">season_comps</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</code></pre></div></div>
+<p>This will compare our code, to an official Decomposition Function:
+<img src="https://github.com/user-attachments/assets/0b22fd18-a727-4fce-9ac1-2e4bad9f779b" alt="image" />
+to 
+<img src="https://github.com/user-attachments/assets/836217a4-232b-40cb-9cb4-a8b1bf0001a9" alt="image" /></p>
+
+<p>And as you can see, they are pretty damn close!! :)</p>
+
+<h3 id="stl-decomposition">STL Decomposition</h3>
+
+<p>Now, this algorithmically is complicated for these type of posts; but you should be able to understand them with the basics provided above.</p>
+
+<p>STL stands for <em>Seasonal &amp; Trend Decomposition using Leoss</em>. What this does is it basically updates trend and seasonality components iteratively, starting with \(\hat{T}_t = 0\)</p>
+
+<p>And that’s it!! I have left out a lot of key information, to keep it short. <strong>So please view this online textbook for more: <a href="https://otexts.com/fpp3/MA.html">otext</a></strong></p>
+
+<p>If you would like to suggest anything, please let me know!</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Burak Ayyorgun</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/blog/assets/images/planeBkg.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Burak Ayyorgun &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/blog/tag/arima/">Arima</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arima-future">Future Works & Next Steps</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/how-arima-works">Part 2 - Implementing a Full ARIMA model from SCRATCH!</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arima-work">Part 1 - What are ARIMA models and how do they work?</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/blog/tag/arima/">
+                                
+                                    See all 7 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/Gradient-Descent">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/Gradient/gdMain.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/Gradient-Descent">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arima</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Gradient Descent & Linear Regression</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>In this post I will be introducing the math behind Gradient Descent and how it works!
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/Autocorrelation,-Moving-Average,-&-More">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/AutoCorr/ma.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/Autocorrelation,-Moving-Average,-&-More">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arima</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Part 1 - Autocorrelation, Moving Average, & More</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>A simple introduction to Autocorrelation, Moving Average, and in the second part, an introduction to STL Decomposition, Seasonal Trends, and much more!
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://burakayy.com/blog/">
+            
+                <img src="/blog/assets/images/favicon.png" alt="Burak Ayyorgun icon" />
+            
+            <span>Burak Ayyorgun</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">
+        Part 2 - Autocorrelation, Moving Average, & More
+    <span></span></div>
+    
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Part+2+-+Autocorrelation%2C+Moving+Average%2C+%26+More&amp;url=https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://burakayy.com/blog/Autocorrelation,-Moving-Average,&-More"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+
+
+
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

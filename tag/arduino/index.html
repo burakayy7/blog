@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Arduino - Burak Ayyorgun</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/tag/arduino/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Arduino - Burak Ayyorgun" />
+    <meta property="og:description" content="My Blog for Technical Projects" />
+    <meta property="og:url" content="https://burakayy.com/blog/tag/arduino/" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/planeBkg.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arduino - Burak Ayyorgun" />
+    <meta name="twitter:description" content="My Blog for Technical Projects" />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/planeBkg.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="666" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/tag/arduino/",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/planeBkg.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/tag/arduino/"
+    },
+    "description": "My Blog for Technical Projects"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Tag Page" href="/blog/feed.xml" />
+
+
+</head>
+<body class="tag-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<!-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
+
+<!-- The big featured header, it uses blog cover image as a BG if available -->
+<!-- #tag -->
+<!-- dynamically loading backgrounds for tags,  descriptions and page titles -->
+
+
+
+<header class="site-header outer " style="background-image: url(/blog/assets/images/arduinoEng/arduino_main.png) ">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+        <div class="site-header-content">
+            <h1 class="site-title">Arduino</h1>
+            <h2 class="site-description">
+                
+                    Course on Getting started with Engineering & Arduino.
+                
+            </h2>
+        </div>
+    </div>
+</header>
+<!-- tag -->
+
+<!-- The main content area -->
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <div class="post-feed">
+            <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
+            
+
+
+<style>
+.post-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-card-date {
+    margin-left: auto;
+    font-size: 0.875em;
+    color: #70b7ed;
+}
+</style>
+
+
+
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/blog/How-to-start-Arduino">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_getting_started.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/How-to-start-Arduino">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Hi, my name is Burak Ayyorgun and I wanted to share how I started with Engineering and give advice how you guys might want to start. The main goal is to find what</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+                <span class="post-card-date">June 10, 2024</span>
+            </footer>
+        </div>
+    </article>
+
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/blog/arduino-electronics">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_electronics3.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arduino-electronics">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering | Electronics</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering. To follow along, please refer to the introductory lesson to find the link to an Arduino Kit,</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+                <span class="post-card-date">June 19, 2024</span>
+            </footer>
+        </div>
+    </article>
+
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/blog/arduino-programming">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_prog2.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arduino-programming">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering | Arduino Programming</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Now, if we want to be a good engineer in this day and age, we need to also know Computer Science. Arduino especially relies on this as this is how we will program</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      5 min read
+                    
+                </span>
+                <span class="post-card-date">June 27, 2024</span>
+            </footer>
+        </div>
+    </article>
+
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/blog/arduino-hello-world">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/helloworld.jpeg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arduino-hello-world">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering | Hello World Example</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>In this lesson, we will implement our first Arduino Project: our very own Hello World example!! Required Materials: Arduino Board (with USB cable) Breadboard Male-Male Jumper Wires Arduino IDE 1 LED 1 1K</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+                <span class="post-card-date">July 05, 2024</span>
+            </footer>
+        </div>
+    </article>
+
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/blog/arduino-sensors">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/sensor1.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arduino-sensors">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering | Sensors & Actuators</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices Common Sensors Below are simple introductions to simple/common sensors for Arduino. These usually don’t require</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+                <span class="post-card-date">July 15, 2024</span>
+            </footer>
+        </div>
+    </article>
+
+
+        </div>
+    </div>
+</main>
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('1');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

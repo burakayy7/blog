@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>How to get started with Engineering | Electronics</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/arduino-electronics" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How to get started with Engineering | Electronics" />
+    <meta property="og:description" content="Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering. To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard. How Does a BreadBoard Work A breadboard’s" />
+    <meta property="og:url" content="https://burakayy.com/blog/arduino-electronics" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/arduinoEng/arduino_electronics3.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:author" content="https://www.facebook.com/ghost" />
+    <meta property="article:published_time" content="2024-06-19T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2024-06-19T00:00:00+00:00" />
+    <meta property="article:tag" content="Arduino" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to get started with Engineering | Electronics" />
+    <meta name="twitter:description" content="Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering. To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard. How Does a BreadBoard Work A breadboard’s" />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/arduinoEng/arduino_electronics3.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Arduino" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/arduino-electronics",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/arduinoEng/arduino_electronics3.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/arduino-electronics"
+    },
+    "description": "Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering. To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard. How Does a BreadBoard Work A breadboard’s"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="How to get started with Engineering | Electronics" href="/blog/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-arduino post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="19 June 2024">19 June 2024</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/blog/tag/arduino/'>ARDUINO</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">How to get started with Engineering | Electronics</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_electronics3.jpg); height: 400px; background-size: cover; background-position: center;">
+            </figure>
+            
+
+            <section class="post-full-content" style="margin-top: 60px;">
+                <div class="kg-card-markdown">
+                    <p>Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering.</p>
+
+<p>To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard.</p>
+
+<h2 id="how-does-a-breadboard-work">How Does a BreadBoard Work</h2>
+
+<p>A breadboard’s purpose is to help with efficiency when prototyping a circuit; instead of having to <a href="https://en.wikipedia.org/wiki/Solder">solder</a> every component, without knowing the circuit will work, wouldn’t it be nice to have a “plug-n-play” set up where you can easily interchange components?</p>
+
+<p>Well, the breadboard comes to the rescue!</p>
+
+<p>Below is a diagram of how the various pins on your board are connected:</p>
+
+<p><img src="assets/images/arduinoEng/breadboardLayout.png" alt="img" /></p>
+
+<p>Usually, breadboards have two sets of horizontal strips that run across the long side, each usually labelled with a red or blue strip. These are generally used for 
+power, providing current to your circuit; however, these are not directly connected to the pins on the inside. I will explain how this works further, with examples.</p>
+
+<p><img src="assets/images/arduinoEng/breadboard1.png" alt="img" /></p>
+
+<p>So, referring to both of the diagrams above, each pin along a column is connected. But pins across rows are not connected. Furthermore, pins that cross the barrier
+in the middle are also not connected.</p>
+
+<p>This setup provides a framework which you can easily and systematically design your own circuits.</p>
+
+<h2 id="how-do-resistors-work">How Do Resistors Work</h2>
+
+<p>Resistor are an electronic component that, as the name implies, restricts and resists the flow of electrons in a circuit.</p>
+
+<p>But how does this work?</p>
+
+<p>Well, each <a href="https://en.wikipedia.org/wiki/Electrical_conductor">conductive material</a> has its own properties, which results in each material conducting electricity
+slightly differently. Thus, each material will also resist electricity differently. For example, copper is a very conductive material, which means 
+it has a low resistance.</p>
+
+<p>Below is a diagram showing the guts of a resistor:
+<img src="assets/images/arduinoEng/resistor1.png" alt="img" /></p>
+
+<p>As you can see, there is some internal conductive material that is a mixture of various material with different properties.
+This will result in the final material to have a <strong>different resistance than the pins</strong> (connecting leads).</p>
+
+<p>The coloring on the resistor also has a meaning. It is some sort of code for the resistance. However, these are often not
+standardized or hard to read and remember, so I usually don’t pay attention to them.</p>
+
+<h2 id="how-does-a-transistor-work">How Does a Transistor Work</h2>
+
+<p>If you search this up, probably the first “definition” you will come across is “ a transistor is an electronic switch”.
+However, I have never liked this definition, as I think not only is it basic but it’s lacking.</p>
+
+<p>Below is a schematic diagram of a transistor:
+<img src="assets/images/arduinoEng/transistor1.png" alt="img" /></p>
+
+<p>As you can see, there are three main pins (or leads): the collector, the base, and the emittor. Now, I could go into what each pin is,
+but to understand a transistor, we have to go down to the atomic level and understand what’s <strong>in</strong> a transistor first, then
+we can understand what the pins mean.</p>
+
+<p>To understand this, I think it is best if we tackle what a Diode is and how it works first.</p>
+
+<h3 id="how-does-a-diode-work">How Does a Diode Work</h3>
+
+<p>A diode is an electronic component that basically restricts the flow of electrons, but only in one direction. It only allows electricity to flow in one direction.</p>
+
+<p>Below is a diagram of what the inside of a diode might look like, at an atomic level:
+<img src="assets/images/arduinoEng/diode1.png" alt="img" /></p>
+
+<p>To start, let me explain what you are looking at. Basically, there are two materials inside of a diode: a n-type material and a p-type material.
+But what does this mean?</p>
+
+<p>Well first, these materials are made up of mostly silicon. Which is something called a Semi-conductor.</p>
+
+<h4 id="what-are-semiconductors">What Are Semiconductors?</h4>
+
+<p>You are probably similar to conductors and insulators. But what are <a href="https://en.wikipedia.org/wiki/Semiconductor">semiconductors</a>? Well, simply put, semiconductors are materials (specifically metals) that can have both conductive, and less conductive properties, depending on the environment. Factors that might influence this are</p>
+
+<h4 id="my-technical-report-on-photoresistors">My Technical Report on Photoresistors</h4>
+
+<p>Below, I have <a href="https://burakayy.com/blog/chem-paper">linked a paper</a> I had written in my sophomore year of high school to explain what photoresistors are and how they work.</p>
+
+<embed src="assets/images/pdfs/ChemPaper2.pdf" type="application/pdf" />
+
+<p>Even though I talk about photoresistors in that paper, I still explain semi-conductive materials and how various other materials, like phosphorus, are added to the silicon to achieve certain properties (mainly how there will be extra electrons in one mixture and a depletion, or holes, in another mixture).</p>
+
+<p>Refering back to this image of how the electrons will behave in a diode:
+<img src="assets/images/arduinoEng/diode1.png" alt="img" /></p>
+
+<p>We can see that due to the material properties of the p-type, it will create various holes (a lack of electrons in an atoms outer electron shell) and due to the properties of the n-type, there will be an excess of electrons.</p>
+
+<p>Now the key is notice what will happen (at an atomic scale) at the border/barrier between these two materials. Some of the free electrons nearest to the border will actually <strong>cross</strong> over to the p-type material. So, after this interaction, the p-type material right-most side will be slightly negatively charged, and the left-most side of the n-type material will be positively charged.</p>
+
+<p>Now, you might think that this process will continue, but it actually will not. See this transfer of initial electrons will create a charge barrier. This barrier will stop the electrons from the n-type to cross further to the p-type. But why does this happen?</p>
+
+<p>See, after the initial cross, like I said the right-most p-type side will be slightly negatively charged. So, when other electrons try to cross over to the p-type again, the negative charge created from the initial cross will repel further crosses.</p>
+
+<p>So currently, with no further charges applied, this diode will be locked in this charge state and no further electrons will flow (at least across the border; there might be small flow from electrons within the n-type).</p>
+
+<p>But let’s see what happens when we apply a charge, like from a battery, to the terminals of this diode (the positive side, p-type, is anode; negative side, n-type, is cathode).</p>
+
+<p><img src="assets/images/arduinoEng/diode1.png" alt="img" /></p>
+
+<p>In this first scenario, let’s say that the negative side of the battery was attached to the p-type side of the diode. So, electrons from the battery’s negative side will flow into the p-type side, filling in those holes, until electrons will reach the tiny negative barrier created from the initial electron exchange. This barrier acts like a wall, and inhibits electrons from flowing.</p>
+
+<p>However, let’s try to attach the battery in the opposite direction, where the negative side is on the cathode of the diode. The electrons flowing from the battery will push electrons from the n-type material, over the barrier and electricity can flow. But this can only happen past some voltage threshold, which depends on the diode characteristics.</p>
+
+<h3 id="how-does-a-transistor-work-revisited">How Does a Transistor Work, revisited</h3>
+<p>So, since we now know how diodes work, let’s see how we can apply this to understand how transistors work. Basically, transistors are two diodes in parallel. Now, don’t just think you can put two diodes in series on a breadboard and think you have created a transistor (this is actually something I believed in middle school). Below I will explain how a NPN Transistor works, but the same principles can be applied to PNP Transistors.</p>
+
+<p>So, the three pins on a transistor stand for the <em>base</em> (the p-type material), <em>emitter</em> (the n-type material), and the <em>collector</em> (n-type material).</p>
+
+<p>Below is a diagram showing the electron arrangement of inside a transistor:
+<img src="assets/images/arduinoEng/arduino_transistor.png" alt="img" /></p>
+
+<p>As you can see, it is really just two diodes ‘smushed’ together. As you can see, the p-type - n-type arrangements both create their own barriers. With a depletion zone in the middle (just a depletion of electrons, or holes). The physics of this should be the same as the barrier formed in a diode.</p>
+
+<p>Let’s observe what happens when I apply a charge from the collector and emitter sides (which are kind of like the inputs and outputs of the transistor, at least in the context of where the electrons want to flow from, from one n-type to another n-type).</p>
+
+<p>The electrons will flow into the collector, pass (or break) the first barrier, but then be blocked by the barrier created by the second inter-junction (can you see why this happens? hint: analyze the charges that interact).</p>
+
+<p>Now, let’s observe what will happen when I add a positive charge to the base: again, electrons will pass over the first barrier and now have somewhere to go, the positive base; they will flow out of the base and complete the circuit. But this positive charge will also weaken the second barrier to the point that electrons will now be able to flow from the collector to the emitter, thus completing the circuit.</p>
+
+<p>So in this sense, a transistor is like a gate, it allows electrons to flow from one end to another only when a “key” (a positive charge on the base) is applied.</p>
+
+<p>There is also PNP type transistors, which work very similarly, but instead of a positive charge on the base opening the gate, a negative charge will open the gate.</p>
+
+<p>Ok, now that we have a basic understanding of semi-conductor materials, let’s learn about some other components.</p>
+
+<h2 id="how-does-a-led-work">How Does a LED Work</h2>
+
+<p>Simply put, this is stands for a <strong>L</strong>ight <strong>E</strong>mitting <strong>D</strong>iode, and it does exactly as it sounds like: emits light by utilizing physical properties of certain materials.</p>
+
+<h3 id="quick-review-of-what-light-is">Quick Review of what light is</h3>
+
+<p>Light is both a particle and a wave. But in this context light is just a photon being emitted from some energy source. Here, the photon is emitted when an electron drops in energy levels (from a higher orbital to a lower orbital).</p>
+
+<p>So, an LED is just a diode with some modifications. The key is the specific material(s) that the diode n-type and p-type is made of. And so when an electricity flows through this material, it will cause electrons to change energy levels (which will emit light). And depending on the particular materials, the emitted light will be a different frequency (which will change the ‘color’ of the light).</p>
+
+<h1 id="creating-basic-circuits">Creating Basic Circuits</h1>
+
+<p>Now let’s circle back to using and applying what we learned about breadboards to create basic circuits. I will provide you with basic schematic reading skills and I will leave it up to you to build the circuit yourself.</p>
+
+<p>Ok, below is a simple schematic that will show and apply basic components that we discussed earlier:</p>
+
+<p><img src="assets\images\arduinoEng\schematic1.png" alt="sch" /></p>
+
+<p>As you can see, it employs a transistor, resistors, diode, a button, and an LED (you can choose which ever color you’d like). Below is a list of corresponding symbols and their component:</p>
+
+<h3 id="notesreferences">Notes/References</h3>
+<ul>
+  <li>a few pages of notes from my old notebook related to How transistors work:</li>
+</ul>
+
+<p><img src="assets\images\arduinoEng\notes3.jpg" alt="3" />
+<img src="assets\images\arduinoEng\notes1.jpg" alt="1" />
+<img src="assets\images\arduinoEng\notes2.jpg" alt="2" />
+<img src="assets\images\arduinoEng\notes4.jpg" alt="4" />
+<img src="assets\images\arduinoEng\notes5.jpg" alt="5" /></p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Burak Ayyorgun</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/blog/assets/images/planeBkg.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Burak Ayyorgun &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/blog/tag/arduino/">Arduino</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-sensors">How to get started with Engineering | Sensors & Actuators</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-hello-world">How to get started with Engineering | Hello World Example</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/blog/arduino-programming">How to get started with Engineering | Arduino Programming</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/blog/tag/arduino/">
+                                
+                                    See all 4 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/arduino-programming">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_prog2.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/arduino-programming">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering | Arduino Programming</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Now, if we want to be a good engineer in this day and age, we need to also know Computer Science. Arduino especially relies on this as this is how we will program</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      5 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/How-to-start-Arduino">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/arduinoEng/arduino_getting_started.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/How-to-start-Arduino">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Arduino</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">How to get started with Engineering</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Hi, my name is Burak Ayyorgun and I wanted to share how I started with Engineering and give advice how you guys might want to start. The main goal is to find what</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://burakayy.com/blog/">
+            
+                <img src="/blog/assets/images/favicon.png" alt="Burak Ayyorgun icon" />
+            
+            <span>Burak Ayyorgun</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">
+        How to get started with Engineering | Electronics
+    <span></span></div>
+    
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How+to+get+started+with+Engineering+%7C+Electronics&amp;url=https://burakayy.com/blog/arduino-electronics"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://burakayy.com/blog/arduino-electronics"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+
+
+
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

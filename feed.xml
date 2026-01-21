@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://burakayy.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://burakayy.com/blog/" rel="alternate" type="text/html" /><updated>2026-01-21T17:58:02+00:00</updated><id>https://burakayy.com/blog/feed.xml</id><title type="html">Burak Ayyorgun</title><subtitle>My Blog for Technical Projects</subtitle><entry><title type="html">Jekyll Local Build Update for MacOS</title><link href="https://burakayy.com/blog/jekyll-update" rel="alternate" type="text/html" title="Jekyll Local Build Update for MacOS" /><published>2026-01-09T00:00:00+00:00</published><updated>2026-01-09T00:00:00+00:00</updated><id>https://burakayy.com/blog/jekyll-update</id><content type="html" xml:base="https://burakayy.com/blog/jekyll-update">&lt;p&gt;I had made a post describing how I can built my Jekyll blog locally to make edits more efficient.&lt;/p&gt;
+
+&lt;p&gt;However, recently I’ve switched to MacOS, and I’ve hit other problems which I will briefly describe their solution.&lt;/p&gt;
+
+&lt;p&gt;Once I followed the instructions, I had hit the problem once I tried to run (please make sure you’re in the local cloned repo of you Jekyll website)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The error was as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/burakayyorgun/.gem/ruby/3.4.1/gems/jekyll-3.9.0/lib/jekyll.rb:28: warning: csv was loaded from the standard library, but is not part of the default gems starting from Ruby 3.4.0.
+You can add csv to your Gemfile or gemspec to silence this warning.
+bundler: failed to load command: jekyll (/Users/burakayyorgun/.gem/ruby/3.4.1/bin/jekyll)
+/Users/burakayyorgun/.rubies/ruby-3.4.1/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require': cannot load such file -- csv (LoadError)
+	from /Users/burakayyorgun/.rubies/ruby-3.4.1/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/jekyll-3.9.0/lib/jekyll.rb:28:in '&amp;lt;top (required)&amp;gt;'
+	from /Users/burakayyorgun/.rubies/ruby-3.4.1/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require'
+	from /Users/burakayyorgun/.rubies/ruby-3.4.1/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/jekyll-3.9.0/exe/jekyll:8:in '&amp;lt;top (required)&amp;gt;'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/bin/jekyll:25:in 'Kernel#load'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/bin/jekyll:25:in '&amp;lt;top (required)&amp;gt;'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli/exec.rb:61:in 'Kernel.load'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli/exec.rb:61:in 'Bundler::CLI::Exec#kernel_load'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli/exec.rb:24:in 'Bundler::CLI::Exec#run'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli.rb:500:in 'Bundler::CLI#exec'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/vendor/thor/lib/thor/command.rb:28:in 'Bundler::Thor::Command#run'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in 'Bundler::Thor::Invocation#invoke_command'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/vendor/thor/lib/thor.rb:538:in 'Bundler::Thor.dispatch'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli.rb:35:in 'Bundler::CLI.dispatch'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/vendor/thor/lib/thor/base.rb:584:in 'Bundler::Thor::Base::ClassMethods#start'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/cli.rb:29:in 'Bundler::CLI.start'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/exe/bundle:28:in 'block in &amp;lt;top (required)&amp;gt;'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/lib/bundler/friendly_errors.rb:118:in 'Bundler.with_friendly_errors'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/gems/bundler-4.0.3/exe/bundle:20:in '&amp;lt;top (required)&amp;gt;'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/bin/bundle:25:in 'Kernel#load'
+	from /Users/burakayyorgun/.gem/ruby/3.4.1/bin/bundle:25:in '&amp;lt;main&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I had gone through various troubles, but ultimetly the solution was simply as follows (for MacOS Sequoia 15.7), please also reference &lt;a href=&quot;https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll&quot;&gt;this github page&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;first update the gemfile:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano Gemfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;from this:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source &quot;https://rubygems.org&quot;
+gem &quot;ffi&quot;, &quot;= 1.16.3&quot;
+gem &quot;jekyll&quot;, &quot;~&amp;gt; 3.9.0&quot;
+gem &quot;github-pages&quot;, &quot;~&amp;gt; 214&quot;
+gem &quot;rake&quot;, &quot;~&amp;gt; 13.0.3&quot;
+gem &quot;slugify&quot;, &quot;~&amp;gt; 1.0.7&quot;
+gem &quot;jekyll-sitemap&quot;
+gem 'jekyll-paginate'
+gem 'webrick', '&amp;gt;= 1.7.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;to be this:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source &quot;https://rubygems.org&quot;
+gem &quot;github-pages&quot;, &quot;~&amp;gt; GITHUB-PAGES-VERSION&quot;, group: :jekyll_plugins
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Replace GITHUB-PAGES-VERSION with the latest supported version of the github-pages gem. You can find this version here: &lt;a href=&quot;Replace GITHUB-PAGES-VERSION with the latest supported version of the github-pages gem. You can find this version here: Dependency versions.&quot;&gt;Dependency versions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then run&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and then finally you can run&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And there you go! Please reach out if I missed something!!&lt;/p&gt;
+
+&lt;p&gt;See you next time!&lt;/p&gt;</content><author><name></name></author><category term="miscellaneous" /><summary type="html">I had made a post describing how I can built my Jekyll blog locally to make edits more efficient.</summary></entry><entry><title type="html">Novel Gesture Controlled Autonomous Drone | Part 1: Flight Computer</title><link href="https://burakayy.com/blog/neuro-drone" rel="alternate" type="text/html" title="Novel Gesture Controlled Autonomous Drone | Part 1: Flight Computer" /><published>2025-02-20T00:00:00+00:00</published><updated>2025-02-20T00:00:00+00:00</updated><id>https://burakayy.com/blog/neuro-drone</id><content type="html" xml:base="https://burakayy.com/blog/neuro-drone">&lt;p&gt;One idea that I’ve had is to create my own mini autonomous drone, but controlled using a novel gesture-based control system, using a separate pair of gloves.&lt;/p&gt;
+
+&lt;p&gt;In this post, I will be introducing the concept, and starting by showing my progress on the flight computer.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-concept&quot;&gt;The Concept&lt;/h2&gt;
+
+&lt;p&gt;The idea is to control the drone using hand gestures. The current place is to have a “smart glove” be worn by the pilot, where it will be able to detect if the fingers have made contact with each other, and its orientation. It will combine these various inputs into a control signal which will fly the drone.&lt;/p&gt;
+
+&lt;p&gt;This is the preliminary work-in-progress idea, and is subject to change.&lt;/p&gt;
+
+&lt;h2 id=&quot;flight-computer-progress&quot;&gt;Flight Computer Progress&lt;/h2&gt;
+
+&lt;p&gt;So, since I don’t have motor drivers, I decided to use the ones I had theorized in a post a while back: &lt;a href=&quot;https://burakayy.com/blog/opto-motor-driver&quot;&gt;My Cheap &amp;amp; Simple Optocoupler based DC Motor Driver for 3.3v Devices&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The current flight hardware includes four of these drivers and an MCU. The current roadblock is that due to the minimal space to solder, there’s multiple points that contact, when they shouldn’t be. This issue is hard to fix as there’s little room to operate in. I might need to restart the entire flight computer design.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/drone/IMG_1559.jpeg&quot; alt=&quot;back1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I will be back soon to give updates.&lt;/p&gt;</content><author><name></name></author><category term="miscellaneous" /><summary type="html">One idea that I’ve had is to create my own mini autonomous drone, but controlled using a novel gesture-based control system, using a separate pair of gloves. In this post, I will be introducing the concept, and starting by showing my progress on the flight computer. The Concept The idea is to control the drone using hand gestures. The current place is to have a “smart glove” be worn by the pilot, where it will be able to detect if the fingers have made contact with each other, and its orientation. It will combine these various inputs into a control signal which will fly the drone. This is the preliminary work-in-progress idea, and is subject to change. Flight Computer Progress So, since I don’t have motor drivers, I decided to use the ones I had theorized in a post a while back: My Cheap &amp;amp; Simple Optocoupler based DC Motor Driver for 3.3v Devices. The current flight hardware includes four of these drivers and an MCU. The current roadblock is that due to the minimal space to solder, there’s multiple points that contact, when they shouldn’t be. This issue is hard to fix as there’s little room to operate in. I might need to restart the entire flight computer design. I will be back soon to give updates.</summary></entry><entry><title type="html">How I started to Build my website locally</title><link href="https://burakayy.com/blog/jekyll-local" rel="alternate" type="text/html" title="How I started to Build my website locally" /><published>2024-10-12T00:00:00+00:00</published><updated>2024-10-12T00:00:00+00:00</updated><id>https://burakayy.com/blog/jekyll-local</id><content type="html" xml:base="https://burakayy.com/blog/jekyll-local">&lt;p&gt;For a long time (3-4 years!) I have been updating this website either using the online GitHub editor, or cloning it locally and pushing updates. But, today I said enough is enough, overcame my laziness, and finally decided to install Jekyll and build my site locally, so I can test changes fast! This is how I did it.&lt;/p&gt;
+
+&lt;p&gt;I will be referencing &lt;a href=&quot;https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll&quot;&gt;this page&lt;/a&gt;, so if you wanna follow along…&lt;/p&gt;
+
+&lt;p&gt;Ok, first I needed to install Ruby for Windows: &lt;a href=&quot;https://rubyinstaller.org/&quot;&gt;rubyInstaller&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And I installed the newest version I could. But, I later found out that for some reason, I need a 3.1.X version for Jekyll, so maybe you could research about that, but I suggest you install 3.1.3 (what I ended up doing).&lt;/p&gt;
+
+&lt;p&gt;Once you install the Installer and finish the progress, you should see a terminal with Ruby that pops up, asking which of 3 would you like to install:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/miscellaneous/ruby1.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Please press 3, then Enter.&lt;/p&gt;
+
+&lt;p&gt;Ok, now if you open another Command Prompt, you should get a valid result for:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, using this, we need to install Jekyll and Bundler:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, open Git Bash in the folder of the repository you cloned (this should be the repo where your GitHub Pages Jekyll Site is at, and cloned to your local machine) and type:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, for me, I also had to do another step before doing this (or just run bundle install again):&lt;/p&gt;
+
+&lt;p&gt;I needed to add webrick to my Gemfile, so just add this line to yours:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'webrick', '&amp;gt;= 1.7.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that is install, all you need to do is run&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And the output should look something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog/_config.yml
+            Source: C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog
+       Destination: ../blog-pages/
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 4.244 seconds.
+  Please add the following to your Gemfile to avoid polling for changes:
+    gem 'wdm', '&amp;gt;= 0.1.0' if Gem.win_platform?
+ Auto-regeneration: enabled for 'C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog'
+    Server address: http://127.0.0.1:4000/blog//
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And you should be Done!!&lt;/p&gt;
+
+&lt;p&gt;**
+I used this with a Jekyll Theme, so I am assuming that you also are using this with a Jekyll website made for GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;And the output provides an Address which the local website should be, and where you can see live changes, locally. The good thing about this is that we can easily view live changes we made to our website (just by clicking refresh), which is much faster than how quick gh-pages redeploys changes (which could take up to 5 minutes!).&lt;/p&gt;
+
+&lt;p&gt;Hope this was helpful!&lt;/p&gt;</content><author><name></name></author><category term="miscellaneous" /><summary type="html">For a long time (3-4 years!) I have been updating this website either using the online GitHub editor, or cloning it locally and pushing updates. But, today I said enough is enough, overcame my laziness, and finally decided to install Jekyll and build my site locally, so I can test changes fast! This is how I did it. I will be referencing this page, so if you wanna follow along… Ok, first I needed to install Ruby for Windows: rubyInstaller And I installed the newest version I could. But, I later found out that for some reason, I need a 3.1.X version for Jekyll, so maybe you could research about that, but I suggest you install 3.1.3 (what I ended up doing). Once you install the Installer and finish the progress, you should see a terminal with Ruby that pops up, asking which of 3 would you like to install: Please press 3, then Enter. Ok, now if you open another Command Prompt, you should get a valid result for: ruby --version Now, using this, we need to install Jekyll and Bundler: gem install jekyll bundler Next, open Git Bash in the folder of the repository you cloned (this should be the repo where your GitHub Pages Jekyll Site is at, and cloned to your local machine) and type: bundle install Now, for me, I also had to do another step before doing this (or just run bundle install again): I needed to add webrick to my Gemfile, so just add this line to yours: gem 'webrick', '&amp;gt;= 1.7.0' After that is install, all you need to do is run bundle exec jekyll serve And the output should look something like this: Configuration file: C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog/_config.yml Source: C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog Destination: ../blog-pages/ Incremental build: disabled. Enable with --incremental Generating... Jekyll Feed: Generating feed for posts done in 4.244 seconds. Please add the following to your Gemfile to avoid polling for changes: gem 'wdm', '&amp;gt;= 0.1.0' if Gem.win_platform? Auto-regeneration: enabled for 'C:/Users/Burak-as-user/Desktop/gitclones/blogEdits/blog' Server address: http://127.0.0.1:4000/blog// Server running... press ctrl-c to stop. And you should be Done!! ** I used this with a Jekyll Theme, so I am assuming that you also are using this with a Jekyll website made for GitHub Pages. And the output provides an Address which the local website should be, and where you can see live changes, locally. The good thing about this is that we can easily view live changes we made to our website (just by clicking refresh), which is much faster than how quick gh-pages redeploys changes (which could take up to 5 minutes!). Hope this was helpful!</summary></entry><entry><title type="html">My Cheap &amp;amp; Simple Optocoupler based DC Motor Driver for 3.3v Devices</title><link href="https://burakayy.com/blog/opto-motor-driver" rel="alternate" type="text/html" title="My Cheap &amp;amp; Simple Optocoupler based DC Motor Driver for 3.3v Devices" /><published>2024-10-04T00:00:00+00:00</published><updated>2024-10-04T00:00:00+00:00</updated><id>https://burakayy.com/blog/opto-motor-driver</id><content type="html" xml:base="https://burakayy.com/blog/opto-motor-driver">&lt;p&gt;So, as you know, I have been dealing with foam hobby planes for a long time. And I have finally decided to build a mini club flier to help me train for flying my 2-meter glider. But to build those, I would always need some way to power/control the motor, and always the 3.3v devices failed to power them. I lacked cheap motor drivers or an esc for these small motors, so usually I ended up quitting projects that involved flight (unless I saved enough money to buy escs and powerful motors, which only happened once). But this ends today, because today I will show you a super simple motor driver I made!&lt;/p&gt;
+
+&lt;p&gt;Ok, so how this will work is that I will use a Photocoupler (Optocoupler) to control a much higher voltage circuit (which is the circuit running the motor).&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-an-optocoupler&quot;&gt;What is an Optocoupler&lt;/h2&gt;
+
+&lt;p&gt;Well, in short terms, it is a device that uses light to transfer a signal from one circuit to another, all while being voltage independent from the other circuit.&lt;/p&gt;
+
+&lt;p&gt;In one end of the sensor, there is a built-in LED, which is turned on with a signal. Then this light will turn on a “transistor-like” electronic switch that is activated via light.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/plane/opto1.png&quot; alt=&quot;opto1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As, you can see, with the image above and below, this is a device that allows you to control two electrical systems, completely independent of voltage levels!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/plane/opto2.png&quot; alt=&quot;opto2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is really usefull to me, as I am not in the situation right now to spend more money on electronic components (like an ESC, or MOSFETs).&lt;/p&gt;
+
+&lt;p&gt;Ok, now for the actual build.&lt;/p&gt;
+
+&lt;p&gt;So, first I prototyped the devices on my breadboard using a Raspberry Pi Pico (because this was the computer I planned on using):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\plane\opto_breadboard.jpg&quot; alt=&quot;i&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And if you would like to see an explanation of this, here is a video:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/X07X5WzkbOw?si=VnT9Xf9SqKM-HXk6&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Ok, anyways, here is a diagram of the circuit:
+&lt;img src=&quot;assets\images\plane\opto_circuit.jpg&quot; alt=&quot;i&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This circuit has been the result of much researching, experimentation, and a bit of luck. But finally, I arrived at the above circuit I designed.&lt;/p&gt;
+
+&lt;p&gt;Now, be careful (as this was something I did when I transferred this over to the actual device, which caused me a lot of pain after words), please do’t put a very low resistance on the transistor capacitor (R2). Because if you put, say a 100 ohms, then the circuit will not work.&lt;/p&gt;
+
+&lt;p&gt;How it works, it after the optocpuler is activated, it allows negative ground to flow to the base of the NPN transistor, which shuts off the gate , turning the motor off.&lt;/p&gt;
+
+&lt;p&gt;Below, is the code I used to PWM the speed of the motor (I used Thonny with MicroPython to program the Pi Pico):&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;machine&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PWM&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;utime&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;motor1A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;machine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;machine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;motor2A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;machine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;machine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;pwm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PWM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;motor1A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;duty_step&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;129&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Step size for changing the duty cycle
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#Set PWM frequency
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clockwise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor1A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor2A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;anticlockwise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor1A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor2A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stopMotor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor1A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;motor2A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duty_cycle&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duty_step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_u16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_cycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Decrease the duty cycle gradually
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duty_cycle&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;65536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_u16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_cycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This code works by creating a PWM object, on a certain pin (which is the one the optocouler will be attached to). We then set the duty_step to 129 and the frequency to 5000. This will basically determine the type of digital wave we will be creating. How fast will this occur in a given amount of time? How fast will we change the ratio? And so on.&lt;/p&gt;
+
+&lt;p&gt;And with those, we loop through the various duty_cycles (which will determine the ratio of 1 to 0), incrementing by duty_step; we then feed this into the output pin using this function, which should achieve a PWM signal:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_u16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duty_cycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here are some images to me soldering on this device:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\plane\soldering1.jpg&quot; alt=&quot;i&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\plane\soldering2.jpg&quot; alt=&quot;i&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see below, there are 3 pairs of pins, the 1 that is by itself, is the input one (where the Pi Pico will attach itself). Then, on the top-right to the image, is the motor output, where the two leads of the motor will attach. And on the top-left, that is the motor power’s input (it can be any voltage the transistor and motor can take!). Cool right?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\plane\soldering3.jpg&quot; alt=&quot;i&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this tiny controller, we can PWM control really powerful motors, with like 12 volts, all by controlling a 3.3v pin on the Pi Pico!!!&lt;/p&gt;
+
+&lt;p&gt;I plan to use this extensively in future projects, and I hope this was helpful to you in some way.&lt;/p&gt;
+
+&lt;p&gt;Thanks, and I will see you next time!!&lt;/p&gt;</content><author><name></name></author><category term="plane" /><summary type="html">So, as you know, I have been dealing with foam hobby planes for a long time. And I have finally decided to build a mini club flier to help me train for flying my 2-meter glider. But to build those, I would always need some way to power/control the motor, and always the 3.3v devices failed to power them. I lacked cheap motor drivers or an esc for these small motors, so usually I ended up quitting projects that involved flight (unless I saved enough money to buy escs and powerful motors, which only happened once). But this ends today, because today I will show you a super simple motor driver I made! Ok, so how this will work is that I will use a Photocoupler (Optocoupler) to control a much higher voltage circuit (which is the circuit running the motor). What is an Optocoupler Well, in short terms, it is a device that uses light to transfer a signal from one circuit to another, all while being voltage independent from the other circuit. In one end of the sensor, there is a built-in LED, which is turned on with a signal. Then this light will turn on a “transistor-like” electronic switch that is activated via light. As, you can see, with the image above and below, this is a device that allows you to control two electrical systems, completely independent of voltage levels!! This is really usefull to me, as I am not in the situation right now to spend more money on electronic components (like an ESC, or MOSFETs). Ok, now for the actual build. So, first I prototyped the devices on my breadboard using a Raspberry Pi Pico (because this was the computer I planned on using): And if you would like to see an explanation of this, here is a video: Ok, anyways, here is a diagram of the circuit: This circuit has been the result of much researching, experimentation, and a bit of luck. But finally, I arrived at the above circuit I designed. Now, be careful (as this was something I did when I transferred this over to the actual device, which caused me a lot of pain after words), please do’t put a very low resistance on the transistor capacitor (R2). Because if you put, say a 100 ohms, then the circuit will not work. How it works, it after the optocpuler is activated, it allows negative ground to flow to the base of the NPN transistor, which shuts off the gate , turning the motor off. Below, is the code I used to PWM the speed of the motor (I used Thonny with MicroPython to program the Pi Pico): import machine from machine import PWM import utime from time import sleep motor1A = machine.Pin(14, machine.Pin.OUT) motor2A = machine.Pin(15, machine.Pin.OUT) pwm = PWM(motor1A) duty_step = 129 # Step size for changing the duty cycle #Set PWM frequency frequency = 5000 pwm.freq (frequency) def clockwise(): motor1A.high() motor2A.low() def anticlockwise(): motor1A.low() motor2A.high() def stopMotor(): motor1A.low() motor2A.low() while True: for duty_cycle in range(0, 65536, duty_step): pwm.duty_u16(duty_cycle) sleep(0.05) # Decrease the duty cycle gradually for duty_cycle in range(65536, 0, -duty_step): pwm.duty_u16(duty_cycle) sleep(0.05) This code works by creating a PWM object, on a certain pin (which is the one the optocouler will be attached to). We then set the duty_step to 129 and the frequency to 5000. This will basically determine the type of digital wave we will be creating. How fast will this occur in a given amount of time? How fast will we change the ratio? And so on. And with those, we loop through the various duty_cycles (which will determine the ratio of 1 to 0), incrementing by duty_step; we then feed this into the output pin using this function, which should achieve a PWM signal: pwm.duty_u16(duty_cycle) And here are some images to me soldering on this device: As you can see below, there are 3 pairs of pins, the 1 that is by itself, is the input one (where the Pi Pico will attach itself). Then, on the top-right to the image, is the motor output, where the two leads of the motor will attach. And on the top-left, that is the motor power’s input (it can be any voltage the transistor and motor can take!). Cool right? With this tiny controller, we can PWM control really powerful motors, with like 12 volts, all by controlling a 3.3v pin on the Pi Pico!!! I plan to use this extensively in future projects, and I hope this was helpful to you in some way. Thanks, and I will see you next time!!</summary></entry><entry><title type="html">Future Works &amp;amp; Next Steps</title><link href="https://burakayy.com/blog/arima-future" rel="alternate" type="text/html" title="Future Works &amp;amp; Next Steps" /><published>2024-09-10T00:00:00+00:00</published><updated>2024-09-10T00:00:00+00:00</updated><id>https://burakayy.com/blog/arima-future</id><content type="html" xml:base="https://burakayy.com/blog/arima-future">&lt;p&gt;In the previous lessons, we have learned topics from Autocorrelation, Moving Average, and Differencing, to 
+ARIMA Models and Multiple Regression. And we have applied these methods to various datasets, to better understand
+how to apply this in the real world. However, there is a whole other world in the field of forecasting epidemic diseases
+outside of ARIMA. So, to summarize and finish the ARIMA part of this course, I would like to talk about the importance of forecasting, what
+to look forward to in the future, and next steps to learn more.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-utilize-forecasting-principles-in-the-real-world-and-how-is-this-relevant&quot;&gt;How to utilize forecasting principles in the real world and How is this relevant&lt;/h2&gt;
+
+&lt;p&gt;I am sure you all remember the COVID-19 pandemic, and the possible catastrophic effects it had. This is a poor example as it was a new disease
+and we didn’t have much data on it at the time, so we will get back to that.&lt;/p&gt;
+
+&lt;p&gt;But let’s consider an outbreak of the FLU, we already have plenty of data on that, including hospitalizations (when and specifically which locations got impacted), and multiple other statistically measurable metrics have been recorded. What if there was a way for scientists and doctors to be able to not only predict the next FLU outbreak, but also in which location that will occur, over time?&lt;/p&gt;
+
+&lt;p&gt;This would be of tremendous interest to governments as it would give them a ‘heads up’ or advance to disease outbreaks, giving them extra time to prepare a response.&lt;/p&gt;
+
+&lt;p&gt;This was actually one of the reasons the COVID-19 Pandemic had such wide spread effects, because we weren’t ready to battle such a disease. The nations around the world weren’t prepared for it, which resulted in both a panicked state by the public, and late decisions by government officials, something that if made earlier, could of saved millions.&lt;/p&gt;
+
+&lt;p&gt;Ultimately, the field of epidemiology focuses on trying to solve this, or at least in part, minimize it. There are plenty of other methods and theories that have been developed to tackle this issue, some of which we will discuss later.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;There are plenty of other topics to discuss here, but, for now, I want to limit this course on topics related to ARIMA models.&lt;/p&gt;
+
+&lt;p&gt;I am currently working on a final lesson which will involve the below two topics. So, please stay in tune to hear more about that!&lt;/p&gt;
+
+&lt;h3 id=&quot;auto-arima-models&quot;&gt;Auto-ARIMA Models&lt;/h3&gt;
+
+&lt;h3 id=&quot;sir-models-and-dynamic-systems&quot;&gt;SIR Models and Dynamic Systems&lt;/h3&gt;</content><author><name></name></author><category term="arima" /><summary type="html">In the previous lessons, we have learned topics from Autocorrelation, Moving Average, and Differencing, to ARIMA Models and Multiple Regression. And we have applied these methods to various datasets, to better understand how to apply this in the real world. However, there is a whole other world in the field of forecasting epidemic diseases outside of ARIMA. So, to summarize and finish the ARIMA part of this course, I would like to talk about the importance of forecasting, what to look forward to in the future, and next steps to learn more. How to utilize forecasting principles in the real world and How is this relevant I am sure you all remember the COVID-19 pandemic, and the possible catastrophic effects it had. This is a poor example as it was a new disease and we didn’t have much data on it at the time, so we will get back to that. But let’s consider an outbreak of the FLU, we already have plenty of data on that, including hospitalizations (when and specifically which locations got impacted), and multiple other statistically measurable metrics have been recorded. What if there was a way for scientists and doctors to be able to not only predict the next FLU outbreak, but also in which location that will occur, over time? This would be of tremendous interest to governments as it would give them a ‘heads up’ or advance to disease outbreaks, giving them extra time to prepare a response. This was actually one of the reasons the COVID-19 Pandemic had such wide spread effects, because we weren’t ready to battle such a disease. The nations around the world weren’t prepared for it, which resulted in both a panicked state by the public, and late decisions by government officials, something that if made earlier, could of saved millions. Ultimately, the field of epidemiology focuses on trying to solve this, or at least in part, minimize it. There are plenty of other methods and theories that have been developed to tackle this issue, some of which we will discuss later. Next Steps There are plenty of other topics to discuss here, but, for now, I want to limit this course on topics related to ARIMA models. I am currently working on a final lesson which will involve the below two topics. So, please stay in tune to hear more about that! Auto-ARIMA Models SIR Models and Dynamic Systems</summary></entry><entry><title type="html">How to get started with Engineering | Sensors &amp;amp; Actuators</title><link href="https://burakayy.com/blog/arduino-sensors" rel="alternate" type="text/html" title="How to get started with Engineering | Sensors &amp;amp; Actuators" /><published>2024-07-15T00:00:00+00:00</published><updated>2024-07-15T00:00:00+00:00</updated><id>https://burakayy.com/blog/arduino-sensors</id><content type="html" xml:base="https://burakayy.com/blog/arduino-sensors">&lt;p&gt;One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices&lt;/p&gt;
+
+&lt;h4 id=&quot;common-sensors&quot;&gt;Common Sensors&lt;/h4&gt;
+
+&lt;p&gt;Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate.&lt;/p&gt;
+
+&lt;h2 id=&quot;photosensors&quot;&gt;Photosensors&lt;/h2&gt;
+
+&lt;p&gt;Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in &lt;a href=&quot;https://burakayy.com/blog/arduino-electronics#my-technical-report-on-photoresistors&quot;&gt;my report in this previous lesson&lt;/a&gt;, and I hope you go back to that and review!&lt;/p&gt;
+
+&lt;p&gt;Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resistance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance.&lt;/p&gt;
+
+&lt;p&gt;Below is a super short script that will show you how to use this:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Let's begin!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;analogRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//read value (voltage potential) from Analog Pin 2&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To hook it up, just connect one end of the photoresistor to ground and the other end to Analog Pin 2.&lt;/p&gt;
+
+&lt;p&gt;And once you compile the script, you can experiment by putting your hand over the sensor and observing how the values change from the  Serial Monitor.&lt;/p&gt;
+
+&lt;h2 id=&quot;touch-sensors&quot;&gt;Touch Sensors&lt;/h2&gt;
+
+&lt;p&gt;There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in &lt;a href=&quot;https://burakayy.com/blog/Touch-Delay&quot;&gt;this&lt;/a&gt; lesson. Please go back to that lesson and build that circuit at the end.&lt;/p&gt;
+
+&lt;p&gt;However, in that post I used just electronic components. But how can we use arduino with this?&lt;/p&gt;
+
+&lt;p&gt;Well, once you build that circuit on your breadboard, all we have to do to measure the output, is connect the output of the transistor to an Arduino Analog Pin. Pick any you would like, and you can run the code below:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;being&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;analogRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//read Analog Pin 3, or anyother pin you choose&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- ## Joystick
+
+## Water Level Sensor --&gt;
+
+&lt;h2 id=&quot;library---sensors&quot;&gt;Library - Sensors&lt;/h2&gt;
+
+&lt;p&gt;These are sensors that may require a library to some extra knowlegde to operate.&lt;/p&gt;
+
+&lt;h1 id=&quot;temperature-and-humidity&quot;&gt;Temperature and Humidity&lt;/h1&gt;
+
+&lt;p&gt;Let’s say you are gardening plants in a greenhouse and you need an automated way to collect the temperature and humidity, how will you accomplish this? Well, you can use &lt;a href=&quot;https://store-usa.arduino.cc/products/grove-temperature-humidity-sensor-pro?srsltid=AfmBOoqYoffAkhPifA9yp4xX23G8pze6Jj0sfVQu1lXpHfzy7GpCsR8A&quot;&gt;this&lt;/a&gt; module. There should be a temperature sensor in the &lt;a href=&quot;https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino&quot;&gt;Elegoo Kit&lt;/a&gt;, which you can follow along with.&lt;/p&gt;
+
+&lt;p&gt;In this sensor, there are three main pins: ground, power, and an output pin.&lt;/p&gt;
+
+&lt;p&gt;Connect the power pin and ground to 5v and ground on your arduino, respectively. Then, connect the output pin to a digital pin on the Arduino:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/temp1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, to use this we will use a library provided by the producers to help us out:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;dht.h&amp;gt; //this is how you include a library in Arduino
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dht&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#define DHT11_PIN 2
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;being&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DHT11_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Temperature: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;223&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Humidity: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;humidity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named &lt;em&gt;DHT&lt;/em&gt;, and define the pin which it’s connected to Digital Pin 2. Once we initialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidity values, we need to reference them from the built in dht class; they are set in the &lt;em&gt;temperature&lt;/em&gt; and &lt;em&gt;humidity&lt;/em&gt; values. Finally, we print them out twice every second (or once every .5 seconds).&lt;/p&gt;
+
+&lt;p&gt;Below is the range/accuracy for the DHT sensor:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Humidity Range: 20-90% RH&lt;/li&gt;
+  &lt;li&gt;Humidity Accuracy: ±5% RH&lt;/li&gt;
+  &lt;li&gt;Temperature Range: 0-50 °C&lt;/li&gt;
+  &lt;li&gt;Temperature Accuracy: ±2% °C&lt;/li&gt;
+  &lt;li&gt;Operating Voltage: 3V to 5.5V&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This dht sensor measures relative humidity, which is basically the amount of water vapor in the air vs. the saturation point of water vapor in the air. This saturation point is when water vapor starts to condense and leave behind due on surfaces.&lt;/p&gt;
+
+&lt;p&gt;The saturation point changes with air temperature. Cold air can hold less water vapor before it becomes saturated, and hot air can hold more water vapor before it becomes saturated.&lt;/p&gt;
+
+&lt;p&gt;The formula to calculate relative humidity is:&lt;/p&gt;
+
+\[RH = (\frac{P_w}{P_s}) X \cdot 100%\]
+
+&lt;ul&gt;
+  &lt;li&gt;RH = relative humidity&lt;/li&gt;
+  &lt;li&gt;density of water vapor&lt;/li&gt;
+  &lt;li&gt;density of water vapor at saturation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So how can we use this to measure temperature and humidity. Well, this sensor is made up of two electrodes and a substrate. When water vapor accumulates on this surfaces, it will release ions, changing the conductivity between the electrodes.&lt;/p&gt;
+
+&lt;p&gt;For the temperature part, it will basically measure the resistance a certain material makes, which depends on the temperature. However, since the Arduino can’t directly measure resistance, it will measure voltage from a voltage divider, which is defined by this equation:&lt;/p&gt;
+
+\[V_{out} = V_{in} \cdot (\frac{R2}{R1 + R2})\]
+
+&lt;p&gt;Where R1 and R2 are resistors in series. If one of these is a constant resistor, and the other is the thermistor, then we can rearange and calculate for the resistance, which we can convert to temperature.&lt;/p&gt;
+
+&lt;h1 id=&quot;pir-motion-sensors&quot;&gt;PIR Motion Sensors&lt;/h1&gt;
+
+&lt;p&gt;This is a motion sensor that utilizes changes in IR (Infared Red) Light. It basically has hemispheres with sensors in it, and when there is a gradient from one to another, it will send a pin high (from a 0 to a 1). We will need to read this using Arduino Analog Pins.&lt;/p&gt;
+
+&lt;p&gt;To connect this, the pinout is as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GND – connect to ground&lt;/li&gt;
+  &lt;li&gt;OUT – connect to an Arduino digital pin&lt;/li&gt;
+  &lt;li&gt;5V – connect to 5V&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensorPin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;being&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sensorPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digitalRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sensorPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Motion detected&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;No Motion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This code is pretty simple, as all we do is do a digital read on the sensor output pin, and if it is high, then we say there was motion on the serial monitor.&lt;/p&gt;
+
+&lt;h1 id=&quot;ultrasound-sensors&quot;&gt;Ultrasound Sensors&lt;/h1&gt;
+
+&lt;p&gt;Ok, this sensor is actually quite interesting. To introduce it, this sensor is basically a proximity sensor that uses sound waves. You can think of it like a radar, it sends out a sound wave, and listens for the time between when it will return, and since we know the speed of sound we can use math to calculate the distance an object is from us.&lt;/p&gt;
+
+&lt;p&gt;So, the first thing we have to do is to hook this up:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GND - to Arduino ground&lt;/li&gt;
+  &lt;li&gt;VCC - to Arduino 5v&lt;/li&gt;
+  &lt;li&gt;Trig - to Arduino digital pin 9&lt;/li&gt;
+  &lt;li&gt;Echo - to Arduino digital pin 10&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Okay, now time for the fun part.&lt;/p&gt;
+
+&lt;p&gt;Let’s first understand how this sensor works:&lt;/p&gt;
+
+&lt;p&gt;On this sensor, there are two main ‘tubes’, one of them is kind of like a speaker for ultrasonic sound, and the other one is a receiver for this sound.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/ultra1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The transmitter emits a “ping” (sound for a short period of time) and that sound bounces off an object, returning to the sound sensor.&lt;/p&gt;
+
+&lt;p&gt;So, how can we calculate the distance an object is away, given this information.&lt;/p&gt;
+
+&lt;p&gt;Well, consider this equation:&lt;/p&gt;
+
+\[distance = speed \cdot time\]
+
+&lt;p&gt;And we know the speed of sound to be 343 meters/second. But since the distance the sound travels after first released from speaker is twice the distance from the object (back and forth, round trip), our equation will be:&lt;/p&gt;
+
+\[distance = \frac{(343 \cdot time)}{2}\]
+
+&lt;p&gt;Now, all we have to do is count the time between the first ping and the returning signal.&lt;/p&gt;
+
+&lt;p&gt;But how do we send a ping in the first place? Well, for this specific module, all we have to do is send a “trigger” signal, that goes HIGH for 10 milliseconds. This will cause the module (which has on board electronics to control this) to send out an 8 cycle ping.&lt;/p&gt;
+
+&lt;p&gt;Ok, so using this knowlegde, we can use this sensor to calculate the distance an object is away.&lt;/p&gt;
+
+&lt;p&gt;So, to get us started, below is the code I will be using:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;echoPin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// define some variables&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Sets the trigPin as an Output&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;echoPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Sets the echoPin as an Input&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Starts the serial communication (check serial monitor)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Clears the trigPin&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delayMicroseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Sets the trigPin on HIGH state for 10 micro seconds&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delayMicroseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Reads the echoPin, returns the sound wave travel time in microseconds&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pulseIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;echoPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Calculating the distance&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.034&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Prints the distance on the Serial Monitor&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Distance: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, I somewhat cheated as I am using a built-in function to measure the time taken, using the &lt;em&gt;pulseIn()&lt;/em&gt; function.&lt;/p&gt;
+
+&lt;!-- ---
+explain with better, paul's code
+--- --&gt;
+
+&lt;p&gt;But anyways, as you can see, with this code I send out a ping:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;delayMicroseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trigPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and then, with the below function, I measure how long it would take for the echoPin to go HIGH:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pulseIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;echoPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, since we know the speed of sound, and the time the sound wave took (round-trip), we can calculate the distance to the object:&lt;/p&gt;
+
+\[distance = velocity \cdot time
+\\\\
+distance = 0.034 \cdot duration\]
+
+&lt;p&gt;Which would give us the distance of the object twice, because the wave travels to and back to the object, so we have to divide by 2:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.034&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, if you view the Serial Monitor, you will see print outs of the ditance measurement.&lt;/p&gt;
+
+&lt;p&gt;This is a very useful sensor, I have used this for making a sonar, which I suggect you try yourself!!&lt;/p&gt;
+
+&lt;!-- # IR Reciever
+
+While this can also be used for a proximity sensor, in this case, we won't be doing that. The IR sensor simply receives IR (Infared Red) light. 
+
+# Inertial Measurement Units (IMU)
+
+In my opinion, one of the most important sensors for your robotics projects, the IMU is basically an orientation sensor. It will measure your acceleration and gyroscopic rotation. How it works is really fancy, so I will try to simplify it. 
+
+
+
+To use it with your Arduino, you can check out [this past blog post](https://burakayy.com/blog/IMU-Measurments) for more information.
+
+Ok, since I linked a previous lesson on how to use IMUs, I will keep this section pretty short. 
+
+
+# Actuators | Motors
+
+Now, we move into actuators. The first thing I want to talk about are motors. 
+
+## DC Motors
+
+### Using Low Voltage Motors with Arduino
+
+### Using High Voltage Motors with Arduino | Motor Drivers
+
+## Stepper Motors
+
+## Servo Motors
+
+Lastly, maybe on of the most useful types of motors for your Engineering Projects, 
+ --&gt;</content><author><name></name></author><category term="arduino" /><summary type="html">One of the main applications of an Arduino board is by utilizing various sensors, actuators, and other devices Common Sensors Below are simple introductions to simple/common sensors for Arduino. These usually don’t require extra software (a library) to operate. Photosensors Or sometimes called, photoresistors, these are electronic components that will change their electrical resistance based off how many photons hit its sensitive surface. I have talked about this sensor in my report in this previous lesson, and I hope you go back to that and review! Basically, this is a sensor that is made up of specific materials that have semi-conductive properties. At its normal state, it will have some resistance to electrical flow. However, when photons hit its sensitive service, they will make electrons change energy states, either allowing more or less resistance. Below is a super short script that will show you how to use this: void setup() { Serial.begin(9600); Serial.println(&quot;Let's begin!&quot;); } void loop() { int value = analogRead(A2); //read value (voltage potential) from Analog Pin 2 Serial.println(value); delay(50); } To hook it up, just connect one end of the photoresistor to ground and the other end to Analog Pin 2. And once you compile the script, you can experiment by putting your hand over the sensor and observing how the values change from the Serial Monitor. Touch Sensors There are multiple different modules you can buy for a touch sensor, but these are a waste of money as a simple wire can be a touch sensor. I have detailed how to build a touch sensor in this lesson. Please go back to that lesson and build that circuit at the end. However, in that post I used just electronic components. But how can we use arduino with this? Well, once you build that circuit on your breadboard, all we have to do to measure the output, is connect the output of the transistor to an Arduino Analog Pin. Pick any you would like, and you can run the code below: void setup() { Serial.being(9600); } void loop() { int v = analogRead(A3); //read Analog Pin 3, or anyother pin you choose Serial.println(v); delay(10); } Library - Sensors These are sensors that may require a library to some extra knowlegde to operate. Temperature and Humidity Let’s say you are gardening plants in a greenhouse and you need an automated way to collect the temperature and humidity, how will you accomplish this? Well, you can use this module. There should be a temperature sensor in the Elegoo Kit, which you can follow along with. In this sensor, there are three main pins: ground, power, and an output pin. Connect the power pin and ground to 5v and ground on your arduino, respectively. Then, connect the output pin to a digital pin on the Arduino: Then, to use this we will use a library provided by the producers to help us out: #include &amp;lt;dht.h&amp;gt; //this is how you include a library in Arduino dht DHT; #define DHT11_PIN 2 void setup(){ Serial.being(9600); } void loop() { int value = DHT.read11(DHT11_PIN); Serial.print(&quot;Temperature: &quot;); Serial.print(DHT.temperature); Serial.println((char)223); Serial.print(&quot;Humidity: &quot;); Serial.print(DHT.humidity); Serial.println(&quot;%&quot;); delay(500); } Let’s walk through how this code works. First, we include the dht library in the first line. Then we create a dht object, named DHT, and define the pin which it’s connected to Digital Pin 2. Once we initialize the Serial connection in setup, we read the value from our defined pin variable and put that value into an integer. But to get our actual temperature and humidity values, we need to reference them from the built in dht class; they are set in the temperature and humidity values. Finally, we print them out twice every second (or once every .5 seconds). Below is the range/accuracy for the DHT sensor: Humidity Range: 20-90% RH Humidity Accuracy: ±5% RH Temperature Range: 0-50 °C Temperature Accuracy: ±2% °C Operating Voltage: 3V to 5.5V This dht sensor measures relative humidity, which is basically the amount of water vapor in the air vs. the saturation point of water vapor in the air. This saturation point is when water vapor starts to condense and leave behind due on surfaces. The saturation point changes with air temperature. Cold air can hold less water vapor before it becomes saturated, and hot air can hold more water vapor before it becomes saturated. The formula to calculate relative humidity is: \[RH = (\frac{P_w}{P_s}) X \cdot 100%\] RH = relative humidity density of water vapor density of water vapor at saturation So how can we use this to measure temperature and humidity. Well, this sensor is made up of two electrodes and a substrate. When water vapor accumulates on this surfaces, it will release ions, changing the conductivity between the electrodes. For the temperature part, it will basically measure the resistance a certain material makes, which depends on the temperature. However, since the Arduino can’t directly measure resistance, it will measure voltage from a voltage divider, which is defined by this equation: \[V_{out} = V_{in} \cdot (\frac{R2}{R1 + R2})\] Where R1 and R2 are resistors in series. If one of these is a constant resistor, and the other is the thermistor, then we can rearange and calculate for the resistance, which we can convert to temperature. PIR Motion Sensors This is a motion sensor that utilizes changes in IR (Infared Red) Light. It basically has hemispheres with sensors in it, and when there is a gradient from one to another, it will send a pin high (from a 0 to a 1). We will need to read this using Arduino Analog Pins. To connect this, the pinout is as follows: GND – connect to ground OUT – connect to an Arduino digital pin 5V – connect to 5V int sensorPin = 2; int val; void setup() { Serial.being(9600); pinMode(sensorPin, INPUT); } void loop() { val = digitalRead(sensorPin); if (val == HIGH) { Serial.println(&quot;Motion detected&quot;); }else { Serial.println(&quot;No Motion&quot;); } delay(200); } This code is pretty simple, as all we do is do a digital read on the sensor output pin, and if it is high, then we say there was motion on the serial monitor. Ultrasound Sensors Ok, this sensor is actually quite interesting. To introduce it, this sensor is basically a proximity sensor that uses sound waves. You can think of it like a radar, it sends out a sound wave, and listens for the time between when it will return, and since we know the speed of sound we can use math to calculate the distance an object is from us. So, the first thing we have to do is to hook this up: GND - to Arduino ground VCC - to Arduino 5v Trig - to Arduino digital pin 9 Echo - to Arduino digital pin 10 Okay, now time for the fun part. Let’s first understand how this sensor works: On this sensor, there are two main ‘tubes’, one of them is kind of like a speaker for ultrasonic sound, and the other one is a receiver for this sound. The transmitter emits a “ping” (sound for a short period of time) and that sound bounces off an object, returning to the sound sensor. So, how can we calculate the distance an object is away, given this information. Well, consider this equation: \[distance = speed \cdot time\] And we know the speed of sound to be 343 meters/second. But since the distance the sound travels after first released from speaker is twice the distance from the object (back and forth, round trip), our equation will be: \[distance = \frac{(343 \cdot time)}{2}\] Now, all we have to do is count the time between the first ping and the returning signal. But how do we send a ping in the first place? Well, for this specific module, all we have to do is send a “trigger” signal, that goes HIGH for 10 milliseconds. This will cause the module (which has on board electronics to control this) to send out an 8 cycle ping. Ok, so using this knowlegde, we can use this sensor to calculate the distance an object is away. So, to get us started, below is the code I will be using: int trigPin = 9; int echoPin = 10; // define some variables long duration; int distance; void setup() { pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output pinMode(echoPin, INPUT); // Sets the echoPin as an Input Serial.begin(9600); // Starts the serial communication (check serial monitor) } void loop() { // Clears the trigPin digitalWrite(trigPin, LOW); delayMicroseconds(2); // Sets the trigPin on HIGH state for 10 micro seconds digitalWrite(trigPin, HIGH); delayMicroseconds(10); digitalWrite(trigPin, LOW); // Reads the echoPin, returns the sound wave travel time in microseconds duration = pulseIn(echoPin, HIGH); // Calculating the distance distance = duration * 0.034 / 2; // Prints the distance on the Serial Monitor Serial.print(&quot;Distance: &quot;); Serial.println(distance); } Here, I somewhat cheated as I am using a built-in function to measure the time taken, using the pulseIn() function. But anyways, as you can see, with this code I send out a ping: digitalWrite(trigPin, HIGH); delayMicroseconds(10); digitalWrite(trigPin, LOW); and then, with the below function, I measure how long it would take for the echoPin to go HIGH: duration = pulseIn(echoPin, HIGH); Now, since we know the speed of sound, and the time the sound wave took (round-trip), we can calculate the distance to the object: \[distance = velocity \cdot time \\\\ distance = 0.034 \cdot duration\] Which would give us the distance of the object twice, because the wave travels to and back to the object, so we have to divide by 2: distance = duration * 0.034 / 2; Now, if you view the Serial Monitor, you will see print outs of the ditance measurement. This is a very useful sensor, I have used this for making a sonar, which I suggect you try yourself!!</summary></entry><entry><title type="html">Books for Learning Technical Topics</title><link href="https://burakayy.com/blog/Books-for-Learning-Technical-Topics" rel="alternate" type="text/html" title="Books for Learning Technical Topics" /><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://burakayy.com/blog/Books%20for%20Learning%20Technical%20Topics</id><content type="html" xml:base="https://burakayy.com/blog/Books-for-Learning-Technical-Topics">&lt;p&gt;For a long time, I have been gathering resources to help me with my goals and projects. Specifically, I have been slowly growing my collection of technical books, from 6th grade to the present. And I would like to share them with you here.&lt;/p&gt;
+
+&lt;p&gt;All of these are going to be in sequential order, so the first one is my first ever technical book and so on. I will also be providing a rating from 1 - 5, for how much I recommend a book to someone.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/4fcP5Of&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Practical Algebra: A Self-Teaching Guide, Second Edition&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/81B0wgtFaXL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I got this book at the end of 6th grade, and I think that it is a wonderful book for beginners to get started with math and for those who want to get ahead in school. However, if you really want to learn the theory behind math, you will have to do some thinking and deriving on your own. But also, everyone needs to start somewhere, and I think this is an amazing book. It also provides plenty of problems and solutions, so a really nice resource for self-learners.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3zU3EGw&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;The Art of Problem Solving, Vol. 1: The Basics&lt;/a&gt;&lt;/h2&gt;
+    &lt;div style=&quot;display: flex; justify-content: center; gap: 10px;&quot;&gt;
+        &lt;img src=&quot;https://m.media-amazon.com/images/I/8199N6ZXxzL._SL1500_.jpg&quot; width=&quot;400&quot; height=&quot;550&quot; /&gt;
+        &lt;img src=&quot;https://m.media-amazon.com/images/I/81X0WvAv07L._SL1500_.jpg&quot; width=&quot;400&quot; height=&quot;550&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; justify-content: center; gap: 10px;&quot;&gt;
+        &lt;a href=&quot;https://amzn.to/3Lz3Nli&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Solutions Manual&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;font-size: 32px; margin-top: 10px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Right after I finished the Algebra book, I went on to this. And let me tell you, it is nothing like any other math book. This book will challenge you to really &lt;strong&gt;think!&lt;/strong&gt; You cannot get away by memorizing a bunch of equations and rules, you have to actually &lt;strong&gt;learn&lt;/strong&gt; math. It starts off with simple topics like algebra and geometry, then briefly touches on combinatorics and proofs. However, every chapter in this book will challenge you in some way, non of it is “easy”. Getting through this book will take a lot of patience, thus I &lt;strong&gt;don’t reccomend this&lt;/strong&gt; if this will be your first math book or you’re just starting off with learning math. In fact, the authors intended these books to be used in a classroom type setting, or at least in an enviornment in whcih you will have support. While this is an amazing self-teaching book, it will require you to give your all, so be prepared!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3Ww9kz6&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Optimal State Estimation: Kalman, H Infinity, and Nonlinear Approaches&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/61KmyM8ItQL._SL1360_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This book is considered a classic in the field of control theory, and I had initially gotten this in 9th grade to learn the theory behind some of my projects. However, I was way ahead of myself, as this book is like a graduate level text. It is really heavy in Linear Algebra and Calculus (which I didn’t know at the time). In fact, I think this is probably the most dense book I ever had. But now with all of the knowlegde I have accumulated over the years, I highly recommend this book for people who want to dive deep, very deep, into this subject.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/4c0dzaU&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Data Science from Scratch: First Principles with Python 2nd Edition&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/812I0mhF0DL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This book is about, like the title suggests, teaching the theory and algorithms behind data science; from regression and decision trees to machine learning and NLP. But be aware that this book is very dense. It really asks a lot of time and I don’t think you should read it in a sequential order. But putting that aside, this book is just amazing. You will be able to follow along with the author as he teaches you the basics then the nuts and bolts of how complicated algorithms work! By the end, I guarentee that you will learn a lot and have a lot of confidence in your programming abilities!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3Wgi9vA&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;TinyML: Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/81nihP0ASSL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you are interested in ML at the ultra-edge, then this is your book! It’s amazing; you will learn and actually apply 5 ML projects on arduino based microcontrollers! In my opinion, this is one of my favorite topics in emebedded systems, in fact, this book motivated me to do my science fair project! I highly recommend this to anyone in electroncis or embedded systems!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/4cQhk3E&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;The Art of Problem Solving, Vol. 2: And Beyond&lt;/a&gt;&lt;/h2&gt;
+    &lt;div style=&quot;display: flex; justify-content: center; gap: 10px;&quot;&gt;
+        &lt;img src=&quot;https://m.media-amazon.com/images/I/81iu17-BfaL._SL1500_.jpg&quot; width=&quot;400&quot; height=&quot;550&quot; /&gt;
+        &lt;img src=&quot;https://m.media-amazon.com/images/I/81CWWytpRhL._SL1500_.jpg&quot; width=&quot;400&quot; height=&quot;550&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; justify-content: center; gap: 10px;&quot;&gt;
+        &lt;a href=&quot;https://amzn.to/3LvUtyj&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Solutions Manual&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;font-size: 32px; margin-top: 10px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This is the second Part of the AoPS Contest Books, and is even more difficult than Volume 1. I have met many, many people who got cocky and skipped Volume 1 and went directly to Volume 2, and ended up quitting entirely (sometimes even the subject of math) due to how much this book will push you. If in Volume 1 you were required to just follow along and solve the problems, here you are expected to derive equations yourself. However, if you really want to learn, I highly suggest this. Even though this was intended to be used by students with instructors, it is still one of my favorite resources for learning the “puzzle” aspect of math!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/46fMAXn&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Deep Learning from Scratch: Building with Python from First Principles&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/81N8EDOXSvL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I bought this book after the Data Science book, in hopes of getting a more in depth understanding to DL, however, I didn’t quite like how this book taught it. While some really like this book, especially with how it gives you multiple different ways to think about concepts (which is actually the first time I have ever seen this in a bok), I felt like it failed in delivering the fundamentals aspect of DL.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3LxmFB6&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Love and Math&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/81QDWBg4t6L._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lightgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you have probably guessed, this book isn’t really a highly technical book. It’s more like an autobiography which also happens to touch on math concepts. But I included them here because it still provides a way for someone to get interested in math. I highly recommend this if you want to see an alternative perspective to math.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3LDMFdP&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;How to Solve It: A New Aspect of Mathematical Method (Princeton Science Library, 34)&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/71wsHB2XIOL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This book is just a &lt;strong&gt;classic!&lt;/strong&gt; It was written a long time ago by a famous mathematician, George Pólya, and it will show you how to &lt;strong&gt;think&lt;/strong&gt; about solving problems. It isn’t necessarily a textbook, more of like a novel; but it does provide you with problems and solutions. I just love this, it makes you actually want to think!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3zS4H9R&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Solving Mathematical Problems: A Personal Perspective&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/61ZunuxfNmL._SL1360_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lgihtgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I haven’t actually finished this book, but from what I have read, I think it gives a pretty good perspective on how to think about math topics. But I don’t suggest to use this for studying. It’s more of a free-time type of book; but nonetheless, I still think it’s a valuable resource.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3LwglcP&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Everaise Academy: Math Competitions 1&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/51DV0nDj5jL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: lgihtgray;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you want to quickly prepare for Math competitions (AMC 10/12, AIME, etc) I &lt;strong&gt;highly&lt;/strong&gt; suggest this book. It will quickly give you the gist of every topic, without relying on too much memorization. But if you are looking to learn theory, I don’t think this is the best book. It still challenges you to think and solve hard problems on your own, though. I kind of wish I had started with this book because then maybe I would of been more motivated to compete in the AMCs.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;h2&gt;&lt;a href=&quot;https://amzn.to/3zNgi9X&quot; style=&quot;text-decoration: none; color: inherit;&quot;&gt;Concrete Mathematics: A Foundation for Computer Science (2nd Edition)&lt;/a&gt;&lt;/h2&gt;
+    &lt;img src=&quot;https://m.media-amazon.com/images/I/91vRF15qLuL._SL1500_.jpg&quot; width=&quot;500&quot; height=&quot;700&quot; /&gt;
+    &lt;div style=&quot;font-size: 32px;&quot;&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+        &lt;span style=&quot;color: gold;&quot;&gt;★&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Again, this book is a must for learning algorithms! I just started this book, and I already felt like this was a masterpiece after the first few pages. &lt;strong&gt;Every Computer Science&lt;/strong&gt; student should read this at some point!! Perfect!&lt;/p&gt;</content><author><name></name></author><summary type="html">For a long time, I have been gathering resources to help me with my goals and projects. Specifically, I have been slowly growing my collection of technical books, from 6th grade to the present. And I would like to share them with you here.</summary></entry><entry><title type="html">How to get started with Engineering | Hello World Example</title><link href="https://burakayy.com/blog/arduino-hello-world" rel="alternate" type="text/html" title="How to get started with Engineering | Hello World Example" /><published>2024-07-05T00:00:00+00:00</published><updated>2024-07-05T00:00:00+00:00</updated><id>https://burakayy.com/blog/arduino-hello-world</id><content type="html" xml:base="https://burakayy.com/blog/arduino-hello-world">&lt;p&gt;In this lesson, we will implement our first Arduino Project: our very own Hello World example!!&lt;/p&gt;
+
+&lt;p&gt;Required Materials:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Arduino Board (with USB cable)&lt;/li&gt;
+  &lt;li&gt;Breadboard&lt;/li&gt;
+  &lt;li&gt;Male-Male Jumper Wires&lt;/li&gt;
+  &lt;li&gt;Arduino IDE&lt;/li&gt;
+  &lt;li&gt;1 LED&lt;/li&gt;
+  &lt;li&gt;1 1K Ohm Resistor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is how this will work, this program will print out “Hello, World” and blink an LED every 1 second.&lt;/p&gt;
+
+&lt;p&gt;Please get out your breadboard and the required components above from your &lt;a href=&quot;https://burakayy.com/blog/How-to-start-Arduino#getting-started-with-arduino&quot;&gt;Elegoo Kit&lt;/a&gt; and wire the below diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/arduino_1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, the Arduino pin 8 connects to a resistor, which is connected to an LED. How this works is that electrons from the negative pin will flow through the resistor and LED only if the Arduino Pin 8 is open, or has a positive charge. Because if it doesn’t, then there will be no charge potential, thus the electrons won’t flow. At a microscopic level, what is going on is a transistor is opening its gate, allowing electrons to flow, thus eluminating the LED. This function is controlled by binary code, that is processed in some central processing unit in the chip.&lt;/p&gt;
+
+&lt;p&gt;Below, is the code which I will be using, please try to follow along with your own Arduino IDE. Unfortunetly, I cannot go through teaching programming in this course, but I will try to explain everything as I go along. But, I highly suggest you check out &lt;a href=&quot;https://docs.arduino.cc/learn/programming/reference/&quot;&gt;this Arduino Refrence&lt;/a&gt; to get in depth knowledge of C++.&lt;/p&gt;
+
+&lt;p&gt;When I first started to learn the Arduino Programming language, I kept a journal of various functions or names, and every day my goal was to learn five new “names”. I tried to memorize all the symbols and what they meant, but I later figured out that it is much faster to learn programming while applying it and programming along with a tutorial, not trying to memorize every function or symbol. So if you are worried you don’t understand how C++ works, don’t worry! Just try your best to understand/follow along.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// defines a comment&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// defines an integer variable names ledPin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// defines a string (a bunch of characters) variable, named output String&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// defines an integer (called int) variable, named delayTime&lt;/span&gt;
+
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Start the serial communication protocol &lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Starting program...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;First, I declare three variables to be used in the program:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then I initialize some “setting” in a part of the program that will only run once, the setup() function:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Start the serial communication protocol &lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Starting program...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This program doesn’t loop, and it runs once, at the beginning of the program. However, the main() function will loop indefinitely until the Arduino looses power:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delayTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;the above code will blink the LED to infinity!&lt;/p&gt;
+
+&lt;p&gt;the &lt;em&gt;pinMode()&lt;/em&gt; function sets the pin we want to use and how we want to use it, either INPUT or OUTPUT. And the key function that allows us to do this blinking is &lt;em&gt;digitalWrite()&lt;/em&gt; which takes in an integer for the pin number and whether it needs to go HIGH or LOW (can also use 1 or 0). The delay happens with the &lt;em&gt;delay()&lt;/em&gt; function, which takes in milliseconds to stop execution for that period of time.&lt;/p&gt;
+
+&lt;p&gt;So that’s interesting right?&lt;/p&gt;
+
+&lt;p&gt;Compare how easy this is to making an electronic circuit to &lt;a href=&quot;https://burakayy.com/blog/Simple-Oscillator&quot;&gt;blink an LED manually&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;experimentation&quot;&gt;Experimentation&lt;/h2&gt;
+
+&lt;p&gt;I want to you go in and manually and adjust the time between blinks, if necessary, use the &lt;em&gt;delayMicroseconds()&lt;/em&gt; function to get smaller intervals. Once you get to a small enough number, you &lt;strong&gt;shouldn’t be able to see a blink&lt;/strong&gt;! WHY is this?&lt;/p&gt;
+
+&lt;h3 id=&quot;pwm-pulse-width-modulation&quot;&gt;PWM (Pulse Width Modulation)&lt;/h3&gt;
+
+&lt;p&gt;Modifying the amount of time between a signal can be referred to as PWM (Pulse Width Modulation) because we are modifying (or modulating) the width (or the amount of time the pulse/signal is sent).&lt;/p&gt;
+
+&lt;p&gt;This concept of PWM is actually how all modern computers work; they use PWM on computer screens or smartphones to adjust the brightness, and refresh the screen (and others).&lt;/p&gt;
+
+&lt;p&gt;So what this does is two fold. First, it blinks so fast, that our eyes cannot see it blink, so it just looks constantly on. Can you see how we could use this to “adjust” the brightness of the LED by using PWM?&lt;/p&gt;
+
+&lt;p&gt;The answer is simple, just adjust the ratio the LED stays on to how long it stays off when doing PWM. So in the code above, you might want to have the first delay be a little bit longer than the second one, which will make it seem brighter compared to the second one being off longer.&lt;/p&gt;
+
+&lt;h2 id=&quot;serial-monitor&quot;&gt;Serial Monitor&lt;/h2&gt;
+
+&lt;p&gt;The next and final part of this is viewing print statements in the Arduino IDE. So, as you saw in the code, I used the built-in &lt;em&gt;Serial&lt;/em&gt; library to access the serial monitor from the Arduino. I first initialize it at a baud rate (basically how fast we communicate):&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;being&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So now in the loop, to print out a string, you can run the below function:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;here, we call the &lt;em&gt;println()&lt;/em&gt; function from the &lt;em&gt;Serial&lt;/em&gt; class. To prove that this works, you can open the Serial Monitor by clicking the &lt;em&gt;Serial Monitor&lt;/em&gt; button in the top right corner.&lt;/p&gt;
+
+&lt;p&gt;This was quite a simple example, which is why it is often referred to as the Hello World Example. I hope this got you excited to learn more about Engineering with Arduino!!&lt;/p&gt;
+
+&lt;p&gt;See you next time!!&lt;/p&gt;</content><author><name></name></author><category term="arduino" /><summary type="html">In this lesson, we will implement our first Arduino Project: our very own Hello World example!! Required Materials: Arduino Board (with USB cable) Breadboard Male-Male Jumper Wires Arduino IDE 1 LED 1 1K Ohm Resistor Here is how this will work, this program will print out “Hello, World” and blink an LED every 1 second. Please get out your breadboard and the required components above from your Elegoo Kit and wire the below diagram: As you can see, the Arduino pin 8 connects to a resistor, which is connected to an LED. How this works is that electrons from the negative pin will flow through the resistor and LED only if the Arduino Pin 8 is open, or has a positive charge. Because if it doesn’t, then there will be no charge potential, thus the electrons won’t flow. At a microscopic level, what is going on is a transistor is opening its gate, allowing electrons to flow, thus eluminating the LED. This function is controlled by binary code, that is processed in some central processing unit in the chip. Below, is the code which I will be using, please try to follow along with your own Arduino IDE. Unfortunetly, I cannot go through teaching programming in this course, but I will try to explain everything as I go along. But, I highly suggest you check out this Arduino Refrence to get in depth knowledge of C++. When I first started to learn the Arduino Programming language, I kept a journal of various functions or names, and every day my goal was to learn five new “names”. I tried to memorize all the symbols and what they meant, but I later figured out that it is much faster to learn programming while applying it and programming along with a tutorial, not trying to memorize every function or symbol. So if you are worried you don’t understand how C++ works, don’t worry! Just try your best to understand/follow along. // defines a comment int ledPin = 8; // defines an integer variable names ledPin String outputString = &quot;Hello, World&quot;; // defines a string (a bunch of characters) variable, named output String int delayTime = 1000; // defines an integer (called int) variable, named delayTime void setup() { Serial.begin(9600); //Start the serial communication protocol pinMode(ledPin, OUTPUT); digitalWrite(ledPin, LOW); Serial.println(&quot;Starting program...&quot;); } void main() { Serial.println(outputString); digitalWrite(ledPin, HIGH); delay(delayTime); Serial.println(outputString); digitalWrite(ledPin, LOW); delay(delayTime); } First, I declare three variables to be used in the program: int ledPin = 8; String outputString = &quot;Hello, World&quot;; int delayTime = 1000; Then I initialize some “setting” in a part of the program that will only run once, the setup() function: void setup() { Serial.begin(9600); //Start the serial communication protocol pinMode(ledPin, OUTPUT); digitalWrite(ledPin, LOW); Serial.println(&quot;Starting program...&quot;); } This program doesn’t loop, and it runs once, at the beginning of the program. However, the main() function will loop indefinitely until the Arduino looses power: void main() { Serial.println(outputString); digitalWrite(ledPin, HIGH); delay(delayTime); Serial.println(outputString); digitalWrite(ledPin, LOW); delay(delayTime); } the above code will blink the LED to infinity! the pinMode() function sets the pin we want to use and how we want to use it, either INPUT or OUTPUT. And the key function that allows us to do this blinking is digitalWrite() which takes in an integer for the pin number and whether it needs to go HIGH or LOW (can also use 1 or 0). The delay happens with the delay() function, which takes in milliseconds to stop execution for that period of time. So that’s interesting right? Compare how easy this is to making an electronic circuit to blink an LED manually! Experimentation I want to you go in and manually and adjust the time between blinks, if necessary, use the delayMicroseconds() function to get smaller intervals. Once you get to a small enough number, you shouldn’t be able to see a blink! WHY is this? PWM (Pulse Width Modulation) Modifying the amount of time between a signal can be referred to as PWM (Pulse Width Modulation) because we are modifying (or modulating) the width (or the amount of time the pulse/signal is sent). This concept of PWM is actually how all modern computers work; they use PWM on computer screens or smartphones to adjust the brightness, and refresh the screen (and others). So what this does is two fold. First, it blinks so fast, that our eyes cannot see it blink, so it just looks constantly on. Can you see how we could use this to “adjust” the brightness of the LED by using PWM? The answer is simple, just adjust the ratio the LED stays on to how long it stays off when doing PWM. So in the code above, you might want to have the first delay be a little bit longer than the second one, which will make it seem brighter compared to the second one being off longer. Serial Monitor The next and final part of this is viewing print statements in the Arduino IDE. So, as you saw in the code, I used the built-in Serial library to access the serial monitor from the Arduino. I first initialize it at a baud rate (basically how fast we communicate): Serial.being(9600); So now in the loop, to print out a string, you can run the below function: Serial.println(outputString); here, we call the println() function from the Serial class. To prove that this works, you can open the Serial Monitor by clicking the Serial Monitor button in the top right corner. This was quite a simple example, which is why it is often referred to as the Hello World Example. I hope this got you excited to learn more about Engineering with Arduino!! See you next time!!</summary></entry><entry><title type="html">How to get started with Engineering | Arduino Programming</title><link href="https://burakayy.com/blog/arduino-programming" rel="alternate" type="text/html" title="How to get started with Engineering | Arduino Programming" /><published>2024-06-27T00:00:00+00:00</published><updated>2024-06-27T00:00:00+00:00</updated><id>https://burakayy.com/blog/arduino-programming</id><content type="html" xml:base="https://burakayy.com/blog/arduino-programming">&lt;p&gt;Now, if we want to be a good engineer in this day and age, we need to also know Computer Science. Arduino especially relies on this as this is how we will program the Board.&lt;/p&gt;
+
+&lt;p&gt;Ok, so you probably have learned that Arduino is a development platform where you program a microcontroller. In the Arduino Environment, you do this with the &lt;a href=&quot;https://docs.arduino.cc/learn/programming/reference/&quot;&gt;Arduino API&lt;/a&gt; (I am assuming you have downloaded the Arduino IDE in the previous lessons).&lt;/p&gt;
+
+&lt;p&gt;Let’s dive in!!&lt;/p&gt;
+
+&lt;h1 id=&quot;arduino-sketches&quot;&gt;Arduino Sketches&lt;/h1&gt;
+&lt;h3 id=&quot;a-look-at-the-arduino-ide&quot;&gt;A look at the Arduino IDE&lt;/h3&gt;
+
+&lt;p&gt;So, if you open the IDE, a new sketch should automatically appear. I will revist the details later, but you should see something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I will go into how these work more later, but for now, just know that &lt;em&gt;void setup()&lt;/em&gt; is a place which you can put in code that you want to &lt;strong&gt;only run once at the beginning of the program&lt;/strong&gt; and &lt;em&gt;void loop()&lt;/em&gt; is code for &lt;strong&gt;running continuously, in a loop&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;For most of the examples below, I will run them in setup(). &lt;strong&gt;And please note that in C++, you &lt;em&gt;must&lt;/em&gt; end every line of code with a semicolon: “;”!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;variables&quot;&gt;Variables&lt;/h1&gt;
+
+&lt;p&gt;So, let’s say you had a bunch of data or information you wanted to store in a computer program, how would you do that? The simple way is to declare a &lt;em&gt;variable&lt;/em&gt; and the compiler (converting code to machine language) will the Arduino how to store a piece of information.&lt;/p&gt;
+
+&lt;p&gt;That’s simply what a variable is, a way to store information.&lt;/p&gt;
+
+&lt;p&gt;Let’s see a few examples of the different types of info you can store:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Characters: store single characters, like ‘A’ or ‘$’&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Integers: stores integer numbers, like 20 or 4&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Floats: stores numbers with a decimal value, up to a certain degree, like 30.799 or 3.1415&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Doubles: can store even more deicmal values that floats, like 40.2991988476&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Strings: is actually a class/object that stores a group of characters, like “Hello”&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now, let’s see how we can use these in Arduino code (which is just C++) to store data.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bob&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, to declare an Integer, I use the keyword &lt;em&gt;int&lt;/em&gt; which signals that the variable name I enter after this will be an Integer.&lt;/p&gt;
+
+&lt;p&gt;So the below code will just declare a variable as an Integer:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;but to give the variable “height” a value, I must assign it using an equal sign and then put a corresponding value that matches the variable type:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shoe_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So after the variable type, I can name it any name I want, but it cannot contain ANY spaces, because any space seperates different parts of the program instructions.&lt;/p&gt;
+
+&lt;p&gt;So all of the following are valid variable names:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hello_world&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;silly_cat_videos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;broken_latptop_that_I_dontWant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;camelBackNotationAlsoWorks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Woohoo_Big_summer_Blowout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Floats, are not much different:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this_is_a_float&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;10.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.1415&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And similarly, we can declare Strings and characters:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bob&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'B'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, with this tool of storing values in different types of variables, we can allow certain “programmable” ideas in our code.&lt;/p&gt;
+
+&lt;h3 id=&quot;arithmetic&quot;&gt;Arithmetic&lt;/h3&gt;
+
+&lt;p&gt;I want to quickly touch on how we can use these variables in our program.&lt;/p&gt;
+
+&lt;p&gt;Adding Integers:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here I just declared a new Integer Variable that is set to (equal sign) the sum (by using the + sign) of num1 and num2; This is how variables are used, you can just call their value later by refrencing their variable name.&lt;/p&gt;
+
+&lt;p&gt;Below is how we can “increment” values:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How this works is that we set the memory space for num3 to what num3 is now plus num2. So every time this line of code is run, num2 is added to num3. The above is equavalent to the below, just a different notation:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I can also subtract:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;multiply:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or divide:&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;num3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;functions&quot;&gt;Functions&lt;/h1&gt;
+
+&lt;p&gt;So let’s say you have a piece of code that you want to use in multiple places in your program. There are two options: either copy/paste that code every time, or have some variable declaration that is actually a ‘mini program’ that will run that piece of code every time you call it.&lt;/p&gt;
+
+&lt;p&gt;In modern programming, this is called &lt;em&gt;functions.&lt;/em&gt; In our Aruino C++ Programming language, here is how we make a function:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So now, every time I want to increment &lt;em&gt;number&lt;/em&gt;, instead of writing that line of code, and just simply call the function. Let’s break the above code apart; the &lt;em&gt;void&lt;/em&gt; key word refers to what this function will return. Every function can return a value, say I’m making a calculation, I can have a function return or output the final value of the math calculation. So when we define a function, we have to define which type of variable will it return. In this case, we made it a void (which is nothing, basically), which means this function will not return anything.&lt;/p&gt;
+
+&lt;p&gt;But now let’s say I want to increment the number by a variable amount, how would I do that:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;function2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the parenthesis of the function, I can make a variable, in this case an Integer named &lt;em&gt;addAmount&lt;/em&gt;, and I can refrence that in the code. Here is how I would use this function:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;function2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;So here, number is incremented by 4 instead of 1 in function1. All of the code is written in between the parenthesis, that is what defines the function code, everything in between the parenthesis.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Again, like all the other things, I will go in more detail once we actually start coding!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;arduino-sketches-revisited&quot;&gt;Arduino Sketches, revisited&lt;/h1&gt;
+
+&lt;p&gt;So now that we know about functions, we can see that the &lt;em&gt;setup()&lt;/em&gt; and &lt;em&gt;loop()&lt;/em&gt; sections in the Arduino IDE, are really just functions that are already defined for us. In these functions, we will write our main code, but we can also make our own functions!&lt;/p&gt;
+
+&lt;p&gt;In the following lessons, we will write code to accomplish tasks using these two; this lesson was just an introductary lesson for coding.&lt;/p&gt;</content><author><name></name></author><category term="arduino" /><summary type="html">Now, if we want to be a good engineer in this day and age, we need to also know Computer Science. Arduino especially relies on this as this is how we will program the Board. Ok, so you probably have learned that Arduino is a development platform where you program a microcontroller. In the Arduino Environment, you do this with the Arduino API (I am assuming you have downloaded the Arduino IDE in the previous lessons). Let’s dive in!! Arduino Sketches A look at the Arduino IDE So, if you open the IDE, a new sketch should automatically appear. I will revist the details later, but you should see something like this: void setup() { } void loop() { } I will go into how these work more later, but for now, just know that void setup() is a place which you can put in code that you want to only run once at the beginning of the program and void loop() is code for running continuously, in a loop. For most of the examples below, I will run them in setup(). And please note that in C++, you must end every line of code with a semicolon: “;”! Variables So, let’s say you had a bunch of data or information you wanted to store in a computer program, how would you do that? The simple way is to declare a variable and the compiler (converting code to machine language) will the Arduino how to store a piece of information. That’s simply what a variable is, a way to store information. Let’s see a few examples of the different types of info you can store: Characters: store single characters, like ‘A’ or ‘$’ Integers: stores integer numbers, like 20 or 4 Floats: stores numbers with a decimal value, up to a certain degree, like 30.799 or 3.1415 Doubles: can store even more deicmal values that floats, like 40.2991988476 Strings: is actually a class/object that stores a group of characters, like “Hello” Now, let’s see how we can use these in Arduino code (which is just C++) to store data. int age = 30; String name = &quot;Bob&quot;; void setup() { Serial.begin(9600); Serial.println(name); Serial.println(age); } void loop() { } As you can see, to declare an Integer, I use the keyword int which signals that the variable name I enter after this will be an Integer. So the below code will just declare a variable as an Integer: int height; but to give the variable “height” a value, I must assign it using an equal sign and then put a corresponding value that matches the variable type: int shoe_size = 20; So after the variable type, I can name it any name I want, but it cannot contain ANY spaces, because any space seperates different parts of the program instructions. So all of the following are valid variable names: hello_world; silly_cat_videos; broken_latptop_that_I_dontWant; camelBackNotationAlsoWorks; Woohoo_Big_summer_Blowout; Floats, are not much different: float this_is_a_float = 10.9; float pi = 3.1415; And similarly, we can declare Strings and characters: String name = &quot;Bob&quot;; char initial = 'B'; As you can see, with this tool of storing values in different types of variables, we can allow certain “programmable” ideas in our code. Arithmetic I want to quickly touch on how we can use these variables in our program. Adding Integers: int num1 = 5; int num2 = 10; int num3 = num1 + num2; Here I just declared a new Integer Variable that is set to (equal sign) the sum (by using the + sign) of num1 and num2; This is how variables are used, you can just call their value later by refrencing their variable name. Below is how we can “increment” values: num3 = num3 + num2; How this works is that we set the memory space for num3 to what num3 is now plus num2. So every time this line of code is run, num2 is added to num3. The above is equavalent to the below, just a different notation: num3 += num2; I can also subtract: num3 -= num1; multiply: num3 *= num2; or divide: num3 /= num1; Functions So let’s say you have a piece of code that you want to use in multiple places in your program. There are two options: either copy/paste that code every time, or have some variable declaration that is actually a ‘mini program’ that will run that piece of code every time you call it. In modern programming, this is called functions. In our Aruino C++ Programming language, here is how we make a function: int number = 0; void function1() { number = number + 1; } So now, every time I want to increment number, instead of writing that line of code, and just simply call the function. Let’s break the above code apart; the void key word refers to what this function will return. Every function can return a value, say I’m making a calculation, I can have a function return or output the final value of the math calculation. So when we define a function, we have to define which type of variable will it return. In this case, we made it a void (which is nothing, basically), which means this function will not return anything. But now let’s say I want to increment the number by a variable amount, how would I do that: int amount = 5; int number = 0; void function2(int addAmount) { number += addAmount; } In the parenthesis of the function, I can make a variable, in this case an Integer named addAmount, and I can refrence that in the code. Here is how I would use this function: function2(4); So here, number is incremented by 4 instead of 1 in function1. All of the code is written in between the parenthesis, that is what defines the function code, everything in between the parenthesis. Again, like all the other things, I will go in more detail once we actually start coding! Arduino Sketches, revisited So now that we know about functions, we can see that the setup() and loop() sections in the Arduino IDE, are really just functions that are already defined for us. In these functions, we will write our main code, but we can also make our own functions! In the following lessons, we will write code to accomplish tasks using these two; this lesson was just an introductary lesson for coding.</summary></entry><entry><title type="html">How to get started with Engineering | Electronics</title><link href="https://burakayy.com/blog/arduino-electronics" rel="alternate" type="text/html" title="How to get started with Engineering | Electronics" /><published>2024-06-19T00:00:00+00:00</published><updated>2024-06-19T00:00:00+00:00</updated><id>https://burakayy.com/blog/arduino-electronics</id><content type="html" xml:base="https://burakayy.com/blog/arduino-electronics">&lt;p&gt;Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering.&lt;/p&gt;
+
+&lt;p&gt;To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-a-breadboard-work&quot;&gt;How Does a BreadBoard Work&lt;/h2&gt;
+
+&lt;p&gt;A breadboard’s purpose is to help with efficiency when prototyping a circuit; instead of having to &lt;a href=&quot;https://en.wikipedia.org/wiki/Solder&quot;&gt;solder&lt;/a&gt; every component, without knowing the circuit will work, wouldn’t it be nice to have a “plug-n-play” set up where you can easily interchange components?&lt;/p&gt;
+
+&lt;p&gt;Well, the breadboard comes to the rescue!&lt;/p&gt;
+
+&lt;p&gt;Below is a diagram of how the various pins on your board are connected:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/breadboardLayout.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Usually, breadboards have two sets of horizontal strips that run across the long side, each usually labelled with a red or blue strip. These are generally used for 
+power, providing current to your circuit; however, these are not directly connected to the pins on the inside. I will explain how this works further, with examples.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/breadboard1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, referring to both of the diagrams above, each pin along a column is connected. But pins across rows are not connected. Furthermore, pins that cross the barrier
+in the middle are also not connected.&lt;/p&gt;
+
+&lt;p&gt;This setup provides a framework which you can easily and systematically design your own circuits.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-do-resistors-work&quot;&gt;How Do Resistors Work&lt;/h2&gt;
+
+&lt;p&gt;Resistor are an electronic component that, as the name implies, restricts and resists the flow of electrons in a circuit.&lt;/p&gt;
+
+&lt;p&gt;But how does this work?&lt;/p&gt;
+
+&lt;p&gt;Well, each &lt;a href=&quot;https://en.wikipedia.org/wiki/Electrical_conductor&quot;&gt;conductive material&lt;/a&gt; has its own properties, which results in each material conducting electricity
+slightly differently. Thus, each material will also resist electricity differently. For example, copper is a very conductive material, which means 
+it has a low resistance.&lt;/p&gt;
+
+&lt;p&gt;Below is a diagram showing the guts of a resistor:
+&lt;img src=&quot;assets/images/arduinoEng/resistor1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, there is some internal conductive material that is a mixture of various material with different properties.
+This will result in the final material to have a &lt;strong&gt;different resistance than the pins&lt;/strong&gt; (connecting leads).&lt;/p&gt;
+
+&lt;p&gt;The coloring on the resistor also has a meaning. It is some sort of code for the resistance. However, these are often not
+standardized or hard to read and remember, so I usually don’t pay attention to them.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-a-transistor-work&quot;&gt;How Does a Transistor Work&lt;/h2&gt;
+
+&lt;p&gt;If you search this up, probably the first “definition” you will come across is “ a transistor is an electronic switch”.
+However, I have never liked this definition, as I think not only is it basic but it’s lacking.&lt;/p&gt;
+
+&lt;p&gt;Below is a schematic diagram of a transistor:
+&lt;img src=&quot;assets/images/arduinoEng/transistor1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, there are three main pins (or leads): the collector, the base, and the emittor. Now, I could go into what each pin is,
+but to understand a transistor, we have to go down to the atomic level and understand what’s &lt;strong&gt;in&lt;/strong&gt; a transistor first, then
+we can understand what the pins mean.&lt;/p&gt;
+
+&lt;p&gt;To understand this, I think it is best if we tackle what a Diode is and how it works first.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-does-a-diode-work&quot;&gt;How Does a Diode Work&lt;/h3&gt;
+
+&lt;p&gt;A diode is an electronic component that basically restricts the flow of electrons, but only in one direction. It only allows electricity to flow in one direction.&lt;/p&gt;
+
+&lt;p&gt;Below is a diagram of what the inside of a diode might look like, at an atomic level:
+&lt;img src=&quot;assets/images/arduinoEng/diode1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To start, let me explain what you are looking at. Basically, there are two materials inside of a diode: a n-type material and a p-type material.
+But what does this mean?&lt;/p&gt;
+
+&lt;p&gt;Well first, these materials are made up of mostly silicon. Which is something called a Semi-conductor.&lt;/p&gt;
+
+&lt;h4 id=&quot;what-are-semiconductors&quot;&gt;What Are Semiconductors?&lt;/h4&gt;
+
+&lt;p&gt;You are probably similar to conductors and insulators. But what are &lt;a href=&quot;https://en.wikipedia.org/wiki/Semiconductor&quot;&gt;semiconductors&lt;/a&gt;? Well, simply put, semiconductors are materials (specifically metals) that can have both conductive, and less conductive properties, depending on the environment. Factors that might influence this are&lt;/p&gt;
+
+&lt;h4 id=&quot;my-technical-report-on-photoresistors&quot;&gt;My Technical Report on Photoresistors&lt;/h4&gt;
+
+&lt;p&gt;Below, I have &lt;a href=&quot;https://burakayy.com/blog/chem-paper&quot;&gt;linked a paper&lt;/a&gt; I had written in my sophomore year of high school to explain what photoresistors are and how they work.&lt;/p&gt;
+
+&lt;embed src=&quot;assets/images/pdfs/ChemPaper2.pdf&quot; type=&quot;application/pdf&quot; /&gt;
+
+&lt;p&gt;Even though I talk about photoresistors in that paper, I still explain semi-conductive materials and how various other materials, like phosphorus, are added to the silicon to achieve certain properties (mainly how there will be extra electrons in one mixture and a depletion, or holes, in another mixture).&lt;/p&gt;
+
+&lt;p&gt;Refering back to this image of how the electrons will behave in a diode:
+&lt;img src=&quot;assets/images/arduinoEng/diode1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can see that due to the material properties of the p-type, it will create various holes (a lack of electrons in an atoms outer electron shell) and due to the properties of the n-type, there will be an excess of electrons.&lt;/p&gt;
+
+&lt;p&gt;Now the key is notice what will happen (at an atomic scale) at the border/barrier between these two materials. Some of the free electrons nearest to the border will actually &lt;strong&gt;cross&lt;/strong&gt; over to the p-type material. So, after this interaction, the p-type material right-most side will be slightly negatively charged, and the left-most side of the n-type material will be positively charged.&lt;/p&gt;
+
+&lt;p&gt;Now, you might think that this process will continue, but it actually will not. See this transfer of initial electrons will create a charge barrier. This barrier will stop the electrons from the n-type to cross further to the p-type. But why does this happen?&lt;/p&gt;
+
+&lt;p&gt;See, after the initial cross, like I said the right-most p-type side will be slightly negatively charged. So, when other electrons try to cross over to the p-type again, the negative charge created from the initial cross will repel further crosses.&lt;/p&gt;
+
+&lt;p&gt;So currently, with no further charges applied, this diode will be locked in this charge state and no further electrons will flow (at least across the border; there might be small flow from electrons within the n-type).&lt;/p&gt;
+
+&lt;p&gt;But let’s see what happens when we apply a charge, like from a battery, to the terminals of this diode (the positive side, p-type, is anode; negative side, n-type, is cathode).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/arduinoEng/diode1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this first scenario, let’s say that the negative side of the battery was attached to the p-type side of the diode. So, electrons from the battery’s negative side will flow into the p-type side, filling in those holes, until electrons will reach the tiny negative barrier created from the initial electron exchange. This barrier acts like a wall, and inhibits electrons from flowing.&lt;/p&gt;
+
+&lt;p&gt;However, let’s try to attach the battery in the opposite direction, where the negative side is on the cathode of the diode. The electrons flowing from the battery will push electrons from the n-type material, over the barrier and electricity can flow. But this can only happen past some voltage threshold, which depends on the diode characteristics.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-does-a-transistor-work-revisited&quot;&gt;How Does a Transistor Work, revisited&lt;/h3&gt;
+&lt;p&gt;So, since we now know how diodes work, let’s see how we can apply this to understand how transistors work. Basically, transistors are two diodes in parallel. Now, don’t just think you can put two diodes in series on a breadboard and think you have created a transistor (this is actually something I believed in middle school). Below I will explain how a NPN Transistor works, but the same principles can be applied to PNP Transistors.&lt;/p&gt;
+
+&lt;p&gt;So, the three pins on a transistor stand for the &lt;em&gt;base&lt;/em&gt; (the p-type material), &lt;em&gt;emitter&lt;/em&gt; (the n-type material), and the &lt;em&gt;collector&lt;/em&gt; (n-type material).&lt;/p&gt;
+
+&lt;p&gt;Below is a diagram showing the electron arrangement of inside a transistor:
+&lt;img src=&quot;assets/images/arduinoEng/arduino_transistor.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, it is really just two diodes ‘smushed’ together. As you can see, the p-type - n-type arrangements both create their own barriers. With a depletion zone in the middle (just a depletion of electrons, or holes). The physics of this should be the same as the barrier formed in a diode.&lt;/p&gt;
+
+&lt;p&gt;Let’s observe what happens when I apply a charge from the collector and emitter sides (which are kind of like the inputs and outputs of the transistor, at least in the context of where the electrons want to flow from, from one n-type to another n-type).&lt;/p&gt;
+
+&lt;p&gt;The electrons will flow into the collector, pass (or break) the first barrier, but then be blocked by the barrier created by the second inter-junction (can you see why this happens? hint: analyze the charges that interact).&lt;/p&gt;
+
+&lt;p&gt;Now, let’s observe what will happen when I add a positive charge to the base: again, electrons will pass over the first barrier and now have somewhere to go, the positive base; they will flow out of the base and complete the circuit. But this positive charge will also weaken the second barrier to the point that electrons will now be able to flow from the collector to the emitter, thus completing the circuit.&lt;/p&gt;
+
+&lt;p&gt;So in this sense, a transistor is like a gate, it allows electrons to flow from one end to another only when a “key” (a positive charge on the base) is applied.&lt;/p&gt;
+
+&lt;p&gt;There is also PNP type transistors, which work very similarly, but instead of a positive charge on the base opening the gate, a negative charge will open the gate.&lt;/p&gt;
+
+&lt;p&gt;Ok, now that we have a basic understanding of semi-conductor materials, let’s learn about some other components.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-a-led-work&quot;&gt;How Does a LED Work&lt;/h2&gt;
+
+&lt;p&gt;Simply put, this is stands for a &lt;strong&gt;L&lt;/strong&gt;ight &lt;strong&gt;E&lt;/strong&gt;mitting &lt;strong&gt;D&lt;/strong&gt;iode, and it does exactly as it sounds like: emits light by utilizing physical properties of certain materials.&lt;/p&gt;
+
+&lt;h3 id=&quot;quick-review-of-what-light-is&quot;&gt;Quick Review of what light is&lt;/h3&gt;
+
+&lt;p&gt;Light is both a particle and a wave. But in this context light is just a photon being emitted from some energy source. Here, the photon is emitted when an electron drops in energy levels (from a higher orbital to a lower orbital).&lt;/p&gt;
+
+&lt;p&gt;So, an LED is just a diode with some modifications. The key is the specific material(s) that the diode n-type and p-type is made of. And so when an electricity flows through this material, it will cause electrons to change energy levels (which will emit light). And depending on the particular materials, the emitted light will be a different frequency (which will change the ‘color’ of the light).&lt;/p&gt;
+
+&lt;h1 id=&quot;creating-basic-circuits&quot;&gt;Creating Basic Circuits&lt;/h1&gt;
+
+&lt;p&gt;Now let’s circle back to using and applying what we learned about breadboards to create basic circuits. I will provide you with basic schematic reading skills and I will leave it up to you to build the circuit yourself.&lt;/p&gt;
+
+&lt;p&gt;Ok, below is a simple schematic that will show and apply basic components that we discussed earlier:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\arduinoEng\schematic1.png&quot; alt=&quot;sch&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, it employs a transistor, resistors, diode, a button, and an LED (you can choose which ever color you’d like). Below is a list of corresponding symbols and their component:&lt;/p&gt;
+
+&lt;h3 id=&quot;notesreferences&quot;&gt;Notes/References&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;a few pages of notes from my old notebook related to How transistors work:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets\images\arduinoEng\notes3.jpg&quot; alt=&quot;3&quot; /&gt;
+&lt;img src=&quot;assets\images\arduinoEng\notes1.jpg&quot; alt=&quot;1&quot; /&gt;
+&lt;img src=&quot;assets\images\arduinoEng\notes2.jpg&quot; alt=&quot;2&quot; /&gt;
+&lt;img src=&quot;assets\images\arduinoEng\notes4.jpg&quot; alt=&quot;4&quot; /&gt;
+&lt;img src=&quot;assets\images\arduinoEng\notes5.jpg&quot; alt=&quot;5&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="arduino" /><summary type="html">Welcome back; here I will introduce you to the fundamentals and basics of Electronics for Engineering. To follow along, please refer to the introductory lesson to find the link to an Arduino Kit, which will contain plenty of electronic components and a breadboard. How Does a BreadBoard Work A breadboard’s purpose is to help with efficiency when prototyping a circuit; instead of having to solder every component, without knowing the circuit will work, wouldn’t it be nice to have a “plug-n-play” set up where you can easily interchange components? Well, the breadboard comes to the rescue! Below is a diagram of how the various pins on your board are connected: Usually, breadboards have two sets of horizontal strips that run across the long side, each usually labelled with a red or blue strip. These are generally used for power, providing current to your circuit; however, these are not directly connected to the pins on the inside. I will explain how this works further, with examples. So, referring to both of the diagrams above, each pin along a column is connected. But pins across rows are not connected. Furthermore, pins that cross the barrier in the middle are also not connected. This setup provides a framework which you can easily and systematically design your own circuits. How Do Resistors Work Resistor are an electronic component that, as the name implies, restricts and resists the flow of electrons in a circuit. But how does this work? Well, each conductive material has its own properties, which results in each material conducting electricity slightly differently. Thus, each material will also resist electricity differently. For example, copper is a very conductive material, which means it has a low resistance. Below is a diagram showing the guts of a resistor: As you can see, there is some internal conductive material that is a mixture of various material with different properties. This will result in the final material to have a different resistance than the pins (connecting leads). The coloring on the resistor also has a meaning. It is some sort of code for the resistance. However, these are often not standardized or hard to read and remember, so I usually don’t pay attention to them. How Does a Transistor Work If you search this up, probably the first “definition” you will come across is “ a transistor is an electronic switch”. However, I have never liked this definition, as I think not only is it basic but it’s lacking. Below is a schematic diagram of a transistor: As you can see, there are three main pins (or leads): the collector, the base, and the emittor. Now, I could go into what each pin is, but to understand a transistor, we have to go down to the atomic level and understand what’s in a transistor first, then we can understand what the pins mean. To understand this, I think it is best if we tackle what a Diode is and how it works first. How Does a Diode Work A diode is an electronic component that basically restricts the flow of electrons, but only in one direction. It only allows electricity to flow in one direction. Below is a diagram of what the inside of a diode might look like, at an atomic level: To start, let me explain what you are looking at. Basically, there are two materials inside of a diode: a n-type material and a p-type material. But what does this mean? Well first, these materials are made up of mostly silicon. Which is something called a Semi-conductor. What Are Semiconductors? You are probably similar to conductors and insulators. But what are semiconductors? Well, simply put, semiconductors are materials (specifically metals) that can have both conductive, and less conductive properties, depending on the environment. Factors that might influence this are My Technical Report on Photoresistors Below, I have linked a paper I had written in my sophomore year of high school to explain what photoresistors are and how they work. Even though I talk about photoresistors in that paper, I still explain semi-conductive materials and how various other materials, like phosphorus, are added to the silicon to achieve certain properties (mainly how there will be extra electrons in one mixture and a depletion, or holes, in another mixture). Refering back to this image of how the electrons will behave in a diode: We can see that due to the material properties of the p-type, it will create various holes (a lack of electrons in an atoms outer electron shell) and due to the properties of the n-type, there will be an excess of electrons. Now the key is notice what will happen (at an atomic scale) at the border/barrier between these two materials. Some of the free electrons nearest to the border will actually cross over to the p-type material. So, after this interaction, the p-type material right-most side will be slightly negatively charged, and the left-most side of the n-type material will be positively charged. Now, you might think that this process will continue, but it actually will not. See this transfer of initial electrons will create a charge barrier. This barrier will stop the electrons from the n-type to cross further to the p-type. But why does this happen? See, after the initial cross, like I said the right-most p-type side will be slightly negatively charged. So, when other electrons try to cross over to the p-type again, the negative charge created from the initial cross will repel further crosses. So currently, with no further charges applied, this diode will be locked in this charge state and no further electrons will flow (at least across the border; there might be small flow from electrons within the n-type). But let’s see what happens when we apply a charge, like from a battery, to the terminals of this diode (the positive side, p-type, is anode; negative side, n-type, is cathode). In this first scenario, let’s say that the negative side of the battery was attached to the p-type side of the diode. So, electrons from the battery’s negative side will flow into the p-type side, filling in those holes, until electrons will reach the tiny negative barrier created from the initial electron exchange. This barrier acts like a wall, and inhibits electrons from flowing. However, let’s try to attach the battery in the opposite direction, where the negative side is on the cathode of the diode. The electrons flowing from the battery will push electrons from the n-type material, over the barrier and electricity can flow. But this can only happen past some voltage threshold, which depends on the diode characteristics. How Does a Transistor Work, revisited So, since we now know how diodes work, let’s see how we can apply this to understand how transistors work. Basically, transistors are two diodes in parallel. Now, don’t just think you can put two diodes in series on a breadboard and think you have created a transistor (this is actually something I believed in middle school). Below I will explain how a NPN Transistor works, but the same principles can be applied to PNP Transistors. So, the three pins on a transistor stand for the base (the p-type material), emitter (the n-type material), and the collector (n-type material). Below is a diagram showing the electron arrangement of inside a transistor: As you can see, it is really just two diodes ‘smushed’ together. As you can see, the p-type - n-type arrangements both create their own barriers. With a depletion zone in the middle (just a depletion of electrons, or holes). The physics of this should be the same as the barrier formed in a diode. Let’s observe what happens when I apply a charge from the collector and emitter sides (which are kind of like the inputs and outputs of the transistor, at least in the context of where the electrons want to flow from, from one n-type to another n-type). The electrons will flow into the collector, pass (or break) the first barrier, but then be blocked by the barrier created by the second inter-junction (can you see why this happens? hint: analyze the charges that interact). Now, let’s observe what will happen when I add a positive charge to the base: again, electrons will pass over the first barrier and now have somewhere to go, the positive base; they will flow out of the base and complete the circuit. But this positive charge will also weaken the second barrier to the point that electrons will now be able to flow from the collector to the emitter, thus completing the circuit. So in this sense, a transistor is like a gate, it allows electrons to flow from one end to another only when a “key” (a positive charge on the base) is applied. There is also PNP type transistors, which work very similarly, but instead of a positive charge on the base opening the gate, a negative charge will open the gate. Ok, now that we have a basic understanding of semi-conductor materials, let’s learn about some other components. How Does a LED Work Simply put, this is stands for a Light Emitting Diode, and it does exactly as it sounds like: emits light by utilizing physical properties of certain materials. Quick Review of what light is Light is both a particle and a wave. But in this context light is just a photon being emitted from some energy source. Here, the photon is emitted when an electron drops in energy levels (from a higher orbital to a lower orbital). So, an LED is just a diode with some modifications. The key is the specific material(s) that the diode n-type and p-type is made of. And so when an electricity flows through this material, it will cause electrons to change energy levels (which will emit light). And depending on the particular materials, the emitted light will be a different frequency (which will change the ‘color’ of the light). Creating Basic Circuits Now let’s circle back to using and applying what we learned about breadboards to create basic circuits. I will provide you with basic schematic reading skills and I will leave it up to you to build the circuit yourself. Ok, below is a simple schematic that will show and apply basic components that we discussed earlier: As you can see, it employs a transistor, resistors, diode, a button, and an LED (you can choose which ever color you’d like). Below is a list of corresponding symbols and their component: Notes/References a few pages of notes from my old notebook related to How transistors work:</summary></entry></feed>

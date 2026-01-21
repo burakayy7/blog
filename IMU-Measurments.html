@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Imu Measurments</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="My Blog for Technical Projects" />
+    <link rel="shortcut icon" href="https://burakayy.com/blog/assets/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://burakayy.com/blog/IMU-Measurments" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Burak Ayyorgun" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Imu Measurments" />
+    <meta property="og:description" content="For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment. Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But," />
+    <meta property="og:url" content="https://burakayy.com/blog/IMU-Measurments" />
+    <meta property="og:image" content="https://burakayy.com/blog/assets/images/imuPic.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta property="article:author" content="https://www.facebook.com/ghost" />
+    <meta property="article:published_time" content="2021-06-06T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2021-06-06T00:00:00+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Imu Measurments" />
+    <meta name="twitter:description" content="For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment. Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But," />
+    <meta name="twitter:url" content="https://burakayy.com/blog/" />
+    <meta name="twitter:image" content="https://burakayy.com/blog/assets/images/imuPic.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Burak Ayyorgun" />
+    <meta name="twitter:site" content="@JoeBA07" />
+    <meta name="twitter:creator" content="@JoeBA07" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Burak Ayyorgun",
+        "logo": "https://burakayy.com/blog/Burak Ayyorgun"
+    },
+    "url": "https://burakayy.com/blog/IMU-Measurments",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://burakayy.com/blog/assets/images/imuPic.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://burakayy.com/blog/IMU-Measurments"
+    },
+    "description": "For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment. Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But,"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Imu Measurments" href="/blog/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/"><img src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" /></a> -->
+            <!-- <a class="site-nav-logo" href="https://burakayy.com/blog/">Home</a> -->
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/">Home</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/about/">About</a></li>
+    <li class="nav-about" role="menuitem" style="font-size: 20px; opacity: 0.99;"><a href="/blog/courses">Courses</a></li>
+    <!-- <li class="nav-getting-started" role="menuitem"><a href="/blog/tag/getting-started/">Getting Started</a></li> -->
+    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <!-- New navigation link -->
+        <ul class="nav" role="menu">
+            <li class="nav-home" role="menuitem" style="font-size: 20px; opacity: 1;"><a href="/blog/miscellaneous">Old Miscellaneous Projects</a></li>
+        </ul>
+
+
+        <!-- Social media links -->
+        <div class="social-links">
+            
+                <a class="social-link social-link-fb" href="https://facebook.com/ghost" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+            
+            
+                <a class="social-link social-link-tw" href="https://twitter.com/JoeBA07" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 6 June 2021"> 6 June 2021</time>
+                    
+                </section>
+                <h1 class="post-full-title">Imu Measurments</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/blog/assets/images/imuPic.jpg); height: 400px; background-size: cover; background-position: center;">
+            </figure>
+            
+
+            <section class="post-full-content" style="margin-top: 60px;">
+                <div class="kg-card-markdown">
+                    <p>For a long time I have always wanted to build robots that know their orientation. And to do that I will first need to learn how Inertial Measurment.</p>
+
+<p>Units, IMU for short, work. I currently only have an MPU6050 which has both a 3-axis accelerometer and a 3-axis gyroscope. But, keep in mind that these are made with MEMS (Micro-electromechanical systems), or cell-phone grade sensors. They will have imperfections.</p>
+
+<p>I first started on a bunch of online tutorials on how to use this and I got the accelerometer to measure angles.</p>
+
+<p>First, we need to hook up the MPU6050 to our Arduino. First, simply connect the voltage pins to 5 volts and ground to negative. Next, we have to connect the i2C pins on the sensor. If you have an Arduino Uno or Nano, connect the SCL and SDA pins to A5 and A4, respectively. If you’re using an Arduino Mega, it has its own SDA and SCL pins, on the communication block. Just connect SCL to SCL and SDA and SDA.</p>
+
+<p>Here is a short piece of code that will do the basic readings from the MPU6050 (also make sure you hooked up the sensor correctly):</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;MPU6050.h&gt;
+</span>
+
+<span class="c1">// MPU-6050 Short Example Sketch</span>
+<span class="c1">//www.elegoo.com</span>
+<span class="c1">//2016.12.9</span>
+
+<span class="cp">#include&lt;Wire.h&gt;
+</span><span class="k">const</span> <span class="kt">int</span> <span class="n">MPU_addr</span><span class="o">=</span><span class="mh">0x68</span><span class="p">;</span>  <span class="c1">// I2C address of the MPU-6050</span>
+<span class="kt">int16_t</span> <span class="n">AcX</span><span class="p">,</span><span class="n">ACY</span><span class="p">,</span><span class="n">AcY</span><span class="p">,</span><span class="n">AcZ</span><span class="p">,</span><span class="n">Tmp</span><span class="p">,</span><span class="n">GyX</span><span class="p">,</span> <span class="n">GYX</span><span class="p">,</span><span class="n">GyY</span><span class="p">,</span><span class="n">GyZ</span><span class="p">;</span>
+
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x6B</span><span class="p">);</span>  <span class="c1">// PWR_MGMT_1 register</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>     <span class="c1">// set to zero (wakes up the MPU-6050)</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x3B</span><span class="p">);</span>  <span class="c1">// starting with register 0x3B (ACCEL_XOUT_H)</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">requestFrom</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>  <span class="c1">// request a total of 14 registers</span>
+  <span class="n">AcX</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3B (ACCEL_XOUT_H) &amp; 0x3C (ACCEL_XOUT_L)    </span>
+  <span class="n">AcY</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3D (ACCEL_YOUT_H) &amp; 0x3E (ACCEL_YOUT_L)</span>
+  <span class="n">AcZ</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3F (ACCEL_ZOUT_H) &amp; 0x40 (ACCEL_ZOUT_L)</span>
+  <span class="n">Tmp</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x41 (TEMP_OUT_H) &amp; 0x42 (TEMP_OUT_L)</span>
+  <span class="n">GyX</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x43 (GYRO_XOUT_H) &amp; 0x44 (GYRO_XOUT_L)</span>
+  <span class="n">GyY</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x45 (GYRO_YOUT_H) &amp; 0x46 (GYRO_YOUT_L)</span>
+  <span class="n">GyZ</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x47 (GYRO_ZOUT_H) &amp; 0x48 (GYRO_ZOUT_L)</span>
+ <span class="c1">//Serial.print(" | AcX = "); Serial.println(AcX);</span>
+ <span class="c1">//Serial.print(" | AcY = "); Serial.println(AcY);</span>
+ <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" | AcZ = "</span><span class="p">);</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">AcZ</span><span class="p">);</span>  <span class="c1">//Serial.print(" | Tmp = "); Serial.print(Tmp/340.00+36.53);  //From the datasheet of MPU6050, we can know the temperature formula</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>But how do you convert these accelerometer measurments to angles?</p>
+
+<p>Well, you use math. Specifically, trig.</p>
+
+<p>People say that you don’t need to know math if you want to be a programmer. And that’s mostly true: if you want to be a low level coder.
+But if you want the be a real programmer, then you will need to master the fundamentals of math!</p>
+
+<p><img src="assets/images/imuaccel.jpg" alt="here is the explanation on paper" /></p>
+
+<p>If you’d like a more detailed explanation: <a href="https://toptechboy.com/9-axis-imu-lesson-6-determine-tilt-from-3-axis-accelerometer/">click here</a></p>
+
+<p>And you could probably put this in your Arduino code by using the Math library. And you could also do something similar for the other 2 axes.</p>
+
+<p>Later, my immature brain, thought it was a good idea to control a foam glider with these measurments.</p>
+
+<p>It didn’t work at all!!</p>
+
+<p>Why?</p>
+
+<p>Because the accelerometer measures accelerations on the sensor. So it is sensative to vibrations, which are very common on a plane.
+So I tried to apply a Low Pass Filter. Which basically filters out high frequency change, or vibrations. But this resulted in it being slow.</p>
+
+<p>So how do we fix the problem? Well we could use the gyroscope.</p>
+
+<p>To learn how to do this, I wathced Paul McWhorter’s IMU <a href="https://www.youtube.com/watch?v=2AO_Gmh5K3Q&amp;list=PLGs0VKk2DiYwEo-k0mjIkWXlkrJWAU4L9">lessons</a> which was a huge help. He is awesome and a great teacher. I tried to implement the same things on my MPU6050.</p>
+
+<p>Here is the code:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;MPU6050.h&gt;
+</span>
+<span class="cp">#include&lt;Wire.h&gt;
+</span><span class="k">const</span> <span class="kt">int</span> <span class="n">MPU_addr</span><span class="o">=</span><span class="mh">0x68</span><span class="p">;</span>  <span class="c1">// I2C address of the MPU-6050</span>
+<span class="kt">int16_t</span> <span class="n">AcX</span><span class="p">,</span><span class="n">ACY</span><span class="p">,</span><span class="n">AcY</span><span class="p">,</span><span class="n">AcZ</span><span class="p">,</span><span class="n">Tmp</span><span class="p">,</span><span class="n">GyX</span><span class="p">,</span> <span class="n">GYX</span><span class="p">,</span><span class="n">GyY</span><span class="p">,</span><span class="n">GyZ</span><span class="p">;</span>
+
+
+
+
+
+<span class="kt">float</span> <span class="n">thetaG</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">phiG</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">float</span> <span class="n">theta</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">phi</span><span class="p">;</span>
+
+<span class="kt">float</span> <span class="n">dt</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">millisOld</span><span class="p">;</span>
+
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your setup code here, to run once:</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x6B</span><span class="p">);</span>  <span class="c1">// PWR_MGMT_1 register</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>     <span class="c1">// set to zero (wakes up the MPU-6050)</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">millisOld</span><span class="o">=</span><span class="n">millis</span><span class="p">();</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your main code here, to run repeatedly:</span>
+<span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x3B</span><span class="p">);</span>  <span class="c1">// starting with register 0x3B (ACCEL_XOUT_H)</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">requestFrom</span><span class="p">(</span><span class="n">MPU_addr</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>  <span class="c1">// request a total of 14 registers</span>
+  <span class="n">AcX</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3B (ACCEL_XOUT_H) &amp; 0x3C (ACCEL_XOUT_L)    </span>
+  <span class="n">AcY</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3D (ACCEL_YOUT_H) &amp; 0x3E (ACCEL_YOUT_L)</span>
+  <span class="n">AcZ</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x3F (ACCEL_ZOUT_H) &amp; 0x40 (ACCEL_ZOUT_L)</span>
+  <span class="n">Tmp</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x41 (TEMP_OUT_H) &amp; 0x42 (TEMP_OUT_L)</span>
+  <span class="n">GyX</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x43 (GYRO_XOUT_H) &amp; 0x44 (GYRO_XOUT_L)</span>
+  <span class="n">GyY</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x45 (GYRO_YOUT_H) &amp; 0x46 (GYRO_YOUT_L)</span>
+  <span class="n">GyZ</span><span class="o">=</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">|</span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>  <span class="c1">// 0x47 (GYRO_ZOUT_H) &amp; 0x48 (GYRO_ZOUT_L)</span>
+
+
+
+
+
+<span class="n">dt</span><span class="o">=</span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="o">-</span><span class="n">millisOld</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.</span><span class="p">;</span>
+<span class="n">millisOld</span><span class="o">=</span><span class="n">millis</span><span class="p">();</span>
+
+<span class="n">thetaG</span><span class="o">=</span><span class="n">thetaG</span><span class="o">+</span><span class="n">GyY</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
+<span class="n">phiG</span><span class="o">=</span><span class="n">phiG</span><span class="o">+</span><span class="n">GyX</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
+
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">","</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">thetaG</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">","</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">phiG</span><span class="p">);</span>
+
+
+<span class="c1">//Serial.println(thetaG);</span>
+ <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span></code></pre></figure>
+
+<p>It works by looking at the angular velocity (what the gyro outputs) in a time period (in milliseconds) and with simple math converts that to angles.</p>
+
+<p>But if you were to run the code, you will see that even if we don’t apply any rotation on the device, the ouptut line will have a positive slope. Meaning that it thinks we are rotating at a constant velocity, even if we aren’t. This phenomenon is known as gyro drift. Because the value is drifting off. This happens becuase we are also integrating the gyro’s inperfections, like noise. And over time, these errors add up, causing unwanted drift.</p>
+
+<p>At this point, I had realized that the BNO055 9-axis IMU is much higher quality than the MPU6050. It’s also what Mr. McWhorter uses. 
+So I ordered and hooked it up to my Arduino Nano, and this time, fully followed his tutorials.</p>
+
+<p>And the BNO055 still had drift, but it was a bit more subtle.</p>
+
+<p>Now, there are are bunch of ways you could fix this:</p>
+
+<ol>
+  <li>
+    <p>Apply some sort of filter to fuse the Accel. and Gyro. values to get orientation.</p>
+  </li>
+  <li>
+    <p>Use the specs of the individual IMU, and some math, to counter act the drift.</p>
+  </li>
+  <li>
+    <p>Or use the Quaternions outputed by the BNO055</p>
+  </li>
+</ol>
+
+<p>I actually, over time, ended up tring out all of them. And I think the quaternion option is most efficient, but more math heavy. As for the fusion one, you have some options: Paul shows us how to implement a complimentary filter, which is a decent and intuitive algorithm. However, if you want to use your IMU for anything more vibration intensive than a small quadcopter, then you’ll need a better algorithm. Like the Kalman Filter. This filter is really common among professionals, and their are several tutorials and Arduino Libraries that would help with that.</p>
+
+<p>Also, there are several other filters, like the Madwick and Mahony filters. But these are mainly used with a magnetometer for heading.</p>
+
+<p>But since I am an extreme DIY person, I thought I was up to the task of learning the math behind the Kalman Filter. With the help of Joe Barnard <a href="https://www.youtube.com/watch?v=BoevqNVv4ck">from BPS.Space</a>, I thought it was a good idea to buy this book: <a href="https://www.amazon.com/gp/product/0471708585/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0471708585&amp;linkCode=as2&amp;tag=bps04-20&amp;linkId=497a3ff6002cb340ec28ec73c731f00b">Optimal State Estimation by Dan Simon</a>.</p>
+
+<p>Yikes!!</p>
+
+<p>Even though I am pretty good at AoPS, this book is not 8th/9th grade friendly. I quickly tried to learn some Linear ALgebra then gave this book a try. And I got somewhere, but not enought to implement a Kalman Filter, so I put this book on hold until I had gained some knowledge.</p>
+
+<p>For refrence, this Kalman thing happened in the beginning of 2022, so in my 9th grade year. However, everything from quaternions and other algorithms happened a <strong>year before</strong> this Kalman stuff. So I am kind of jumping around the time line here, for you sake.</p>
+
+<p>But, back to the 8th grade:</p>
+
+<p>The first one I learned was the simple complimentary filter. It fuses the accelerometer values with the gyroscope values. But make sure you use the non-filter accelerometer values and the already integrated gyroscope values.</p>
+
+<p>The intuitive explanation here is somewhat derived from Paul McWhorter.</p>
+
+<p>If you’ve noticed, the accelerometer values can be trusted over the long term , but not over the short term because the accelerometer is sensative to vibration; creating short term noise in the signal. And the gyro can’t be trusted over the long term, because of the drift over time; however, it can be trusted in the short term.</p>
+
+<p>So, we have to apply a low pass filter to the accelerometer values and a high pass filter on the gyro. The low pass filter puts a weighted bias on the old value and doesn’t really trust the new values. Where the two weights add up to 1. Accordingly, a High pass filter on the gyro accomplishes the same thing, just the opposite way.</p>
+
+<p>This line of code should accomplish the filter:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">theta</span><span class="o">=</span><span class="p">(</span><span class="n">theta</span><span class="o">+</span><span class="n">gyr</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="mf">.95</span><span class="o">+</span><span class="n">thetaM</span><span class="o">*</span><span class="mf">.05</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The theta is pitch. So our current theta is equal to out old theta plus the gyro angle times the bias. Now here the gyro bias is 95%. That means we take 95% of our gyro angle, and this is added to 5% of the accelerometer angle. So over time, we are ever so slightly nudging the gyro value to the accelerometer value. Effectively, getting rid of the drift. But this only works on gyros with small drift. If the drift is higher, you might want to take less of the gyro, and more of the accelerometer.</p>
+
+<p>Here is a good refrence video: <a href="https://www.youtube.com/watch?v=whSw42XddsU">Brian Douglas</a></p>
+
+<p>But this needs some tweaking to be used on a drone. Also, you would need to calibrate the gyro. Furthermore, this is subject to gimble lock. This happens when the y-axis is pointing staight up or straight down, + or - 90 degrees. We can overcome this by using complex numbers.</p>
+
+<p>Now, this blog it already getting pretty long, so I will have to summarize a lot. However, if you use the specs from the MPU6050 datasheet, you will be able to minimize the drift. It will still be their, but it won’t be as aggressive. For mor info, watch <a href="https://www.youtube.com/watch?v=4BoIE8YQwM8">this</a> video by Joop Brooking.</p>
+
+<p>Finally, for the quaternions. Now this math is heavy and I don’t completely understand it, so I won’t be able to explain it very well. But basically, quaternions are an extension to the comlex numbers, and can describe 3 dimensional rotations with 4 numbers, or the 4th dimension.</p>
+
+<p>*Please let me know if I am wrong about any of this.</p>
+
+<p>But, to get quaternions from the BNO055 is easy:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">system</span><span class="p">,</span> <span class="n">gyro</span><span class="p">,</span> <span class="n">accel</span><span class="p">,</span> <span class="n">mg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">myIMU</span><span class="p">.</span><span class="n">getCalibration</span><span class="p">(</span><span class="o">&amp;</span><span class="n">system</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gyro</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">accel</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mg</span><span class="p">);</span>
+
+<span class="n">imu</span><span class="o">::</span><span class="n">Quaternion</span> <span class="n">quat</span><span class="o">=</span><span class="n">myIMU</span><span class="p">.</span><span class="n">getQuat</span><span class="p">();</span>
+
+<span class="n">q0</span><span class="o">=</span><span class="n">quat</span><span class="p">.</span><span class="n">w</span><span class="p">();</span>
+<span class="n">q1</span><span class="o">=</span><span class="n">quat</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="n">q2</span><span class="o">=</span><span class="n">quat</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="n">q3</span><span class="o">=</span><span class="n">quat</span><span class="p">.</span><span class="n">z</span><span class="p">();</span>
+
+<span class="n">rollActual</span><span class="o">=</span><span class="n">atan2</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">q0</span><span class="o">*</span><span class="n">q1</span><span class="o">+</span><span class="n">q2</span><span class="o">*</span><span class="n">q3</span><span class="p">),</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">q1</span><span class="o">*</span><span class="n">q1</span><span class="o">+</span><span class="n">q2</span><span class="o">*</span><span class="n">q2</span><span class="p">));</span>
+<span class="n">pitchActual</span><span class="o">=</span><span class="n">asin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">q0</span><span class="o">*</span><span class="n">q2</span><span class="o">-</span><span class="n">q3</span><span class="o">*</span><span class="n">q1</span><span class="p">));</span>
+
+<span class="n">rollActual</span><span class="o">=</span><span class="n">rollActual</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.141592654</span><span class="p">)</span><span class="o">*</span><span class="mi">360</span><span class="p">;</span>
+<span class="n">pitchActual</span><span class="o">=</span><span class="n">pitchActual</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.141592654</span><span class="p">)</span><span class="o">*</span><span class="mi">360</span><span class="p">;</span>
+
+</code></pre></div></div>
+<p>where q0-q4 are predefined.</p>
+
+<p>And after that we got the quaternion values, we can use 3 dimensional trig. to convert them to eular angles. Again, my main source here was Paul McWhorter’s lessons.</p>
+
+<p>But also check out <a href="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">this wiki</a> on the quaternion to eular conversion, and <a href="https://stanford.edu/class/ee267/lectures/lecture10.pdf">this Stanford lecture</a> on IMUs.</p>
+
+<p>And that’s it.</p>
+
+<p>I will definetly making more post on the specifics on each, this was kind of an overview/summary.</p>
+
+<p>Hope you enjoyed!!</p>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Burak Ayyorgun</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/Self-Balancing-Robot">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/sbrCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/Self-Balancing-Robot">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Pid</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Self-Balancing Arduino Robot</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>I have been wanting to make this project for some time now. I have seen others do them with really expensive motors and devices and I wanted to test and see if I</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      6 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/blog/Audio-Amplifier">
+                <div class="post-card-image" style="background-image: url(/blog/assets/images/audioAmp.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/blog/Audio-Amplifier">
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">Simple Audio Amplifier</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Here is a simple audio amplifier circuit. The BC337 transistor acts as the signal amplifier.
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://burakayy.com/blog/">
+            
+                <img src="/blog/assets/images/favicon.png" alt="Burak Ayyorgun icon" />
+            
+            <span>Burak Ayyorgun</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">
+        Imu Measurments
+    <span></span></div>
+    
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Imu+Measurments&amp;url=https://burakayy.com/blog/IMU-Measurments"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://burakayy.com/blog/IMU-Measurments"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+
+
+
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://burakayy.com/blog/">Burak Ayyorgun</a> &copy; 2026</section>
+                <!-- <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section> -->
+                <nav class="site-footer-nav">
+                    <a href="/blog/">Latest Posts</a>
+                    <a href="https://facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/JoeBA07" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+        <div id="subscribe" class="subscribe-overlay">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                    <img class="subscribe-overlay-logo" src="/blog/Burak Ayyorgun" alt="Burak Ayyorgun" />
+                
+                <h1 class="subscribe-overlay-title">Subscribe to Burak Ayyorgun</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+    </div>
+    <button class="" type="submit" disabled><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+            </div>
+        </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- Load the core Prism.js library -->
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/prism.min.js"></script>
+    
+    <!-- Load the ABAP language component for Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    
+    <!-- Initialize Prism.js (no need for extra jQuery or highlight.js) -->
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Prism.js will automatically highlight all <code> blocks on the page
+      });
+    </script> -->
+
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/blog/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-MY3WXBS5JD', 'auto');
+  ga('send', 'pageview');
+
+ </script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3WXBS5JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MY3WXBS5JD');
+</script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>
