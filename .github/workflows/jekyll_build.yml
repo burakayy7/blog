@@ -30,6 +30,13 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: bundle exec jekyll build --trace
+      - name: Inspect _site output
+        run: |
+          echo "==== _site contents ===="
+          ls -la _site || echo "_site does not exist"
+          echo "==== top-level files ===="
+          find _site -maxdepth 1 -type f || true
+
 
       # Deploy compiled site to gh-pages
       - name: Deploy to GitHub Pages
