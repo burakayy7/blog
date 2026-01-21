@@ -8,10 +8,11 @@ gem "jekyll-sitemap", "~> 1.4"
 gem "rake", "~> 13.0"
 gem "slugify", "~> 1.0.7"
 
+# only include plugins here if you want to isolate them in :jekyll_plugins
 group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
+  # gem "jekyll-sitemap"  # optional, if not declared above
 end
+
 
 
 
