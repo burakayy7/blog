@@ -22,16 +22,16 @@ jobs:
           bundler-cache: true
 
       # Node for Jasper2 (Gulp 3)
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 12
+      # - name: Set up Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 12
 
-      - name: Install Node dependencies
-        run: npm install
+      # - name: Install Node dependencies
+      #   run: npm install
 
-      - name: Build jasper2 assets
-        run: npx gulp build
+      # - name: Build jasper2 assets
+      #   run: npx gulp build
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
@@ -44,7 +44,7 @@ jobs:
           publish_dir: ./_site
 
 
-          
+
 
 # name: Build and deploy to GitHub Pages
 
