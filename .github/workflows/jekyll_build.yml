@@ -22,8 +22,9 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.0.6
           bundler-cache: true
+
 
       # Build Jekyll site
       - name: Build Jekyll site
