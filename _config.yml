@@ -10,7 +10,7 @@ baseurl: /blog/
 
 # Website info
 title: 'Burak Ayyorgun'
-url: 'https://burakayy.com'
+url: 'https://burakayy7.github.io'
 description: My Blog for Technical Projects 
 cover: assets/images/planeBkg.jpg
 logo: Burak Ayyorgun
@@ -76,7 +76,7 @@ repo: blog
 branch: master
 relative_source: ../blog/
 destination: ../blog-pages/
-production_url:  https://burakayy.com/blog/
+production_url:  https://burakayy7.github.io/blog/
 source_url:  https://github.com/burakayy7/blog/
 
 exclude:
